@@ -1,0 +1,15 @@
+require: rubocop-rails
+
+AllCops:
+  Exclude:
+    - 'db/**/*'
+    - 'config/**/*'
+    - 'bin/*'
+  TargetRubyVersion: 2.7
+  TargetRailsVersion: 6
+
+Layout/LineLength:
+  Max: 100
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
