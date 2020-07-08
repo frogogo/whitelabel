@@ -27,6 +27,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'annotate', '~> 3.1.1'
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '~> 3.2'
@@ -36,6 +37,8 @@ group :development do
   # Use Rubocop
   gem 'rubocop', '~> 0.86.0', require: false
   gem 'rubocop-rails', '~> 2.6.0', require: false
+  # Use Annotate
+  gem 'annotate', '~> 3.1.1'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
