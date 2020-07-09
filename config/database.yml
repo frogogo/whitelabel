@@ -76,10 +76,7 @@ test:
 # You can use this database configuration with:
 #
 #   production:
-#     url: <%= ENV['DATABASE_URL'] %>
+#
 #
 production:
-  <<: *default
-  database: poprobuy_web_production
-  username: poprobuy_web
-  password: <%= ENV['POPROBUY_WEB_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>
