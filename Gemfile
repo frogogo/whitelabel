@@ -50,5 +50,9 @@ group :development do
   gem 'annotate', '~> 3.1.1'
 end
 
+group :production do
+  gem 'rollbar', '~> 2.11', '>= 2.11.5'
+end
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
