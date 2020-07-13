@@ -21,6 +21,7 @@ gem 'bcrypt', '~> 3.1.7'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
+gem 'knock', '~> 1.4', '>= 1.4.2'
 gem 'httparty', '~> 0.13.7'
 gem 'versioncake', '~> 3.4'
 
