@@ -22,7 +22,9 @@ gem 'bcrypt', '~> 3.1.7'
 # gem 'image_processing', '~> 1.2'
 
 gem 'faraday', '~> 1.0.1'
-gem 'knock', '~> 2.1.1'
+
+# TODO: change to stable version after release v2.2.0
+gem 'knock', github: 'nsarno/knock', branch: 'master'
 gem 'versioncake', '~> 4.0.2'
 
 # Use Trestle as admin framework
