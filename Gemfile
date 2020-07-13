@@ -29,6 +29,9 @@ gem 'trestle', '~> 0.9.3'
 gem 'trestle-auth', '~> 0.4.0'
 gem 'trestle-search', '~> 0.4.2'
 
+# Use Rollbar
+gem 'rollbar', '~> 2.11', '>= 2.11.5'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
@@ -48,10 +51,6 @@ group :development do
   gem 'rubocop-rails', '~> 2.6.0', require: false
   # Use Annotate
   gem 'annotate', '~> 3.1.1'
-end
-
-group :production do
-  gem 'rollbar', '~> 2.11', '>= 2.11.5'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
