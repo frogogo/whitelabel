@@ -8,7 +8,7 @@ class SMSService
   end
 
   def call
-    @options = { query: { api_id: api_id msg: message, to: user.phone_number, json: 1 }}
+    @options = { query: { api_id: api_id, msg: message, to: user.phone_number, json: 1 }}
 
     send_message
   end
