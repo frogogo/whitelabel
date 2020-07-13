@@ -1,11 +1,7 @@
 # frozen_string_literal: true
 
 class SMSService
-  include HTTParty
-
-  base_uri 'https://sms.ru'
-  default_params api_id: Rails.application.credentials.smsru[:api_id], json: 1
-  format :json
+  BASE_URI = 'https://sms.ru'
 
   def initialize(message, user)
     @message = message
@@ -13,7 +9,7 @@ class SMSService
   end
 
   def send_message
-    @options = { query: { msg: message, to: user.phone_number } }
+    @options = default_params.merge({ query: { msg: message, to: user.phone_number } })
 
     send
   end
@@ -22,7 +18,11 @@ class SMSService
 
   attr_reader :message, :options, :user
 
+  def default_params
+    { api_id: Rails.application.credentials.smsru[:api_id], json: 1 }
+  end
+
   def send
-    self.class.get('/sms/send', options)
+    Faraday.get('/sms/send', options)
   end
 end
