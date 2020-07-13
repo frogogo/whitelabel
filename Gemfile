@@ -22,6 +22,7 @@ gem 'bcrypt', '~> 3.1.7'
 # gem 'image_processing', '~> 1.2'
 
 gem 'httparty', '~> 0.13.7'
+gem 'versioncake', '~> 3.4'
 
 # Use Trestle as admin framework
 gem 'trestle', '~> 0.9.3'
