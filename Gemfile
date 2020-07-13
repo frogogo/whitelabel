@@ -21,9 +21,9 @@ gem 'bcrypt', '~> 3.1.7'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
-gem 'httparty', '~> 0.13.7'
-gem 'knock', '~> 1.4', '>= 1.4.2'
-gem 'versioncake', '~> 3.4'
+gem 'faraday', '~> 1.0.1'
+gem 'knock', '~> 2.1.1'
+gem 'versioncake', '~> 4.0.2'
 
 # Use Trestle as admin framework
 gem 'trestle', '~> 0.9.3'
@@ -31,13 +31,13 @@ gem 'trestle-auth', '~> 0.4.0'
 gem 'trestle-search', '~> 0.4.2'
 
 # Use Rollbar
-gem 'rollbar', '~> 2.11', '>= 2.11.5'
+gem 'rollbar', '~> 2.26.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   # Use RSpec
-  gem 'rspec-rails', '~> 4.0.0'
+  gem 'rspec-rails', '~> 4.0.1'
 end
 
 group :development do
@@ -48,7 +48,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   # Use Rubocop
-  gem 'rubocop', '~> 0.86.0', require: false
+  gem 'rubocop', '~> 0.88.0', require: false
   gem 'rubocop-rails', '~> 2.6.0', require: false
   # Use Annotate
   gem 'annotate', '~> 3.1.1'
