@@ -1,4 +1,4 @@
-Addclass SMSService
+class SMSService
   include HTTParty
   base_uri 'https://sms.ru'
 
