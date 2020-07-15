@@ -14,4 +14,9 @@ class User < ApplicationRecord
   has_secure_password validations: false
 
   validates :phone_number, presence: true
+
+  def self.from_token_request(request)
+    phone_number = request.params['auth'] && request.params['auth']['phone_number']
+    find_by(phone_number: phone_number)
+  end
 end
