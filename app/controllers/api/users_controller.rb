@@ -2,10 +2,10 @@ class API::UsersController < APIController
   skip_before_action :authenticate_user, only: %i[create]
 
   def create
-    user = User.create_or_find_by!(phone_number: params[:phone_number])
-    user.set_new_password
+    @user = User.create_or_find_by!(phone_number: params[:phone_number])
+    @user.set_new_password
 
-    render json: { status: :created }, status: :created
+    render status: :created
   rescue ActiveRecord::RecordNotFound, ActiveRecord::RecordNotSaved
     render json: { status: :unprocessable_entity }, status: :unprocessable_entity
   end

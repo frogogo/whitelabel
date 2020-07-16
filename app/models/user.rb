@@ -23,6 +23,10 @@ class User < ApplicationRecord
     find_by(phone_number: phone_number)
   end
 
+  def is_new
+    email.blank? || first_name.blank?
+  end
+
   def set_new_password
     new_password = generate_password
     self.password = new_password
