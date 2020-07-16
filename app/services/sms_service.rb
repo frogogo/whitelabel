@@ -20,7 +20,7 @@ class SMSService
   attr_reader :message, :options, :user
 
   def default_params
-    { api_id: Rails.application.credentials.smsru[:api_id], json: 1 }
+    { api_id: Rails.application.credentials.smsru[:api_id], from: SENDER, json: 1 }
   end
 
   def send
