@@ -9,11 +9,15 @@ Content-Type: application/json
   "phone_number": "+7999112233"
 }
 
+# Response:
+# - 201: Created
+# - 422: Unprocessable Entity
+
 ### Update user
 PATCH /api/user HTTP/1.1
 Host: localhost:3000
 API-Version: 1
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1OTQ5NTE4MjAsInN1YiI6MX0.AjmuiZ3F81b0GvrKZdqtWeRkAujueG_dGS4kJLcap6M
 Accept: application/json
 Content-Type: application/json
 
@@ -21,6 +25,10 @@ Content-Type: application/json
   "email": "mail@mail.ru",
   "first_name": "First"
 }
+
+# Response:
+# - 200: OK
+# - 422: Unprocessable Entity
 
 ### Authenticate user
 POST /api/user_token HTTP/1.1
@@ -35,3 +43,7 @@ Content-Type: application/json
     "password": "1234"
   }
 }
+
+# Response:
+# - 201: Created, { "jwt": "jwt_here"}
+# - 404: Not Found
