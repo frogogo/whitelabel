@@ -10,7 +10,7 @@ class SMSService
   end
 
   def send_message
-    @options = default_params.merge({ query: { msg: message, to: user.phone_number } })
+    @options = default_params.merge({ msg: message, to: user.phone_number })
 
     send
   end
