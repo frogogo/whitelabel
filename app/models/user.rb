@@ -23,7 +23,7 @@ class User < ApplicationRecord
     find_by(phone_number: phone_number)
   end
 
-  def is_new
+  def new?
     email.blank? || first_name.blank?
   end
 
