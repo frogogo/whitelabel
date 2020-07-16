@@ -11,6 +11,9 @@
 #  password_digest :string
 #
 class User < ApplicationRecord
+  PASSWORD_LENGTH = 4
+  PASSWORD_MAX_NUMBER = 9999
+
   has_secure_password validations: false
 
   validates :phone_number, presence: true
@@ -18,5 +21,19 @@ class User < ApplicationRecord
   def self.from_token_request(request)
     phone_number = request.params['auth'] && request.params['auth']['phone_number']
     find_by(phone_number: phone_number)
+  end
+
+  def set_new_password
+    new_password = generate_password
+    self.password = new_password
+    save!
+
+    SMSService.new("Код для входа в приложение: #{new_password}", self).send_message
+  end
+
+  private
+
+  def generate_password
+    SecureRandom.random_number(PASSWORD_MAX_NUMBER).to_s.rjust(PASSWORD_LENGTH, '0')
   end
 end
