@@ -5,16 +5,16 @@ class API::UsersController < APIController
     User.create_or_find_by!(phone_number: params[:phone_number]) do |user|
       user.set_new_password
     end
-    head :created
+    render status :created
   rescue ActiveRecord::RecordNotFound, ActiveRecord::RecordNotSaved
-    head :unprocessable_entity
+    render status :unprocessable_entity
   end
 
   def update
     current_user.update!(user_params)
-    head :ok
+    render status :ok
   rescue ActiveRecord::RecordNotSaved
-    head :unprocessable_entity
+    render status :unprocessable_entity
   end
 
   private
