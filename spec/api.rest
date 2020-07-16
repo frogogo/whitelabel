@@ -5,7 +5,7 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "phone_number": "+79236501527"
+  "phone_number": "+7999112233"
 }
 
 # Response:
