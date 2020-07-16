@@ -1,12 +1,11 @@
 ### Create user
-POST /api/user HTTP/1.1
-Host: localhost:3000
+POST https://poprobuy.ru/api/user HTTP/1.1
 API-Version: 1
 Accept: application/json
 Content-Type: application/json
 
 {
-  "phone_number": "+7999112233"
+  "phone_number": "+79236501527"
 }
 
 # Response:
@@ -14,8 +13,7 @@ Content-Type: application/json
 # - 422: Unprocessable Entity
 
 ### Update user
-PATCH /api/user HTTP/1.1
-Host: localhost:3000
+PATCH https://poprobuy.ru/api/user HTTP/1.1
 API-Version: 1
 Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1OTQ5NTE4MjAsInN1YiI6MX0.AjmuiZ3F81b0GvrKZdqtWeRkAujueG_dGS4kJLcap6M
 Accept: application/json
@@ -31,8 +29,7 @@ Content-Type: application/json
 # - 422: Unprocessable Entity
 
 ### Authenticate user
-POST /api/user_token HTTP/1.1
-Host: localhost:3000
+POST https://poprobuy.ru/api/user_token HTTP/1.1
 API-Version: 1
 Accept: application/json
 Content-Type: application/json
