@@ -11,6 +11,7 @@ Content-Type: application/json
 # Response:
 # - 201: Created
 # - 422: Unprocessable Entity
+# - 429: Too Many Requests
 
 ### Update user
 PATCH https://poprobuy.ru/api/user HTTP/1.1
@@ -26,6 +27,7 @@ Content-Type: application/json
 
 # Response:
 # - 200: OK
+# - 401: Unauthorized
 # - 422: Unprocessable Entity
 
 ### Authenticate user
