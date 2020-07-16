@@ -28,7 +28,7 @@ class User < ApplicationRecord
     self.password = new_password
     save!
 
-    SMSService.new("Код для входа в приложение: #{new_password}", self).send_message
+    SMSService.new("Poprobuy.ru code: #{new_password}", self).send_message
   end
 
   private
