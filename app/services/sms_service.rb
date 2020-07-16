@@ -24,6 +24,6 @@ class SMSService
   end
 
   def send
-    Faraday.get('/sms/send', options)
+    Faraday.get(BASE_URI + '/sms/send', options)
   end
 end
