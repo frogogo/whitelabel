@@ -1,0 +1,77 @@
+## Create user
+
+
+```http
+POST https://poprobuy.ru/api/user HTTP/1.1
+API-Version: 1
+Accept: application/json
+Content-Type: application/json
+
+{
+  "phone_number": "+7999112233"
+}
+```
+
+
+### Response:
+
+- 201: Created
+
+```json
+{
+  "phone_number": "+7999112233",
+  "status": "created"
+}
+```
+- 422: Unprocessable Entity
+- 429: Too Many Requests
+
+## Authenticate user
+
+```http
+POST https://poprobuy.ru/api/user_token HTTP/1.1
+API-Version: 1
+Accept: application/json
+Content-Type: application/json
+
+{
+  "phone_number": "+7923112233",
+  "password": "1234"
+}
+```
+
+
+### Response:
+
+- 201: Created
+```json
+{
+  "email": "mail@mail.ru",
+  "first_name": "First",
+  "phone_number": "+7999112233",
+  "is_new": false,
+  "jwt": "eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1OTUwMDg0ODcsInN1YiI6MX0.LMVKTdeREtijPLZ_nxE69YwMxpMaU0vp4cTx5i6aLHs"
+}
+```
+- 404: Not Found
+
+## Update user
+
+```http
+PATCH https://poprobuy.ru/api/user HTTP/1.1
+API-Version: 1
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1OTQ5NTE4MjAsInN1YiI6MX0.AjmuiZ3F81b0GvrKZdqtWeRkAujueG_dGS4kJLcap6M
+Accept: application/json
+Content-Type: application/json
+
+{
+  "email": "mail@mail.ru",
+  "first_name": "First"
+}
+```
+
+### Response:
+
+- 200: OK
+- 401: Unauthorized
+- 422: Unprocessable Entity
