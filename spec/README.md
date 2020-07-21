@@ -1,6 +1,5 @@
 ## Create user
 
-
 ```http
 POST https://poprobuy.ru/api/user HTTP/1.1
 API-Version: 1
@@ -11,7 +10,6 @@ Content-Type: application/json
   "phone_number": "+7999112233"
 }
 ```
-
 
 ### Response:
 
@@ -40,10 +38,10 @@ Content-Type: application/json
 }
 ```
 
-
 ### Response:
 
 - 201: Created
+
 ```json
 {
   "email": "mail@mail.ru",
@@ -53,6 +51,7 @@ Content-Type: application/json
   "jwt": "eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1OTUwMDg0ODcsInN1YiI6MX0.LMVKTdeREtijPLZ_nxE69YwMxpMaU0vp4cTx5i6aLHs"
 }
 ```
+
 - 404: Not Found
 
 ## Update user
@@ -88,6 +87,7 @@ Accept: application/json
 ### Response:
 
 - 200: OK
+
 ```json
 {
   "email": "mail@mail.ru",
