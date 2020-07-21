@@ -1,24 +1,34 @@
-# README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
+# poprobuy-web
 
 * Ruby version
+```
+2.7.1
+```
 
 * System dependencies
-
-* Configuration
-
-* Database creation
+```
+imagemagick
+```
 
 * Database initialization
 
+```bash
+rails db:setup
+rails db:seed
+```
+
+
 * How to run the test suite
+```bash
+rails t
+```
 
 * Services (job queues, cache servers, search engines, etc.)
+```
+redis-server
+```
 
 * Deployment instructions
-
-* ...
+```
+Heroku manual deploy
+```
