@@ -10,6 +10,10 @@ class API::UsersController < APIController
     render json: { status: :unprocessable_entity }, status: :unprocessable_entity
   end
 
+  def show
+    @user = current_user
+  end
+
   def update
     current_user.update!(user_params)
     render json: { status: :ok }, status: :ok

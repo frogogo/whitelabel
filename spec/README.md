@@ -75,3 +75,23 @@ Content-Type: application/json
 - 200: OK
 - 401: Unauthorized
 - 422: Unprocessable Entity
+
+## Show user
+
+```http
+GET https://poprobuy.ru/api/user HTTP/1.1
+API-Version: 1
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1OTQ5NTE4MjAsInN1YiI6MX0.AjmuiZ3F81b0GvrKZdqtWeRkAujueG_dGS4kJLcap6M
+Accept: application/json
+```
+
+### Response:
+
+- 200: OK
+```json
+{
+  "email": "mail@mail.ru",
+  "first_name": "First",
+  "phone_number": "+7999112233"
+}
+```
