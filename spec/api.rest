@@ -1,5 +1,5 @@
 ### Create user
-POST https://poprobuy.ru/api/user HTTP/1.1
+POST http://localhost:3000/api/user HTTP/1.1
 API-Version: 1
 Accept: application/json
 Content-Type: application/json
@@ -10,16 +10,11 @@ Content-Type: application/json
 
 # Response:
 # - 201: Created
-# {
-#   "phone_number": "+7999112233",
-#   "status": "created"
-# }
-#
 # - 422: Unprocessable Entity
 # - 429: Too Many Requests
 
 ### Authenticate user
-POST https://poprobuy.ru/api/user_token HTTP/1.1
+POST http://localhost:3000/api/user_token HTTP/1.1
 API-Version: 1
 Accept: application/json
 Content-Type: application/json
@@ -31,18 +26,10 @@ Content-Type: application/json
 
 # Response:
 # - 201: Created
-# {
-#   "email": "mail@mail.ru",
-#   "first_name": "First",
-#   "phone_number": "+7999112233",
-#   "is_new": false,
-#   "jwt": "eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1OTUwMDg0ODcsInN1YiI6MX0.LMVKTdeREtijPLZ_nxE69YwMxpMaU0vp4cTx5i6aLHs"
-# }
-#
 # - 404: Not Found
 
 ### Update user
-PATCH https://poprobuy.ru/api/user HTTP/1.1
+PATCH http://localhost:3000/api/user HTTP/1.1
 API-Version: 1
 Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1OTQ5NTE4MjAsInN1YiI6MX0.AjmuiZ3F81b0GvrKZdqtWeRkAujueG_dGS4kJLcap6M
 Accept: application/json
