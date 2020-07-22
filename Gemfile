@@ -36,6 +36,9 @@ gem 'trestle-search', '~> 0.4.2'
 # Use Rollbar
 gem 'rollbar', '~> 2.26.0'
 
+# Use Sidekiq
+gem 'sidekiq', '~> 6.1.1'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
