@@ -36,9 +36,6 @@ gem 'trestle-search', '~> 0.4.2'
 # Use Rollbar
 gem 'rollbar', '~> 2.26.0'
 
-# Use Sidekiq
-gem 'sidekiq', '~> 6.1.1'
-
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
@@ -60,6 +57,11 @@ group :development do
   gem 'rubocop-rspec', '~> 1.42.0', require: false
   # Use Annotate
   gem 'annotate', '~> 3.1.1'
+end
+
+group :production do
+  # Use Sidekiq
+  gem 'sidekiq', '~> 6.1.1'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
