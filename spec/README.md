@@ -7,7 +7,8 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "phone_number": "+7999112233"
+  "phone_number": "+7999112233",
+  "password_lifetime": 60
 }
 ```
 
