@@ -40,10 +40,15 @@ class User < ApplicationRecord
     Rails.cache.read(password_key)
   end
 
+  def password_refresh_rate_limit
+    Rails.cache.read(password_refresh_rate_limit_key)
+  end
+
   def password=(unencrypted_password)
     new_password_digest = BCrypt::Password.create(unencrypted_password, cost: BCrypt::Engine.cost)
 
     Rails.cache.write(password_key, new_password_digest, expires_in: PASSWORD_LIFETIME)
+    Rails.cache.write(password_refresh_rate_limit_key, true, expires_in: PASSWORD_REFRESH_RATE)
   end
 
   def set_new_password
@@ -57,5 +62,9 @@ class User < ApplicationRecord
 
   def password_key
     "user:#{id}:password-digest"
+  end
+
+  def password_refresh_rate_limit_key
+    "user:#{id}:password-refresh-rate-limit"
   end
 end

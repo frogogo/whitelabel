@@ -1,16 +1,16 @@
 class API::UsersController < APIController
   skip_before_action :authenticate_user, only: %i[create]
 
-  class PasswordPresentError < StandardError; end
+  class PasswordRefreshRateLimitError < StandardError; end
 
   def create
     @user = User.create_or_find_by!(phone_number: params[:phone_number])
-    raise PasswordPresentError if @user.password_digest.present?
+    raise PasswordRefreshRateLimitError if @user.password_refresh_rate_limit.present?
 
     @user.set_new_password
 
     render status: :created
-  rescue PasswordPresentError
+  rescue PasswordRefreshRateLimitError
     head :too_many_requests
   rescue ActiveRecord::RecordNotFound, ActiveRecord::RecordNotSaved
     head :unprocessable_entity
