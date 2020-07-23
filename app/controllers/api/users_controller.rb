@@ -11,9 +11,9 @@ class API::UsersController < APIController
 
     render status: :created
   rescue PasswordPresentError
-    render json: { status: :too_many_requests }, status: :too_many_requests
+    head :too_many_requests
   rescue ActiveRecord::RecordNotFound, ActiveRecord::RecordNotSaved
-    render json: { status: :unprocessable_entity }, status: :unprocessable_entity
+    head :unprocessable_entity
   end
 
   def show
@@ -22,9 +22,9 @@ class API::UsersController < APIController
 
   def update
     current_user.update!(user_params)
-    render json: { status: :ok }, status: :ok
+    head :ok
   rescue ActiveRecord::RecordNotSaved
-    render json: { status: :unprocessable_entity }, status: :unprocessable_entity
+    head :unprocessable_entity
   end
 
   private
