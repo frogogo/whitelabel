@@ -2,13 +2,16 @@
 #
 # Table name: users
 #
-#  id              :bigint           not null, primary key
-#  phone_number    :string           not null
-#  first_name      :string
-#  email           :string
-#  created_at      :datetime         not null
-#  updated_at      :datetime         not null
-#  password_digest :string
+#  id           :bigint           not null, primary key
+#  email        :string
+#  first_name   :string
+#  phone_number :string           not null
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#
+# Indexes
+#
+#  index_users_on_phone_number  (phone_number) UNIQUE
 #
 require 'rails_helper'
 

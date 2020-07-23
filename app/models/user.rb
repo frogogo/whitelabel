@@ -2,19 +2,21 @@
 #
 # Table name: users
 #
-#  id              :bigint           not null, primary key
-#  phone_number    :string           not null
-#  first_name      :string
-#  email           :string
-#  created_at      :datetime         not null
-#  updated_at      :datetime         not null
-#  password_digest :string
+#  id           :bigint           not null, primary key
+#  email        :string
+#  first_name   :string
+#  phone_number :string           not null
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#
+# Indexes
+#
+#  index_users_on_phone_number  (phone_number) UNIQUE
 #
 class User < ApplicationRecord
   PASSWORD_LENGTH = 4
+  PASSWORD_LIFETIME = 60.seconds
   PASSWORD_MAX_NUMBER = 9999
-
-  has_secure_password validations: false
 
   validates :phone_number, presence: true
 
@@ -23,21 +25,36 @@ class User < ApplicationRecord
     find_by(phone_number: phone_number)
   end
 
+  def authenticate(unencrypted_password)
+    return false if password_digest.blank?
+
+    BCrypt::Password.new(password_digest).is_password?(unencrypted_password) && self
+  end
+
   def new?
     email.blank? || first_name.blank?
   end
 
+  def password_digest
+    Rails.cache.read(password_key)
+  end
+
+  def password=(unencrypted_password)
+    new_password_digest = BCrypt::Password.create(unencrypted_password, cost: BCrypt::Engine.cost)
+
+    Rails.cache.write(password_key, new_password_digest, expires_in: PASSWORD_LIFETIME)
+  end
+
   def set_new_password
-    new_password = generate_password
+    new_password = SecureRandom.random_number(PASSWORD_MAX_NUMBER).to_s.rjust(PASSWORD_LENGTH, '0')
     self.password = new_password
-    save!
 
     SMSService.new("Poprobuy.ru code: #{new_password}", self).send_message
   end
 
   private
 
-  def generate_password
-    SecureRandom.random_number(PASSWORD_MAX_NUMBER).to_s.rjust(PASSWORD_LENGTH, '0')
+  def password_key
+    "user:#{id}:password-digest"
   end
 end
