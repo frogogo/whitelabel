@@ -17,7 +17,7 @@ class User < ApplicationRecord
   PASSWORD_LENGTH = 4
   PASSWORD_LIFETIME = 5.minutes
   PASSWORD_MAX_NUMBER = 9999
-  PASSWORD_REFRESH_RATE = 60.seconds
+  PASSWORD_REFRESH_RATE = 1.minute
 
   validates :phone_number, presence: true
 
