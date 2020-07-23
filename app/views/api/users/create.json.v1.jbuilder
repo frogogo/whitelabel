@@ -1,3 +1,3 @@
 json.extract! @user, :phone_number
-json.password_lifetime User::PASSWORD_LIFETIME.to_i
+json.password_refresh_rate User::PASSWORD_REFRESH_RATE.to_i
 json.status :created
