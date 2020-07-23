@@ -18,8 +18,7 @@ Content-Type: application/json
 ```json
 {
   "phone_number": "+7999112233",
-  "password_lifetime": 60,
-  "status": "created"
+  "password_refresh_rate": 60
 }
 ```
 - 422: Unprocessable Entity
