@@ -6,6 +6,7 @@
 #  qr_string     :string           not null
 #  reject_reason :integer
 #  state         :integer          default("processing"), not null
+#  uuid          :uuid
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
 #  promotion_id  :bigint
@@ -13,6 +14,7 @@
 # Indexes
 #
 #  index_receipts_on_promotion_id  (promotion_id)
+#  index_receipts_on_uuid          (uuid) UNIQUE
 #
 # Foreign Keys
 #
