@@ -11,7 +11,7 @@
 #  promo_id    :integer          not null
 #
 class Promotion < ApplicationRecord
-  has_many :receipts
+  has_many :receipts, dependent: :destroy
 
   validates :api_token, presence: true
   validates :name, presence: true

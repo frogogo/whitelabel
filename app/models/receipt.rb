@@ -21,12 +21,12 @@
 #  fk_rails_...  (promotion_id => promotions.id)
 #
 class Receipt < ApplicationRecord
-  belongs_to :promotion, optional: true
-
   enum state: {
     processing: 0,
     approved: 1,
     completed: 2,
     rejected: 3
   }
+
+  belongs_to :promotion, optional: true
 end
