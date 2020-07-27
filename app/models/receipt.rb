@@ -5,7 +5,7 @@
 #  id            :bigint           not null, primary key
 #  qr_string     :string           not null
 #  reject_reason :integer
-#  state         :integer          default("new"), not null
+#  state         :integer          default("processing"), not null
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
 #  promotion_id  :bigint
@@ -22,9 +22,9 @@ class Receipt < ApplicationRecord
   belongs_to :promotion, optional: true
 
   enum state: {
-    new: 0,
-    processing: 1,
-    approved: 2,
+    processing: 0,
+    approved: 1,
+    completed: 2,
     rejected: 3
   }
 end

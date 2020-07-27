@@ -5,7 +5,7 @@
 #  id            :bigint           not null, primary key
 #  qr_string     :string           not null
 #  reject_reason :integer
-#  state         :integer          default("new"), not null
+#  state         :integer          default("processing"), not null
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
 #  promotion_id  :bigint
