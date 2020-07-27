@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_27_080000) do
+ActiveRecord::Schema.define(version: 2020_07_27_080313) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,16 @@ ActiveRecord::Schema.define(version: 2020_07_27_080000) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "receipts", force: :cascade do |t|
+    t.string "qr_string", null: false
+    t.integer "state", default: 0, null: false
+    t.integer "reject_reason"
+    t.bigint "promotion_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["promotion_id"], name: "index_receipts_on_promotion_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "phone_number", null: false
     t.string "first_name"
@@ -42,4 +52,5 @@ ActiveRecord::Schema.define(version: 2020_07_27_080000) do
     t.index ["phone_number"], name: "index_users_on_phone_number", unique: true
   end
 
+  add_foreign_key "receipts", "promotions"
 end
