@@ -3,6 +3,7 @@
 # Table name: receipts
 #
 #  id            :bigint           not null, primary key
+#  data          :jsonb            not null
 #  qr_string     :string           not null
 #  reject_reason :integer
 #  state         :integer          default("processing"), not null
@@ -14,6 +15,7 @@
 # Indexes
 #
 #  index_receipts_on_promotion_id  (promotion_id)
+#  index_receipts_on_qr_string     (qr_string) UNIQUE
 #  index_receipts_on_uuid          (uuid) UNIQUE
 #
 # Foreign Keys
