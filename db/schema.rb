@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_28_063353) do
+ActiveRecord::Schema.define(version: 2020_07_28_084410) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,6 +38,18 @@ ActiveRecord::Schema.define(version: 2020_07_28_063353) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["name"], name: "index_distribution_networks_on_name", unique: true
+  end
+
+  create_table "items", force: :cascade do |t|
+    t.bigint "manufacturer_id"
+    t.bigint "promotion_id"
+    t.string "name", null: false
+    t.string "bar_code", null: false
+    t.string "size", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["manufacturer_id"], name: "index_items_on_manufacturer_id"
+    t.index ["promotion_id"], name: "index_items_on_promotion_id"
   end
 
   create_table "manufacturers", force: :cascade do |t|
@@ -94,6 +106,8 @@ ActiveRecord::Schema.define(version: 2020_07_28_063353) do
     t.integer "quantity", default: 0, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "item_id", null: false
+    t.index ["item_id"], name: "index_vending_cells_on_item_id"
     t.index ["vending_machine_id"], name: "index_vending_cells_on_vending_machine_id"
   end
 
@@ -110,7 +124,10 @@ ActiveRecord::Schema.define(version: 2020_07_28_063353) do
     t.index ["public_id"], name: "index_vending_machines_on_public_id", unique: true
   end
 
+  add_foreign_key "items", "manufacturers"
+  add_foreign_key "items", "promotions"
   add_foreign_key "receipts", "promotions"
+  add_foreign_key "vending_cells", "items"
   add_foreign_key "vending_cells", "vending_machines"
   add_foreign_key "vending_machines", "distribution_networks"
 end

@@ -8,14 +8,17 @@
 #  row                :integer          not null
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
+#  item_id            :bigint           not null
 #  vending_machine_id :bigint
 #
 # Indexes
 #
+#  index_vending_cells_on_item_id             (item_id)
 #  index_vending_cells_on_vending_machine_id  (vending_machine_id)
 #
 # Foreign Keys
 #
+#  fk_rails_...  (item_id => items.id)
 #  fk_rails_...  (vending_machine_id => vending_machines.id)
 #
 require 'rails_helper'
