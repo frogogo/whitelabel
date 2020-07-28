@@ -2,6 +2,7 @@
 #
 #                    Prefix Verb  URI Pattern                                                                              Controller#Action
 #                   trestle       /admin                                                                                   Trestle::Engine
+#            api_home_index GET   /api/home(.:format)                                                                      api/home#index
 #              api_receipts GET   /api/receipts(.:format)                                                                  api/receipts#index
 #                           POST  /api/receipts(.:format)                                                                  api/receipts#create
 #                  api_user GET   /api/user(.:format)                                                                      api/users#show
@@ -39,6 +40,7 @@
 
 Rails.application.routes.draw do
   namespace :api do
+    resources :home, only: %i[index]
     resources :receipts, only: %i[index create]
     resource :user, only: %i[create show update]
     post 'user_token' => 'user_token#create'
