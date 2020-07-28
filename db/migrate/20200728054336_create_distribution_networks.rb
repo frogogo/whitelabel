@@ -15,7 +15,7 @@ class CreateDistributionNetworks < ActiveRecord::Migration[6.0]
       t.timestamps
     end
 
-    add_column :promotions, :distribution_network_id, :bigint, null: false, foreign_key: true
+    add_column :promotions, :distribution_network_id, :bigint, null: false
     add_index :promotions, :distribution_network_id
   end
 end

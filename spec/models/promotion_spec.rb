@@ -15,6 +15,10 @@
 #
 #  index_promotions_on_distribution_network_id  (distribution_network_id)
 #
+# Foreign Keys
+#
+#  fk_rails_...  (distribution_network_id => distribution_networks.id)
+#
 require 'rails_helper'
 
 RSpec.describe Promotion, type: :model do
