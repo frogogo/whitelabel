@@ -23,8 +23,6 @@
 #  fk_rails_...  (promotion_id => promotions.id)
 #
 class Receipt < ApplicationRecord
-  store_accessor :data, :fn, :fp, :i, :s, :t
-
   enum state: {
     processing: 0,
     approved: 1,
@@ -36,9 +34,22 @@ class Receipt < ApplicationRecord
 
   before_create :set_data
 
+  def number
+    data[:i].to_i
+  end
+
+  def sum
+    data[:s].to_i
+  end
+
+  def timestamp
+    data[:t].to_time.iso8601
+  end
+
   private
 
   def set_data
-    self.data = CGI::parse(qr_string)
+    self.data = CGI.parse(qr_string)
+    self.data = data.each { |key, value| data[key] = value.join }
   end
 end
