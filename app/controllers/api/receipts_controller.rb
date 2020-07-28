@@ -12,7 +12,7 @@ class API::ReceiptsController < APIController
   def create
     current_user.receipts.create!(receipts_params)
 
-    head :create
+    head :created
   rescue ActiveRecord::RecordNotSaved, ActiveRecord::RecordNotUnique
     head :unprocessable_entity
   end
@@ -20,6 +20,6 @@ class API::ReceiptsController < APIController
   private
 
   def receipts_params
-    params.permit(:qr_code)
+    params.permit(:qr_string)
   end
 end
