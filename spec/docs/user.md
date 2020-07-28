@@ -95,3 +95,4 @@ Accept: application/json
   "phone_number": "+7999112233"
 }
 ```
+- 401: Unauthorized

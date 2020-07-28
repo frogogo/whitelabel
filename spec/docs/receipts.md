@@ -3,6 +3,12 @@
 - limit(num) - optional param. Default: 50
 - start_from(id) - optonal param.
 
+States:
+- processing
+- approved
+- completed
+- rejected
+
 ```http
 GET https://poprobuy.ru/api/receipts HTTP/1.1
 API-Version: 1
@@ -20,21 +26,19 @@ Content-Type: application/json
 - 200: OK
 
 ```json
-{
-  "phone_number": "+7999112233",
-  "password_refresh_rate": 60
-}
+[
+  {
+    "id": 1,
+    "number": 114318,
+    "sum": 127,
+    "state": "processing",
+    "timestamp": "2019-01-13T15:48:00+07:00"
+  }
+]
 ```
-- 422: Unprocessable Entity
-- 429: Too Many Requests
+- 401: Unauthorized
 
 ## Create receipt
-
-States:
-- processing
-- approved
-- completed
-- rejected
 
 ```http
 POST https://poprobuy.ru/api/receipts HTTP/1.1
@@ -50,17 +54,4 @@ Content-Type: application/json
 ### Response:
 
 - 201: Created
-
-```json
-[
-  {
-    "id": 1,
-    "number": 114318,
-    "sum": 127,
-    "state": "processing",
-    "timestamp": "2019-01-13T15:48:00+07:00"
-  }
-]
-```
 - 422: Unprocessable Entity
--
