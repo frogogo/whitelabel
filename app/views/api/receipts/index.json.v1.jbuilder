@@ -1,1 +1,1 @@
-json.partial! 'receipts/receipt', collection: @receipts, as: :receipt
+json.partial! 'receipt', collection: @receipts, as: :receipt

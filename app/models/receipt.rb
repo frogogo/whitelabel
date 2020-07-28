@@ -39,15 +39,15 @@ class Receipt < ApplicationRecord
   before_create :set_data
 
   def number
-    data[:i].to_i
+    data['i'].to_i
   end
 
   def sum
-    data[:s].to_i
+    data['s'].to_i
   end
 
   def timestamp
-    data[:t].to_time.iso8601
+    data['t'].to_time.iso8601
   end
 
   private
