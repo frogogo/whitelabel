@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_28_132246) do
+ActiveRecord::Schema.define(version: 2020_07_28_144139) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -87,8 +87,10 @@ ActiveRecord::Schema.define(version: 2020_07_28_132246) do
     t.datetime "updated_at", precision: 6, null: false
     t.uuid "uuid"
     t.jsonb "data", null: false
+    t.bigint "user_id", null: false
     t.index ["promotion_id"], name: "index_receipts_on_promotion_id"
     t.index ["qr_string"], name: "index_receipts_on_qr_string", unique: true
+    t.index ["user_id"], name: "index_receipts_on_user_id"
     t.index ["uuid"], name: "index_receipts_on_uuid", unique: true
   end
 
@@ -130,6 +132,7 @@ ActiveRecord::Schema.define(version: 2020_07_28_132246) do
   add_foreign_key "items", "promotions"
   add_foreign_key "promotions", "distribution_networks"
   add_foreign_key "receipts", "promotions"
+  add_foreign_key "receipts", "users"
   add_foreign_key "vending_cells", "items"
   add_foreign_key "vending_cells", "vending_machines"
   add_foreign_key "vending_machines", "distribution_networks"

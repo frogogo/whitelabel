@@ -19,6 +19,8 @@ class User < ApplicationRecord
   PASSWORD_MAX_NUMBER = 9999
   PASSWORD_REFRESH_RATE = 1.minute
 
+  has_many :receipts, dependent: :destroy
+
   validates :phone_number, presence: true
 
   def self.from_token_request(request)
