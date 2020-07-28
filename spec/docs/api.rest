@@ -20,8 +20,8 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "phone_number": "+7999112233",
-  "password": "1234"
+  "phone_number": "+77999112233",
+  "password": "8256"
 }
 
 # Response:
@@ -53,3 +53,29 @@ Accept: application/json
 
 # Response:
 # - 200: Ok
+# - 401: Unauthorized
+
+### Show receipts
+GET http://localhost:3000/api/receipts HTTP/1.1
+API-Version: 1
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1OTYwMzM0NjYsInN1YiI6Mn0.aEZxJWpvDhQtdgkoU40Vmtpk5YLkH-6UD9NRjD0kuf4
+Accept: application/json
+
+# Response:
+# - 200: OK
+# - 401: Unauthorized
+
+### Create receipt
+POST http://localhost:3000/api/receipts HTTP/1.1
+API-Version: 1
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1OTYwMzM0NjYsInN1YiI6Mn0.aEZxJWpvDhQtdgkoU40Vmtpk5YLkH-6UD9NRjD0kuf4
+Accept: application/json
+Content-Type: application/json
+
+{
+  "qr_string": "t=20190113T154800&s=127.00&fn=8716000100025114&i=114318&fp=3578721879&n=1"
+}
+
+# Response:
+# - 201: Created
+# - 422: Unprocessable Entity
