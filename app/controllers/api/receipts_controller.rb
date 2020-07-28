@@ -1,4 +1,4 @@
-class API::ReceiptsController < ApplicationController
+class API::ReceiptsController < APIController
   START_FROM = 1
   LIMIT = 50
 
