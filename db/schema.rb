@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_28_050535) do
+ActiveRecord::Schema.define(version: 2020_07_28_054336) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,20 @@ ActiveRecord::Schema.define(version: 2020_07_28_050535) do
     t.datetime "remember_token_expires_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "distribution_networks", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "account"
+    t.string "business_address"
+    t.string "chief_executive_officer"
+    t.string "constact_person"
+    t.string "taxpayer_identification_number"
+    t.string "tax_registration_reason_code"
+    t.string "email"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["name"], name: "index_distribution_networks_on_name", unique: true
   end
 
   create_table "manufacturers", force: :cascade do |t|
@@ -48,6 +62,8 @@ ActiveRecord::Schema.define(version: 2020_07_28_050535) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "description"
     t.integer "promo_id", null: false
+    t.bigint "distribution_network_id", null: false
+    t.index ["distribution_network_id"], name: "index_promotions_on_distribution_network_id"
   end
 
   create_table "receipts", force: :cascade do |t|
