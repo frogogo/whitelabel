@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_28_054336) do
+ActiveRecord::Schema.define(version: 2020_07_28_063353) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -87,5 +87,30 @@ ActiveRecord::Schema.define(version: 2020_07_28_054336) do
     t.index ["phone_number"], name: "index_users_on_phone_number", unique: true
   end
 
+  create_table "vending_cells", force: :cascade do |t|
+    t.bigint "vending_machine_id"
+    t.integer "column", null: false
+    t.integer "row", null: false
+    t.integer "quantity", default: 0, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["vending_machine_id"], name: "index_vending_cells_on_vending_machine_id"
+  end
+
+  create_table "vending_machines", force: :cascade do |t|
+    t.bigint "distribution_network_id"
+    t.string "address", null: false
+    t.boolean "active", default: false, null: false
+    t.integer "public_id", null: false
+    t.integer "vending_cells_columns", null: false
+    t.integer "vending_cells_rows", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["distribution_network_id"], name: "index_vending_machines_on_distribution_network_id"
+    t.index ["public_id"], name: "index_vending_machines_on_public_id", unique: true
+  end
+
   add_foreign_key "receipts", "promotions"
+  add_foreign_key "vending_cells", "vending_machines"
+  add_foreign_key "vending_machines", "distribution_networks"
 end
