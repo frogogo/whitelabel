@@ -11,16 +11,19 @@
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
 #  promotion_id  :bigint
+#  user_id       :bigint           not null
 #
 # Indexes
 #
 #  index_receipts_on_promotion_id  (promotion_id)
 #  index_receipts_on_qr_string     (qr_string) UNIQUE
+#  index_receipts_on_user_id       (user_id)
 #  index_receipts_on_uuid          (uuid) UNIQUE
 #
 # Foreign Keys
 #
 #  fk_rails_...  (promotion_id => promotions.id)
+#  fk_rails_...  (user_id => users.id)
 #
 require 'rails_helper'
 
