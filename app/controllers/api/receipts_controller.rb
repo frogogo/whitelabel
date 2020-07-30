@@ -6,7 +6,7 @@ class API::ReceiptsController < APIController
     start_from = params[:start_from] || START_FROM
     limit = params[:limit] || LIMIT
 
-    @receipts = current_user.receipts.where(id: start_from..).limit(limit)
+    @receipts = current_user.receipts.where(id: start_from..).order(created_at: :desc).limit(limit)
   end
 
   def create
