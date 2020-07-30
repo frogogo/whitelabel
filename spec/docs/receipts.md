@@ -48,4 +48,13 @@ Content-Type: application/json
 ### Response:
 
 - 201: Created
+```json
+{
+  "id": 1,
+  "number": 114318,
+  "sum": 127,
+  "state": "processing",
+  "timestamp": "2019-01-13T15:48:00+07:00"
+}
+```
 - 422: Unprocessable Entity

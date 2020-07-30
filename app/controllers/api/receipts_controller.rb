@@ -10,9 +10,9 @@ class API::ReceiptsController < APIController
   end
 
   def create
-    current_user.receipts.create!(receipts_params)
+    @receipt = current_user.receipts.create!(receipts_params)
 
-    head :created
+    render status: :created
   rescue ActiveRecord::RecordInvalid, ActiveRecord::RecordNotSaved
     render json: { error: :qr_string_invalid }, status: :unprocessable_entity
   rescue ActiveRecord::RecordNotUnique
