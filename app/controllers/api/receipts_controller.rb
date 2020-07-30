@@ -1,6 +1,6 @@
 class API::ReceiptsController < APIController
   START_FROM = 1
-  LIMIT = 50
+  LIMIT = 190
 
   def index
     start_from = params[:start_from] || START_FROM
