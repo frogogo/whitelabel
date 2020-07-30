@@ -13,7 +13,7 @@ class API::ReceiptsController < APIController
     current_user.receipts.create!(receipts_params)
 
     head :created
-  rescue ActiveRecord::RecordNotSaved, ActiveRecord::RecordNotUnique
+  rescue ActiveRecord::RecordInvalid, ActiveRecord::RecordNotSaved, ActiveRecord::RecordNotUnique
     head :unprocessable_entity
   end
 
