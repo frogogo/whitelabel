@@ -1,6 +1,6 @@
 Trestle.resource(:promotions) do
   menu do
-    item :promotions, icon: "fa fa-star"
+    item :promotions, icon: 'fa fa-star'
   end
 
   # Customize the table columns shown on the index view.

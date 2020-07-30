@@ -1,6 +1,6 @@
 Trestle.resource(:distribution_networks) do
   menu do
-    item :distribution_networks, icon: "fa fa-star"
+    item :distribution_networks, icon: 'fa fa-star'
   end
 
   # Customize the table columns shown on the index view.

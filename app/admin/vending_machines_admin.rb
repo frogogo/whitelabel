@@ -1,6 +1,6 @@
 Trestle.resource(:vending_machines) do
   menu do
-    item :vending_machines, icon: "fa fa-star"
+    item :vending_machines, icon: 'fa fa-star'
   end
 
   # Customize the table columns shown on the index view.
