@@ -13,8 +13,10 @@ class API::ReceiptsController < APIController
     current_user.receipts.create!(receipts_params)
 
     head :created
-  rescue ActiveRecord::RecordInvalid, ActiveRecord::RecordNotSaved, ActiveRecord::RecordNotUnique
-    head :unprocessable_entity
+  rescue ActiveRecord::RecordInvalid, ActiveRecord::RecordNotSaved
+    render json: { error: :qr_string_invalid }, status: :unprocessable_entity
+  rescue ActiveRecord::RecordNotUnique
+    render json: { error: :qr_string_not_unique }, status: :unprocessable_entity
   end
 
   private
