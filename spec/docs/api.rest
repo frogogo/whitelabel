@@ -56,7 +56,7 @@ Accept: application/json
 # - 401: Unauthorized
 
 ### Show receipts
-GET http://localhost:3000/api/receipts HTTP/1.1
+GET http://localhost:3000/api/receipts?start_from=1&limit=2 HTTP/1.1
 API-Version: 1
 Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1OTYwMzM0NjYsInN1YiI6Mn0.aEZxJWpvDhQtdgkoU40Vmtpk5YLkH-6UD9NRjD0kuf4
 Accept: application/json

@@ -10,15 +10,9 @@ States:
 - rejected
 
 ```http
-GET https://poprobuy.ru/api/receipts HTTP/1.1
+GET https://poprobuy.ru/api/receipts?start_from=20&limit=50 HTTP/1.1
 API-Version: 1
 Accept: application/json
-Content-Type: application/json
-
-{
-  "limit": 50,
-  "start_from": 1
-}
 ```
 
 ### Response:
