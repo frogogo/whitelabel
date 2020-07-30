@@ -28,6 +28,12 @@
 class Receipt < ApplicationRecord
   QR_STRING_REGEXP = /\At=(?<t>\w+)&s=(?<s>\d+.\d+)&fn=(?<fn>\d+)&i=(?<i>\d+)&fp=(?<fp>\d+)&n=(?<n>\d)\z/.freeze
 
+  enum reject_reason: {
+    invalid_date: 0,
+    invalid_sum: 1,
+    invalid_distribution_network: 2
+  }
+
   enum state: {
     processing: 0,
     approved: 1,
