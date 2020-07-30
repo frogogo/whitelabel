@@ -26,12 +26,16 @@
 #  fk_rails_...  (user_id => users.id)
 #
 class Receipt < ApplicationRecord
+  QR_STRING_REGEXP = /\At=(?<t>\w+)&s=(?<s>\d+.\d+)&fn=(?<fn>\d+)&i=(?<i>\d+)&fp=(?<fp>\d+)&n=(?<n>\d)\z/.freeze
+
   enum state: {
     processing: 0,
     approved: 1,
     completed: 2,
     rejected: 3
   }
+
+  validates :qr_string, presence: true, format: { with: QR_STRING_REGEXP }
 
   belongs_to :promotion, optional: true
   belongs_to :user
@@ -53,7 +57,6 @@ class Receipt < ApplicationRecord
   private
 
   def set_data
-    self.data = CGI.parse(qr_string)
-    self.data = data.each { |key, value| data[key] = value.join }
+    self.data = qr_string.match(QR_STRING_REGEXP).named_captures
   end
 end
