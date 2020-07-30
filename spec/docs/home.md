@@ -13,12 +13,19 @@ Accept: application/json
 
 ```json
 {
-  "id": 1,
-  "number": 114318,
-  "sum": 127,
-  "state": "processing",
-  "timestamp": "2019-01-13T15:48:00+07:00"
+  "receipt": {
+    "id": 1,
+    "number": 114318,
+    "sum": 127,
+    "state": "processing",
+    "timestamp": "2019-01-13T15:48:00+07:00"
+  }
 }
+```
+
+- 200: OK, but receipt is missing
+```json
+{}
 ```
 - 401: Unauthorized
 
