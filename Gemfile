@@ -8,16 +8,16 @@ gem 'rails', '~> 6.0.3', '>= 6.0.3.2'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
-gem 'puma', '~> 4.1'
+gem 'puma', '~> 4.3.4'
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.7'
+gem 'jbuilder', '~> 2.10.0'
 # Use Redis adapter to run Action Cable in production
 gem 'hiredis', '~> 0.6.3'
-gem 'redis', '~> 4.0', require: ['redis', 'redis/connection/hiredis']
+gem 'redis', '~> 4.2.1', require: ['redis', 'redis/connection/hiredis']
 # Use Active Model has_secure_password
-gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.15'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
@@ -34,7 +34,7 @@ gem 'trestle-auth', '~> 0.4.0'
 gem 'trestle-search', '~> 0.4.2'
 
 # Use Rollbar
-gem 'rollbar', '~> 2.26.0'
+gem 'rollbar', '~> 2.26.1'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -45,15 +45,15 @@ end
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
-  gem 'listen', '~> 3.2'
+  gem 'listen', '~> 3.2.1'
   gem 'web-console', '>= 3.3.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
-  gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'spring-watcher-listen', '~> 2.0.1'
   # Use Rubocop
   gem 'rubocop', '~> 0.88.0', require: false
   gem 'rubocop-performance', '~> 1.7.1', require: false
-  gem 'rubocop-rails', '~> 2.7.0', require: false
+  gem 'rubocop-rails', '~> 2.7.1', require: false
   gem 'rubocop-rspec', '~> 1.42.0', require: false
   # Use Annotate
   gem 'annotate', '~> 3.1.1'
