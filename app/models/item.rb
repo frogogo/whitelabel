@@ -26,4 +26,6 @@ class Item < ApplicationRecord
   belongs_to :promotion
 
   has_many :vending_cell, dependent: :nullify
+
+  has_one_attached :image
 end
