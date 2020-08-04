@@ -20,7 +20,8 @@ gem 'redis', '~> 4.2.1', require: ['redis', 'redis/connection/hiredis']
 gem 'bcrypt', '~> 3.1.15'
 
 # Use Active Storage variant
-# gem 'image_processing', '~> 1.2'
+gem 'aws-sdk-s3', '~> 1.75.0', require: false
+gem 'image_processing', '~> 1.11.0'
 
 gem 'faraday', '~> 1.0.1'
 
