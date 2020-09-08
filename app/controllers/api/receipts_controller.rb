@@ -14,7 +14,8 @@ class API::ReceiptsController < APIController
 
     render status: :created
   rescue ActiveRecord::RecordInvalid, ActiveRecord::RecordNotSaved
-    render json: { error: :qr_string_invalid }, status: :unprocessable_entity
+    error = @receipt.errors.key?(:qr_string) ? :qr_string_invalid : :user_daily_limit_reached
+    render json: { error: error }, status: :unprocessable_entity
   rescue ActiveRecord::RecordNotUnique
     render json: { error: :qr_string_not_unique }, status: :unprocessable_entity
   end

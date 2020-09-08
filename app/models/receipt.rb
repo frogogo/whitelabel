@@ -27,6 +27,7 @@
 #
 class Receipt < ApplicationRecord
   QR_STRING_REGEXP = /\At=(?<t>\w+)&s=(?<s>\d+.\d+)&fn=(?<fn>\d+)&i=(?<i>\d+)&fp=(?<fp>\d+)&n=(?<n>\d)\z/.freeze
+  USER_LIMIT_PERIOD = 24.hours
 
   enum reject_reason: {
     invalid_date: 0,
@@ -41,6 +42,7 @@ class Receipt < ApplicationRecord
     rejected: 3
   }
 
+  validate :user_daily_limit_not_reached, if: :new_record?
   validates :qr_string, presence: true, format: { with: QR_STRING_REGEXP }
 
   belongs_to :promotion, optional: true
@@ -64,5 +66,11 @@ class Receipt < ApplicationRecord
 
   def set_data
     self.data = qr_string.match(QR_STRING_REGEXP).named_captures
+  end
+
+  def user_daily_limit_not_reached
+    return if user.receipts.where(created_at: (Time.current - USER_LIMIT_PERIOD)..).none?
+
+    errors.add(:base, :user_daily_limit_reached)
   end
 end
