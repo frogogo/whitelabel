@@ -1,11 +1,5 @@
 class API::ReceiptsController < APIController
-  START_FROM = 1
-  LIMIT = 100
-
   def index
-    start_from = params[:start_from] || START_FROM
-    limit = params[:limit] || LIMIT
-
     @receipts = current_user.receipts.where(id: start_from..).order(created_at: :desc).limit(limit)
   end
 
