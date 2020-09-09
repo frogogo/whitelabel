@@ -1,6 +1,6 @@
 ## Index receipts
 
-- limit(num) - optional param. Default: 50
+- limit(num) - optional param. Default: 100
 - start_from(id) - optonal param.
 
 States:
@@ -58,3 +58,22 @@ Content-Type: application/json
 }
 ```
 - 422: Unprocessable Entity
+```json
+{
+  "error": "qr_string_invalid"
+}
+```
+
+- 422: Unprocessable Entity
+```json
+{
+  "error": "qr_string_not_unique"
+}
+```
+
+- 422: Unprocessable Entity
+```json
+{
+  "error": "user_daily_limit_reached"
+}
+```
