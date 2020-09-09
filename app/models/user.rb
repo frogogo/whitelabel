@@ -57,7 +57,11 @@ class User < ApplicationRecord
     new_password = SecureRandom.random_number(PASSWORD_MAX_NUMBER).to_s.rjust(PASSWORD_LENGTH, '0')
     self.password = new_password
 
-    SMSService.new("Poprobuy.ru code: #{new_password}", self).send_message
+    if Rails.env.production?
+      SMSService.new("Poprobuy.ru code: #{new_password}", self).send_message
+    else
+      Rails.logger.debug("user:#{id}:password - #{new_password}")
+    end
   end
 
   private
