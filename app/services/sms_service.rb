@@ -10,9 +10,13 @@ class SMSService
   end
 
   def send_message
-    @options = default_params.merge({ msg: message, to: user.phone_number })
+    if Rails.env.production?
+      @options = default_params.merge({ msg: message, to: user.phone_number })
 
-    send
+      send
+    else
+      Rails.logger.debug("user:#{user.id} - #{message}")
+    end
   end
 
   private
