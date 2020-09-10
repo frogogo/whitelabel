@@ -24,7 +24,7 @@ Content-Type: application/json
 - 422: Unprocessable Entity
 - 429: Too Many Requests
 
-## Authenticate user
+## Authenticate user(Update JWT)
 
 ```http
 POST https://poprobuy.ru/api/user_token HTTP/1.1
@@ -38,6 +38,18 @@ Content-Type: application/json
 }
 ```
 
+
+```http
+POST https://poprobuy.ru/api/user_token HTTP/1.1
+API-Version: 1
+Accept: application/json
+Content-Type: application/json
+
+{
+  "refresh_token": "bf2f125bff127590fc3d7536902cf4acca84e8c9c0df0c560255791d59260ee4"
+}
+```
+
 ### Response:
 
 - 201: Created
@@ -48,7 +60,8 @@ Content-Type: application/json
   "first_name": "First",
   "phone_number": "+7999112233",
   "is_new": false,
-  "jwt": "eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1OTUwMDg0ODcsInN1YiI6MX0.LMVKTdeREtijPLZ_nxE69YwMxpMaU0vp4cTx5i6aLHs"
+  "jwt": "eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1OTUwMDg0ODcsInN1YiI6MX0.LMVKTdeREtijPLZ_nxE69YwMxpMaU0vp4cTx5i6aLHs",
+  "refresh_token": "bf2f125bff127590fc3d7536902cf4acca84e8c9c0df0c560255791d59260ee4"
 }
 ```
 

@@ -6,6 +6,6 @@ class API::UserTokenController < Knock::AuthTokenController
   end
 
   def auth_params
-    params.permit(:phone_number, :password)
+    params.permit(:phone_number, :password, :refresh_token)
   end
 end
