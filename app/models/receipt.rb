@@ -10,11 +10,13 @@
 #  uuid          :uuid
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
+#  item_id       :bigint
 #  promotion_id  :bigint
 #  user_id       :bigint           not null
 #
 # Indexes
 #
+#  index_receipts_on_item_id       (item_id)
 #  index_receipts_on_promotion_id  (promotion_id)
 #  index_receipts_on_qr_string     (qr_string) UNIQUE
 #  index_receipts_on_user_id       (user_id)
@@ -22,6 +24,7 @@
 #
 # Foreign Keys
 #
+#  fk_rails_...  (item_id => items.id)
 #  fk_rails_...  (promotion_id => promotions.id)
 #  fk_rails_...  (user_id => users.id)
 #
@@ -45,6 +48,7 @@ class Receipt < ApplicationRecord
   validate :user_daily_limit_not_reached, if: :new_record?
   validates :qr_string, presence: true, format: { with: QR_STRING_REGEXP }
 
+  belongs_to :item, optional: true
   belongs_to :promotion, optional: true
   belongs_to :user
 
