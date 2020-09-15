@@ -20,4 +20,5 @@
 #  index_manufacturers_on_name  (name) UNIQUE
 #
 class Manufacturer < ApplicationRecord
+  has_many :items, dependent: :destroy
 end
