@@ -41,7 +41,11 @@ class User < ApplicationRecord
     if phone_number.present?
       find_by(phone_number: phone_number)
     elsif refresh_token.present?
-      find_by(refresh_token: refresh_token)
+      user = find_by(refresh_token: refresh_token)
+      return if user.blank?
+
+      user.generate_refresh_token && user.save!
+      user
     end
   end
 
@@ -53,9 +57,6 @@ class User < ApplicationRecord
 
   def generate_refresh_token
     self.refresh_token = SecureRandom.hex(REFRESH_TOKEN_LENGTH)
-    save!
-  rescue ActiveRecord::RecordNotUnique
-    generate_refresh_token
   end
 
   def new?
