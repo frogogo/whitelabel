@@ -7,6 +7,7 @@
 #  first_name    :string
 #  phone_number  :string           not null
 #  refresh_token :string           not null
+#  role          :integer          default("general"), not null
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
 #

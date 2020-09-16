@@ -7,6 +7,7 @@
 #  first_name    :string
 #  phone_number  :string           not null
 #  refresh_token :string           not null
+#  role          :integer          default("general"), not null
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
 #
@@ -21,6 +22,11 @@ class User < ApplicationRecord
   PASSWORD_MAX_NUMBER = 9999
   PASSWORD_REFRESH_RATE = 1.minute
   REFRESH_TOKEN_LENGTH = 32
+
+  enum role: {
+    general: 0,
+    developer: 1
+  }
 
   has_many :receipts, dependent: :destroy
 
@@ -75,7 +81,7 @@ class User < ApplicationRecord
     new_password = SecureRandom.random_number(PASSWORD_MAX_NUMBER).to_s.rjust(PASSWORD_LENGTH, '0')
     self.password = new_password
 
-    SMSService.new("Poprobuy.ru code: #{new_password}", self).send_message
+    MessageSender.new("Poprobuy.ru code: #{new_password}", self).send_message
   end
 
   private
