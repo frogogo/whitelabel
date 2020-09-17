@@ -23,7 +23,9 @@
 #
 class VendingCell < ApplicationRecord
   belongs_to :item, optional: true
-  belongs_to :vending_machine
+  belongs_to :vending_machines
+
+  scope :active, -> { where(quantity: 1..) }
 
   def take_item
     return unless quantity.positive?
