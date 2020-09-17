@@ -37,8 +37,8 @@ class VendingMachine < ApplicationRecord
   end
 
   def take_item(item, column: nil, row: nil)
-    options = { item: item, column: column, row: row, quantity: 1.. }.compact
-    vending_cell = vending_cells.find_by!(options)
+    options = { item: item, column: column, row: row }.compact
+    vending_cell = vending_cells.active.find_by!(options)
 
     vending_cell.take_item
   end
