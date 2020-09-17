@@ -32,6 +32,17 @@ class VendingMachine < ApplicationRecord
 
   after_create_commit :create_vending_cells
 
+  def place_item(item, quantity, column, row)
+    vending_cells.find_by(column: column, row: row).update!(item: item, quantity: quantity)
+  end
+
+  def take_item(item, column: nil, row: nil)
+    options = { item: item, column: column, row: row, quantity: 1.. }.compact
+    vending_cell = vending_cells.find_by!(options)
+
+    vending_cell.take_item
+  end
+
   private
 
   def create_vending_cells

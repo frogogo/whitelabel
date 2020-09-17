@@ -25,6 +25,12 @@ class VendingCell < ApplicationRecord
   belongs_to :item, optional: true
   belongs_to :vending_machine
 
+  def take_item
+    return unless quantity.positive?
+
+    update!(quantity: quantity - 1)
+  end
+
   def empty?
     quantity.zero?
   end
