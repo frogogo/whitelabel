@@ -28,7 +28,7 @@ class VendingCell < ApplicationRecord
   def take_item
     return unless quantity.positive?
 
-    update!(quantity: quantity - 1)
+    decrement(:quantity)
   end
 
   def empty?
