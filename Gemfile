@@ -52,10 +52,10 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.1'
   # Use Rubocop
-  gem 'rubocop', '~> 0.90.0', require: false
-  gem 'rubocop-performance', '~> 1.8.0', require: false
-  gem 'rubocop-rails', '~> 2.8.0', require: false
-  gem 'rubocop-rspec', '~> 1.43.2', require: false
+  gem 'rubocop', require: false
+  gem 'rubocop-performance', require: false
+  gem 'rubocop-rails', require: false
+  gem 'rubocop-rspec', require: false
   # Use Annotate
   gem 'annotate', '~> 3.1.1'
 end
