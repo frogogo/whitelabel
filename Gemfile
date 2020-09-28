@@ -31,6 +31,7 @@ gem 'versioncake', '~> 4.0.2'
 
 # Use Trestle as admin framework
 gem 'trestle', '~> 0.9.3'
+gem 'trestle-active_storage', '~> 3.0.0'
 gem 'trestle-auth', '~> 0.4.0'
 gem 'trestle-search', '~> 0.4.2'
 
