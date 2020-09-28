@@ -23,10 +23,11 @@
 #
 class VendingMachine < ApplicationRecord
   PUBLIC_ID_LENGTH = 8
+  PUBLIC_ID_MAX_NUMBER = 99_999_999
 
   belongs_to :distribution_network
 
-  has_many :vendings_cells, dependent: :destroy
+  has_many :vending_cells, dependent: :destroy
 
   before_create :set_public_id, if: -> { public_id.blank? }
 
@@ -48,13 +49,13 @@ class VendingMachine < ApplicationRecord
   def create_vending_cells
     vending_cells_rows.times do |row|
       vending_cells_columns.times do |column|
-        vendings_cells.create!(column: column, row: row)
+        vending_cells.create!(column: column, row: row)
       end
     end
   end
 
   def generate_public_id
-    SecureRandom.random_number(PUBLIC_ID_LENGTH).to_s.rjust(PASSWORD_LENGTH, '0')
+    SecureRandom.random_number(PUBLIC_ID_MAX_NUMBER).to_s.rjust(PUBLIC_ID_LENGTH, '0')
   end
 
   def set_public_id
