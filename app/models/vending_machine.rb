@@ -47,8 +47,8 @@ class VendingMachine < ApplicationRecord
   private
 
   def create_vending_cells
-    vending_cells_rows.times do |row|
-      vending_cells_columns.times do |column|
+    (1..vending_cells_rows).each do |row|
+      (1..vending_cells_columns).each do |column|
         vending_cells.create!(column: column, row: row)
       end
     end
