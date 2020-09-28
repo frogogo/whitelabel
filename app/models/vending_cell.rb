@@ -23,7 +23,7 @@
 #
 class VendingCell < ApplicationRecord
   belongs_to :item, optional: true
-  belongs_to :vending_machines
+  belongs_to :vending_machine
 
   scope :active, -> { where(quantity: 1..) }
 
