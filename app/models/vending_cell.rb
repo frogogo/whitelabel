@@ -8,7 +8,7 @@
 #  row                :integer          not null
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
-#  item_id            :bigint           not null
+#  item_id            :bigint
 #  vending_machine_id :bigint
 #
 # Indexes
