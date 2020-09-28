@@ -127,50 +127,49 @@ vending_machine.place_item(item4, rand(0..10), 4, 4)
 vending_machine.place_item(item4, rand(0..10), 4, 5)
 vending_machine.place_item(item4, rand(0..10), 4, 6)
 
-Receipt.create!(
-  created_at: 1.day.ago,
+receipt1 = user.receipts.build(
   qr_string: 't=20200923T0940&s=911.00&fn=9289000100597234&i=57908&fp=1791342888&n=1',
-  user: user,
   state: :processing
 )
+receipt1.save!(validate: false)
 
-Receipt.create!(
+receipt2 = user.receipts.build(
   created_at: 3.days.ago,
   qr_string: 't=20200116T0940&s=211.00&fn=9289000100597287&i=57975&fp=1791342857&n=1',
-  user: user,
   state: :approved,
   promotion: promotion
 )
+receipt2.save!(validate: false)
 
-Receipt.create!(
+receipt3 = user.receipts.build(
   created_at: 4.days.ago,
   qr_string: 't=20200126T1029&s=7826.00&fn=9287440300193327&i=17796&fp=1898624280&n=1',
-  user: user,
   state: :completed,
   item: item1,
   promotion: promotion
 )
+receipt3.save!(validate: false)
 
-Receipt.create!(
+receipt4 = user.receipts.build(
   created_at: 10.days.ago,
   qr_string: 't=20170329T183600&s=2999.00&fn=8710000100082706&i=2933&fp=182531010&n=1',
-  user: user,
   reject_reason: :invalid_date,
   state: :rejected
 )
+receipt4.save!(validate: false)
 
-Receipt.create!(
+receipt5 = user.receipts.build(
   created_at: 8.days.ago,
   qr_string: 't=20190113T154800&s=127.00&fn=8716000100025116&i=114318&fp=3578721819&n=1',
-  user: user,
   reject_reason: :invalid_sum,
   state: :rejected
 )
+receipt5.save!(validate: false)
 
-Receipt.create!(
+receipt6 = user.receipts.build(
   created_at: 7.days.ago,
   qr_string: 't=20191118T2057&s=3541.82&fn=8710000100379116&i=28346&fp=2845887721&n=1',
-  user: user,
   reject_reason: :invalid_distribution_network,
   state: :rejected
 )
+receipt6.save!(validate: false)
