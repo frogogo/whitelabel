@@ -12,7 +12,6 @@ distribution_network = DistributionNetwork.create!(
   constact_person: 'Иванов Иван Иванович',
   email: 'leonidov@bigcompany.ru',
   name: 'Большая компания',
-  phone_number: '+7999221133',
   tax_registration_reason_code: '783901001',
   taxpayer_identification_number: '7839078339'
 )
@@ -33,6 +32,7 @@ promotion = Promotion.create!(
   api_token: '012345678',
   description: 'Демо промо',
   name: 'Демо',
+  promo_id: 123,
   distribution_network: distribution_network
 )
 
@@ -45,38 +45,50 @@ user = User.create!(
 
 item1 = Item.create!(
   bar_code: '012345671',
-  name: 'Сырок глазированный с клубникой',
+  name: 'Сырок творожный глазированный в тёмном шоколаде',
   size: '10x6x3',
-  image: File.open('specs/images/glazed_milk.png', 'rb'),
   manufacturer: manufacturer,
   promotion: promotion
+)
+item1.image.attach(
+  io: File.open('spec/images/glazed_dark_vanilla.jpg', 'rb'),
+  filename: 'glazed_dark_vanilla.jpg'
 )
 
 item2 = Item.create!(
   bar_code: '012345672',
-  name: 'Сырок глазированный со сгущенным молоком и орехом',
+  name: 'Сырок творожный глазированный в белом шоколаде с карамелью',
   size: '10x6x3',
-  image: File.open('specs/images/glazed_strawberry.png', 'rb'),
   manufacturer: manufacturer,
   promotion: promotion
+)
+item2.image.attach(
+  io: File.open('spec/images/glazed_milk_caramel.jpg', 'rb'),
+  filename: 'glazed_milk_caramel.jpg'
 )
 
 item3 = Item.create!(
   bar_code: '012345673',
-  name: 'Сырок глазированный с клубникой',
+  name: 'Сырок нежный с творожным зерном в молочном шоколаде',
   size: '10x6x3',
-  image: File.open('specs/images/glazed_milk.png', 'rb'),
   manufacturer: manufacturer,
   promotion: promotion
+)
+item3.image.attach(
+  io: File.open('spec/images/glazed_milk_curd.jpg', 'rb'),
+  filename: 'glazed_milk_curd.jpg'
 )
 
 item4 = Item.create!(
   bar_code: '012345674',
-  name: 'Сырок глазированный со сгущенным молоком и орехом',
+  name: 'Сырок нежный с творожным зерном в тёмном шоколаде',
   size: '10x6x3',
-  image: File.open('specs/images/glazed_strawberry.png', 'rb'),
   manufacturer: manufacturer,
   promotion: promotion
+)
+item4.image.attach(
+  io: File.open('spec/images/glazed_dark_curd.jpg', 'rb'),
+  filename: 'glazed_dark_curd.jpg.jpg'
 )
 
 vending_machine = VendingMachine.create!(
@@ -116,20 +128,23 @@ vending_machine.place_item(item4, rand(0..10), 4, 5)
 vending_machine.place_item(item4, rand(0..10), 4, 6)
 
 Receipt.create!(
-  qr_string: '',
+  created_at: 1.day.ago,
+  qr_string: 't=20200923T0940&s=911.00&fn=9289000100597234&i=57908&fp=1791342888&n=1',
   user: user,
   state: :processing
 )
 
 Receipt.create!(
-  qr_string: '',
+  created_at: 3.days.ago,
+  qr_string: 't=20200116T0940&s=211.00&fn=9289000100597287&i=57975&fp=1791342857&n=1',
   user: user,
   state: :approved,
   promotion: promotion
 )
 
 Receipt.create!(
-  qr_string: '',
+  created_at: 4.days.ago,
+  qr_string: 't=20200126T1029&s=7826.00&fn=9287440300193327&i=17796&fp=1898624280&n=1',
   user: user,
   state: :completed,
   item: item1,
@@ -137,21 +152,24 @@ Receipt.create!(
 )
 
 Receipt.create!(
-  qr_string: '',
+  created_at: 10.days.ago,
+  qr_string: 't=20170329T183600&s=2999.00&fn=8710000100082706&i=2933&fp=182531010&n=1',
   user: user,
   reject_reason: :invalid_date,
   state: :rejected
 )
 
 Receipt.create!(
-  qr_string: '',
+  created_at: 8.days.ago,
+  qr_string: 't=20190113T154800&s=127.00&fn=8716000100025116&i=114318&fp=3578721819&n=1',
   user: user,
   reject_reason: :invalid_sum,
   state: :rejected
 )
 
 Receipt.create!(
-  qr_string: '',
+  created_at: 7.days.ago,
+  qr_string: 't=20191118T2057&s=3541.82&fn=8710000100379116&i=28346&fp=2845887721&n=1',
   user: user,
   reject_reason: :invalid_distribution_network,
   state: :rejected
