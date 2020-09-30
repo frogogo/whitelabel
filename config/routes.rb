@@ -10,6 +10,7 @@
 #                           PUT   /api/user(.:format)                                                                      api/users#update
 #                           POST  /api/user(.:format)                                                                      api/users#create
 #      api_user_token_index POST  /api/user_token(.:format)                                                                api/user_token#create
+#       api_vending_machine GET   /api/vending_machines/:id(.:format)                                                      api/vending_machines#show
 #        rails_service_blob GET   /rails/active_storage/blobs/:signed_id/*filename(.:format)                               active_storage/blobs#show
 # rails_blob_representation GET   /rails/active_storage/representations/:signed_blob_id/:variation_key/*filename(.:format) active_storage/representations#show
 #        rails_disk_service GET   /rails/active_storage/disk/:encoded_key/*filename(.:format)                              active_storage/disk#show
@@ -100,5 +101,6 @@ Rails.application.routes.draw do
     resources :receipts, only: %i[index create]
     resource :user, only: %i[create show update]
     resources :user_token, only: %i[create]
+    resources :vending_machines, only: %i[show]
   end
 end

@@ -29,4 +29,8 @@ class Item < ApplicationRecord
   has_many :receipts, dependent: :destroy
 
   has_one_attached :image
+
+  def avaliable_to_take?(user)
+    user.receipts.completed.where(item: self).none?
+  end
 end
