@@ -1,0 +1,31 @@
+version: '3'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - database
+    environment:
+      DATABASE_HOST: db
+      DATABASE_PASSWORD: password
+      DATABASE_USERNAME: postgres
+      DATABASE_URL:
+      RAILS_ENV: development
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/poprobuy-web
+
+  db:
+    environment:
+      POSTGRES_PASSWORD: password
+    image: postgres:12.4
+    ports:
+      - "5432:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+volumes:
+  db_data:
