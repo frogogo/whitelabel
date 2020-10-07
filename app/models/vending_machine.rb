@@ -29,7 +29,8 @@ class VendingMachine < ApplicationRecord
 
   belongs_to :distribution_network
 
-  has_many :vending_cells, dependent: :destroy
+  has_many :vending_cells, -> { order(row: :asc, column: :asc) },
+           dependent: :destroy, inverse_of: :vending_machine
 
   before_create :set_public_id, if: -> { public_id.blank? }
 
