@@ -1,4 +1,4 @@
-FROM ruby:2.7.1-slim-buster
+FROM ruby:2.7.2-slim-buster
 
 ENV RAILS_VERSION=6.0.3.3
 
