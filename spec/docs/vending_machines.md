@@ -26,19 +26,9 @@ Content-Type: application/json
   "vending_cells_rows": 10,
   "vending_cells": [
     {
-      "column": 5,
-      "quantity": 0,
-      "row": 1
-    },
-    {
-      "column": 6,
-      "quantity": 0,
-      "row": 1
-    },
-    {
       "column": 1,
-      "quantity": 1,
-      "row": 6,
+      "quantity": 0,
+      "row": 1,
       "item": {
         "id": 1,
         "name": "Сырок творожный глазированный в тёмном шоколаде",
@@ -48,7 +38,7 @@ Content-Type: application/json
     },
     {
       "column": 2,
-      "quantity": 2,
+      "quantity": 4,
       "row": 1,
       "item": {
         "id": 2,
@@ -56,6 +46,38 @@ Content-Type: application/json
         "image": "https://poprobuy.ru.s3.eu-central-1.amazonaws.com/bcb0784f0f7c2f741ea3ccd49d47b47f2d5969cb/glazed_milk_caramel.jpg",
         "avaliable_to_take": true
       }
+    },
+    {
+      "column": 3,
+      "quantity": 4,
+      "row": 1,
+      "item": {
+        "id": 3,
+        "name": "Сырок нежный с творожным зерном в молочном шоколаде",
+        "image": "https://poprobuy.ru.s3.eu-central-1.amazonaws.com/e90a9e213fb112d8a050a365d4141d4f2bbb49d8/glazed_milk_curd.jpg",
+        "avaliable_to_take": true
+      }
+    },
+    {
+      "column": 4,
+      "quantity": 0,
+      "row": 1,
+      "item": {
+        "id": 4,
+        "name": "Сырок нежный с творожным зерном в тёмном шоколаде",
+        "image": "https://poprobuy.ru.s3.eu-central-1.amazonaws.com/d6895eed3785863607245aa0c9a23fe0875d3bf1/glazed_dark_curd.jpg.jpg",
+        "avaliable_to_take": true
+      }
+    },
+    {
+      "column": 5,
+      "quantity": 0,
+      "row": 1
+    },
+    {
+      "column": 6,
+      "quantity": 0,
+      "row": 1
     }
   ]
 }
