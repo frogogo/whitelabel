@@ -32,7 +32,7 @@ Content-Type: application/json
       "item": {
         "id": 1,
         "name": "Сырок творожный глазированный в тёмном шоколаде",
-        "image": "https://poprobuy.ru.s3.eu-central-1.amazonaws.com/9c9ea8235133f80b879221adc82eeb94eafbd347/glazed_dark_vanilla.jpg",
+        "image_url": "https://poprobuy.ru/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19/glazed_dark_vanilla.jpg",
         "avaliable_to_take": false
       }
     },
@@ -43,7 +43,7 @@ Content-Type: application/json
       "item": {
         "id": 2,
         "name": "Сырок творожный глазированный в белом шоколаде с карамелью",
-        "image": "https://poprobuy.ru.s3.eu-central-1.amazonaws.com/bcb0784f0f7c2f741ea3ccd49d47b47f2d5969cb/glazed_milk_caramel.jpg",
+        "image_url": "https://poprobuy.ru/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19/glazed_milk_caramel.jpg",
         "avaliable_to_take": true
       }
     },
@@ -54,7 +54,7 @@ Content-Type: application/json
       "item": {
         "id": 3,
         "name": "Сырок нежный с творожным зерном в молочном шоколаде",
-        "image": "https://poprobuy.ru.s3.eu-central-1.amazonaws.com/e90a9e213fb112d8a050a365d4141d4f2bbb49d8/glazed_milk_curd.jpg",
+        "image_url": "https://poprobuy.ru/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19/glazed_milk_curd.jpg",
         "avaliable_to_take": true
       }
     },
@@ -65,7 +65,7 @@ Content-Type: application/json
       "item": {
         "id": 4,
         "name": "Сырок нежный с творожным зерном в тёмном шоколаде",
-        "image": "https://poprobuy.ru.s3.eu-central-1.amazonaws.com/d6895eed3785863607245aa0c9a23fe0875d3bf1/glazed_dark_curd.jpg.jpg",
+        "image_url": "https://poprobuy.ru/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19/glazed_dark_curd.jpg.jpg",
         "avaliable_to_take": true
       }
     },
