@@ -64,6 +64,7 @@ end
 group :production do
   # Use Sidekiq
   gem 'sidekiq', '~> 6.1.1'
+  gem 'slack-ruby-client', '~> 0.15.1'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
