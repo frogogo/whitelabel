@@ -51,8 +51,9 @@ item1 = Item.create!(
   promotion: promotion
 )
 item1.image.attach(
-  io: File.open('spec/images/glazed_dark_vanilla.jpg', 'rb'),
-  filename: 'glazed_dark_vanilla.jpg'
+  io: File.open('spec/images/glazed_dark_vanilla.jpg'),
+  filename: 'glazed_dark_vanilla.jpg',
+  content_type: 'image/jpeg'
 )
 
 item2 = Item.create!(
@@ -63,8 +64,9 @@ item2 = Item.create!(
   promotion: promotion
 )
 item2.image.attach(
-  io: File.open('spec/images/glazed_milk_caramel.jpg', 'rb'),
-  filename: 'glazed_milk_caramel.jpg'
+  io: File.open('spec/images/glazed_milk_caramel.jpg'),
+  filename: 'glazed_milk_caramel.jpg',
+  content_type: 'image/jpeg'
 )
 
 item3 = Item.create!(
@@ -75,8 +77,9 @@ item3 = Item.create!(
   promotion: promotion
 )
 item3.image.attach(
-  io: File.open('spec/images/glazed_milk_curd.jpg', 'rb'),
-  filename: 'glazed_milk_curd.jpg'
+  io: File.open('spec/images/glazed_milk_curd.jpg'),
+  filename: 'glazed_milk_curd.jpg',
+  content_type: 'image/jpeg'
 )
 
 item4 = Item.create!(
@@ -87,8 +90,9 @@ item4 = Item.create!(
   promotion: promotion
 )
 item4.image.attach(
-  io: File.open('spec/images/glazed_dark_curd.jpg', 'rb'),
-  filename: 'glazed_dark_curd.jpg.jpg'
+  io: File.open('spec/images/glazed_dark_curd.jpg'),
+  filename: 'glazed_dark_curd.jpg',
+  content_type: 'image/jpeg'
 )
 
 vending_machine = VendingMachine.create!(
