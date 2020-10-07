@@ -1,21 +1,22 @@
 # == Route Map
 #
-#                    Prefix Verb  URI Pattern                                                                              Controller#Action
-#                   trestle       /admin                                                                                   Trestle::Engine
-#            api_home_index GET   /api/home(.:format)                                                                      api/home#index
-#              api_receipts GET   /api/receipts(.:format)                                                                  api/receipts#index
-#                           POST  /api/receipts(.:format)                                                                  api/receipts#create
-#                  api_user GET   /api/user(.:format)                                                                      api/users#show
-#                           PATCH /api/user(.:format)                                                                      api/users#update
-#                           PUT   /api/user(.:format)                                                                      api/users#update
-#                           POST  /api/user(.:format)                                                                      api/users#create
-#      api_user_token_index POST  /api/user_token(.:format)                                                                api/user_token#create
-#       api_vending_machine GET   /api/vending_machines/:id(.:format)                                                      api/vending_machines#show
-#        rails_service_blob GET   /rails/active_storage/blobs/:signed_id/*filename(.:format)                               active_storage/blobs#show
-# rails_blob_representation GET   /rails/active_storage/representations/:signed_blob_id/:variation_key/*filename(.:format) active_storage/representations#show
-#        rails_disk_service GET   /rails/active_storage/disk/:encoded_key/*filename(.:format)                              active_storage/disk#show
-# update_rails_disk_service PUT   /rails/active_storage/disk/:encoded_token(.:format)                                      active_storage/disk#update
-#      rails_direct_uploads POST  /rails/active_storage/direct_uploads(.:format)                                           active_storage/direct_uploads#create
+#                        Prefix Verb  URI Pattern                                                                              Controller#Action
+#                       trestle       /admin                                                                                   Trestle::Engine
+#                api_home_index GET   /api/home(.:format)                                                                      api/home#index
+#                  api_receipts GET   /api/receipts(.:format)                                                                  api/receipts#index
+#                               POST  /api/receipts(.:format)                                                                  api/receipts#create
+#                      api_user GET   /api/user(.:format)                                                                      api/users#show
+#                               PATCH /api/user(.:format)                                                                      api/users#update
+#                               PUT   /api/user(.:format)                                                                      api/users#update
+#                               POST  /api/user(.:format)                                                                      api/users#create
+#          api_user_token_index POST  /api/user_token(.:format)                                                                api/user_token#create
+#    assign_api_vending_machine POST  /api/vending_machines/:id/assign(.:format)                                               api/venidng_machines#assign
+# take_item_api_vending_machine POST  /api/vending_machines/:id/take_item(.:format)                                            api/vending_machines#take_item
+#            rails_service_blob GET   /rails/active_storage/blobs/:signed_id/*filename(.:format)                               active_storage/blobs#show
+#     rails_blob_representation GET   /rails/active_storage/representations/:signed_blob_id/:variation_key/*filename(.:format) active_storage/representations#show
+#            rails_disk_service GET   /rails/active_storage/disk/:encoded_key/*filename(.:format)                              active_storage/disk#show
+#     update_rails_disk_service PUT   /rails/active_storage/disk/:encoded_token(.:format)                                      active_storage/disk#update
+#          rails_direct_uploads POST  /rails/active_storage/direct_uploads(.:format)                                           active_storage/direct_uploads#create
 #
 # Routes for Trestle::Engine:
 #                             login GET    /login(.:format)                          trestle/auth/sessions#new
@@ -101,6 +102,9 @@ Rails.application.routes.draw do
     resources :receipts, only: %i[index create]
     resource :user, only: %i[create show update]
     resources :user_token, only: %i[create]
-    resources :vending_machines, only: %i[show]
+    resources :vending_machines, only: %i[] do
+      post 'assign', to: 'vending_machines#assign', on: :member
+      post 'take_item', to: 'vending_machines#take_item', on: :member
+    end
   end
 end

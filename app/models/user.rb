@@ -17,6 +17,8 @@
 #  index_users_on_refresh_token  (refresh_token) UNIQUE
 #
 class User < ApplicationRecord
+  include Assignable
+
   PASSWORD_LENGTH = 4
   PASSWORD_LIFETIME = 5.minutes
   PASSWORD_MAX_NUMBER = 9999

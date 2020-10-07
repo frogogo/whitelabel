@@ -1,12 +1,17 @@
-## Show vending machine
+## Assign vending machine
 
 - id - public_id
 
 ```http
-GET http://localhost:3000/api/vending_machines/75576448 HTTP/1.1
+POST http://localhost:3000/api/vending_machines/75576448/assign HTTP/1.1
 API-Version: 1
 Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MDE5ODYzNDEsInN1YiI6MX0.HkHZ7bS3Oi9pcTtkY5H9xVRT05XUexAIvZdSzxMNJCQ
 Accept: application/json
+Content-Type: application/json
+
+{
+  "qr_string": "t=20200923T0940&s=911.00&fn=9289000100597234&i=57908&fp=1791342888&n=1"
+}
 
 ```
 
@@ -55,5 +60,30 @@ Accept: application/json
   ]
 }
 ```
+- 401: Unauthorized
+- 422: Unprocessable Entity
+
+## Take item from vending machine
+
+- id - public_id
+
+```http
+POST http://localhost:3000/api/vending_machines/75576448/take_item HTTP/1.1
+API-Version: 1
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MDE5ODYzNDEsInN1YiI6MX0.HkHZ7bS3Oi9pcTtkY5H9xVRT05XUexAIvZdSzxMNJCQ
+Accept: application/json
+Content-Type: application/json
+
+{
+  "item_id": 1,
+  "column": 1,
+  "row": 1,
+  "qr_string": "t=20200923T0940&s=911.00&fn=9289000100597234&i=57908&fp=1791342888&n=1"
+}
+```
+
+### Response:
+
+- 200: OK
 - 401: Unauthorized
 - 422: Unprocessable Entity

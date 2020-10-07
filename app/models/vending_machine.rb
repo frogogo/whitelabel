@@ -22,7 +22,8 @@
 #  fk_rails_...  (distribution_network_id => distribution_networks.id)
 #
 class VendingMachine < ApplicationRecord
-  ASSIGN_TIME = 60.seconds
+  include Assignable
+
   PUBLIC_ID_LENGTH = 8
   PUBLIC_ID_MAX_NUMBER = 99_999_999
 
@@ -34,38 +35,24 @@ class VendingMachine < ApplicationRecord
 
   after_create_commit :create_vending_cells
 
-  def assign(user)
-    Rails.cache.write(assign_key, user.id, expires_in: ASSIGN_TIME)
-  end
-
-  def assigned?(user)
-    assign_value == user.id
-  end
-
-  def busy?
-    assign_value.positive?
-  end
-
   def place_item(item, quantity, column, row)
     vending_cells.find_by(column: column, row: row).update!(item: item, quantity: quantity)
   end
 
-  def take_item(item, column: nil, row: nil)
+  def take_item(item, receipt, column = nil, row = nil)
+    return unless receipt.approved?
+    return unless receipt.promotion == item.promotion
+
     options = { item: item, column: column, row: row }.compact
     vending_cell = vending_cells.active.find_by!(options)
-
     vending_cell.take_item
+
+    receipt.item = item
+    receipt.state = :completed
+    receipt.save
   end
 
   private
-
-  def assign_key
-    "venidng-machine:#{id}:assigned"
-  end
-
-  def assign_value
-    @assign_value ||= Rails.cache.read(assign_key) || 0
-  end
 
   def create_vending_cells
     (1..vending_cells_rows).each do |row|

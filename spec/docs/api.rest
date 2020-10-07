@@ -21,7 +21,7 @@ Content-Type: application/json
 
 {
   "phone_number": "+7999113344",
-  "password": "1493"
+  "password": "2615"
 }
 
 # Response:
@@ -90,11 +90,36 @@ Accept: application/json
 # - 200: OK
 # - 401: Unauthorized
 
-### Show vending machine
-GET http://localhost:3000/api/vending_machines/75576448 HTTP/1.1
+### Assign vending machine
+POST http://localhost:3000/api/vending_machines/75576448/assign HTTP/1.1
 API-Version: 1
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MDE5ODYzNDEsInN1YiI6MX0.HkHZ7bS3Oi9pcTtkY5H9xVRT05XUexAIvZdSzxMNJCQ
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MDI2NzgyNjUsInN1YiI6MX0.Eb76MOGXxC8XcZh1QBwO1Nidou5kZzeu49BFWwxsSBM
 Accept: application/json
+Content-Type: application/json
+
+{
+  "qr_string": "t=20200116T0940&s=211.00&fn=9289000100597287&i=57975&fp=1791342857&n=1"
+}
+
+
+# Response:
+# - 200: OK
+# - 401: Unauthorized
+# - 422: Unprocessable Entity
+
+### Take item from vending machine
+POST http://localhost:3000/api/vending_machines/75576448/take_item HTTP/1.1
+API-Version: 1
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MDI2NzgyNjUsInN1YiI6MX0.Eb76MOGXxC8XcZh1QBwO1Nidou5kZzeu49BFWwxsSBM
+Accept: application/json
+Content-Type: application/json
+
+{
+  "item_id": 1,
+  "column": 1,
+  "row": 2,
+  "qr_string": "t=20200116T0940&s=211.00&fn=9289000100597287&i=57975&fp=1791342857&n=1"
+}
 
 # Response:
 # - 200: OK

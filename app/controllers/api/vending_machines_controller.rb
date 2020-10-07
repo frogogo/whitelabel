@@ -1,15 +1,42 @@
 class API::VendingMachinesController < APIController
-  def show
+  def assign
+    @user = current_user
+    @receipt = @user.receipts.approved.find_by(qr_string: params[:qr_string])
     @vending_machine =
       VendingMachine.includes(vending_cells: { item: { image_attachment: :blob } })
                     .find_by(public_id: params[:id])
+
+    return head :not_found if @vending_machine.blank? || @receipt.blank?
+    return head :unprocessable_entity if !@vending_machine.busy? && @user.busy?
+    return head :unprocessable_entity if @vending_machine.busy? && !assigned_to_each_other?
+
+    assign_to_each_other unless assigned_to_each_other?
+  end
+
+  def take_item
     @user = current_user
+    @item = Item.find_by(id: params[:item_id])
+    @receipt = @user.receipts.approved.find_by(qr_string: params[:qr_string])
+    @vending_machine = VendingMachine.find_by(public_id: params[:id])
 
-    return head :not_found if @vending_machine.blank?
-    if @vending_machine.busy? && !@vending_machine.assigned?(@user)
-      return head :unprocessable_entity
+    return head :not_found if @vending_machine.blank? || @item.blank? || @receipt.blank?
+    return head :unprocessable_entity unless assigned_to_each_other?
+
+    if @vending_machine.take_item(@item, @receipt, params[:column], params[:row])
+      head :ok
+    else
+      head :unprocessable_entity
     end
+  end
 
-    @vending_machine.assign(@user) unless @vending_machine.assigned?(@user)
+  private
+
+  def assign_to_each_other
+    @vending_machine.assign(@user)
+    @user.assign(@vending_machine)
+  end
+
+  def assigned_to_each_other?
+    @vending_machine.assigned?(@user) && @user.assigned?(@vending_machine)
   end
 end
