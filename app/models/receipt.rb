@@ -46,6 +46,8 @@ class Receipt < ApplicationRecord
   }
 
   validate :user_daily_limit_not_reached, if: :new_record?
+  validate :promotion_present, if: -> { approved? || completed? }
+  validate :item_present, if: :completed?
   validates :qr_string, presence: true, format: { with: QR_STRING_REGEXP }
 
   belongs_to :item, optional: true
@@ -67,6 +69,18 @@ class Receipt < ApplicationRecord
   end
 
   private
+
+  def item_present
+    return if item.present?
+
+    errors.add(:item, :required)
+  end
+
+  def promotion_present
+    return if promotion.present?
+
+    errors.add(:promotion, :required)
+  end
 
   def set_data
     self.data = qr_string.match(QR_STRING_REGEXP).named_captures
