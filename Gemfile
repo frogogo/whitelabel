@@ -24,6 +24,7 @@ gem 'aws-sdk-s3', '~> 1.79.0', require: false
 gem 'image_processing', '~> 1.11.0'
 
 gem 'faraday', '~> 1.0.1'
+gem 'slack-ruby-client', '~> 0.15.1'
 
 # TODO: change to stable version after release v2.2.0
 gem 'knock', github: 'nsarno/knock', branch: 'master'
@@ -64,7 +65,6 @@ end
 group :production do
   # Use Sidekiq
   gem 'sidekiq', '~> 6.1.1'
-  gem 'slack-ruby-client', '~> 0.15.1'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
