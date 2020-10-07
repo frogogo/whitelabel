@@ -22,11 +22,56 @@ Accept: application/json
 ```json
 [
   {
-    "id": 1,
+    "number": 57908,
+    "sum": 911,
+    "state": "processing",
+    "timestamp": "2020-09-23T09:40:00+03:00"
+  },
+  {
+    "number": 57975,
+    "sum": 211,
+    "state": "approved",
+    "timestamp": "2020-01-16T09:40:00+03:00",
+    "promotion": {
+      "name": "Демо",
+      "description": "Демо промо"
+    }
+  },
+  {
+    "number": 17796,
+    "sum": 7826,
+    "state": "completed",
+    "timestamp": "2020-01-26T10:29:00+03:00",
+    "promotion": {
+      "name": "Демо",
+      "description": "Демо промо"
+    },
+    "item": {
+      "id": 1,
+      "name": "Сырок творожный глазированный в тёмном шоколаде",
+      "image": "https://poprobuy.ru.s3.eu-central-1.amazonaws.com/9c9ea8235133f80b879221adc82eeb94eafbd347/glazed_dark_vanilla.jpg"
+    }
+  },
+  {
+    "number": 28346,
+    "sum": 3541,
+    "state": "rejected",
+    "timestamp": "2019-11-18T20:57:00+03:00",
+    "reject_reason": "invalid_distribution_network"
+  },
+  {
     "number": 114318,
     "sum": 127,
-    "state": "processing",
-    "timestamp": "2019-01-13T15:48:00+07:00"
+    "state": "rejected",
+    "timestamp": "2019-01-13T15:48:00+03:00",
+    "reject_reason": "invalid_sum"
+  },
+  {
+    "number": 2933,
+    "sum": 2999,
+    "state": "rejected",
+    "timestamp": "2017-03-29T18:36:00+03:00",
+    "reject_reason": "invalid_date"
   }
 ]
 ```
@@ -50,7 +95,6 @@ Content-Type: application/json
 - 201: Created
 ```json
 {
-  "id": 1,
   "number": 114318,
   "sum": 127,
   "state": "processing",

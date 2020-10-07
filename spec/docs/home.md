@@ -14,11 +14,11 @@ Accept: application/json
 ```json
 {
   "receipt": {
-    "id": 1,
-    "number": 114318,
-    "sum": 127,
-    "state": "processing",
-    "timestamp": "2019-01-13T15:48:00+07:00"
+    "number": 28346,
+    "sum": 3541,
+    "state": "rejected",
+    "timestamp": "2019-11-18T20:57:00+03:00",
+    "reject_reason": "invalid_distribution_network"
   }
 }
 ```
