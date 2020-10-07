@@ -6,7 +6,7 @@ services:
       context: .
       dockerfile: Dockerfile
     depends_on:
-      - database
+      - db
     environment:
       DATABASE_HOST: db
       DATABASE_PASSWORD: password
