@@ -3,11 +3,11 @@ Trestle.resource(:promotions) do
     item :promotions, icon: 'fa fa-star'
   end
 
-  # scopes do
-  #   scope :all
-  #   scope :active, -> { Promotion.active }
-  #   scope :inactive, -> { Promotion.inactive }
-  # end
+  scopes do
+    scope :all
+    scope :active, -> { Promotion.active }
+    scope :inactive, -> { Promotion.inactive }
+  end
 
   search do |query|
     if query
@@ -29,6 +29,7 @@ Trestle.resource(:promotions) do
   # Customize the form fields shown on the new/edit views.
 
   form do |_promotion|
+    check_box :active
     text_field :name
     text_field :description
     text_field :api_token, label: 'API token(APM)'
@@ -38,6 +39,6 @@ Trestle.resource(:promotions) do
   end
 
   params do |params|
-    params.require(:promotion).permit(:name)
+    params.require(:promotion).permit(:active, :name)
   end
 end

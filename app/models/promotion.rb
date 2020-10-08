@@ -3,6 +3,7 @@
 # Table name: promotions
 #
 #  id                      :bigint           not null, primary key
+#  active                  :boolean          default(FALSE)
 #  api_token               :string           not null
 #  description             :string
 #  name                    :string           not null
@@ -28,6 +29,6 @@ class Promotion < ApplicationRecord
   validates :name, presence: true
   validates :promo_id, presence: true
 
-  scope :active, -> { all } # TODO
-  scope :inactive, -> { all } # TODO
+  scope :active, -> { where(active: true) }
+  scope :inactive, -> { where(active: false) }
 end

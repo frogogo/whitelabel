@@ -3,6 +3,7 @@
 # Table name: items
 #
 #  id              :bigint           not null, primary key
+#  active          :boolean          default(FALSE)
 #  bar_code        :string           not null
 #  name            :string           not null
 #  quantity        :integer

@@ -7,12 +7,12 @@ Trestle.resource(:items) do
     item :items, icon: 'fa fa-star'
   end
 
-  # scopes do
-  #   scope :all
-  #   scope :active, -> { Item.active }
-  #   scope :inactive, -> { Item.inactive }
-  #   scope :out_of_stock, -> { Item.out_of_stock }
-  # end
+  scopes do
+    scope :all
+    scope :active, -> { Item.active }
+    scope :inactive, -> { Item.inactive }
+    scope :out_of_stock, -> { Item.out_of_stock }
+  end
 
   search do |query|
     if query
@@ -35,6 +35,7 @@ Trestle.resource(:items) do
   # Customize the form fields shown on the new/edit views.
 
   form do |_item|
+    check_box :active
     text_field :bar_code
     text_field :name
     number_field :start_quantity
@@ -47,7 +48,7 @@ Trestle.resource(:items) do
   end
 
   params do |params|
-    params.require(:item).permit(:bar_code, :name, :start_quantity, :size,
+    params.require(:item).permit(:active, :bar_code, :name, :start_quantity, :size,
                                  :manufacturer_id, :promotion_id)
   end
 end

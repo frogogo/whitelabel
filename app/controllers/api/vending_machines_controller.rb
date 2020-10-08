@@ -15,7 +15,7 @@ class API::VendingMachinesController < APIController
 
   def take_item
     @user = current_user
-    @item = Item.find_by(id: params[:item_id])
+    @item = Item.active.find_by(id: params[:item_id])
     @receipt = @user.receipts.approved.find_by(qr_string: params[:qr_string])
     @vending_machine = VendingMachine.find_by(public_id: params[:id])
 

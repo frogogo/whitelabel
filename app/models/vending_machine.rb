@@ -45,7 +45,9 @@ class VendingMachine < ApplicationRecord
   end
 
   def take_item(item, receipt, column = nil, row = nil)
+    return unless item.active?
     return unless receipt.approved?
+    return unless receipt.promotion.active?
     return unless receipt.promotion == item.promotion
 
     options = { item: item, column: column, row: row }.compact

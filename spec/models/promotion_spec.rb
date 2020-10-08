@@ -3,6 +3,7 @@
 # Table name: promotions
 #
 #  id                      :bigint           not null, primary key
+#  active                  :boolean          default(FALSE)
 #  api_token               :string           not null
 #  description             :string
 #  name                    :string           not null

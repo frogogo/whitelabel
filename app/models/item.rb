@@ -3,6 +3,7 @@
 # Table name: items
 #
 #  id              :bigint           not null, primary key
+#  active          :boolean          default(FALSE)
 #  bar_code        :string           not null
 #  name            :string           not null
 #  quantity        :integer
@@ -32,13 +33,15 @@ class Item < ApplicationRecord
 
   has_one_attached :image
 
-  scope :active, -> { all } # TODO
-  scope :inactive, -> { all } # TODO
+  scope :active, -> { where(active: true) }
+  scope :inactive, -> { where(active: false) }
   scope :out_of_stock, -> { all } # TODO
 
   def avaliable_to_take?(receipt)
-    receipt.approved? &&
-      receipt.promotion_id == promotion_id &&
+    active? &&
+      promotion.active? &&
+      receipt.approved? &&
+      receipt.promotion == promotion &&
       receipt.user.receipts.completed.where(item: self).none?
   end
 
