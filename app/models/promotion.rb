@@ -27,4 +27,7 @@ class Promotion < ApplicationRecord
   validates :api_token, presence: true
   validates :name, presence: true
   validates :promo_id, presence: true
+
+  scope :active, -> { all } # TODO
+  scope :inactive, -> { all } # TODO
 end

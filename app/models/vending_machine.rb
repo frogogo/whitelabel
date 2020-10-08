@@ -36,6 +36,9 @@ class VendingMachine < ApplicationRecord
 
   after_create_commit :create_vending_cells
 
+  scope :active, -> { where(active: true) }
+  scope :inactive, -> { where(active: false) }
+
   def place_item(item, quantity, column, row)
     vending_cells.find_by(column: column, row: row).update!(item: item, quantity: quantity)
   end

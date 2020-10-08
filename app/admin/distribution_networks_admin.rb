@@ -4,32 +4,29 @@ Trestle.resource(:distribution_networks) do
   end
 
   # Customize the table columns shown on the index view.
-  #
-  # table do
-  #   column :name
-  #   column :created_at, align: :center
-  #   actions
-  # end
+
+  table do
+    column :name
+    column :created_at, align: :center
+    actions
+  end
 
   # Customize the form fields shown on the new/edit views.
-  #
-  # form do |distribution_network|
-  #   text_field :name
-  #
-  #   row do
-  #     col { datetime_field :updated_at }
-  #     col { datetime_field :created_at }
-  #   end
-  # end
 
-  # By default, all parameters passed to the update and create actions will be
-  # permitted. If you do not have full trust in your users, you should explicitly
-  # define the list of permitted parameters.
-  #
-  # For further information, see the Rails documentation on Strong Parameters:
-  #   http://guides.rubyonrails.org/action_controller_overview.html#strong-parameters
-  #
-  # params do |params|
-  #   params.require(:distribution_network).permit(:name, ...)
-  # end
+  form do |_distribution_network|
+    text_field :account
+    text_field :business_address
+    text_field :chief_executive_officer
+    text_field :constact_person
+    text_field :email
+    text_field :name
+    text_field :tax_registration_reason_code
+    text_field :taxpayer_identification_number
+  end
+
+  params do |params|
+    params.require(:distribution_network)
+          .permit(:account, :business_address, :chief_executive_officer, :constact_person,
+                  :email, :name, :tax_registration_reason_code, :taxpayer_identification_number)
+  end
 end

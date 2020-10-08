@@ -3,33 +3,44 @@ Trestle.resource(:vending_cells) do
     item :vending_cells, icon: 'fa fa-star'
   end
 
+  scopes do
+    scope :all
+    scope :active, -> { VendingCell.active }
+    scope :inactive, -> { VendingCell.inactive }
+  end
+
+  search do |query|
+    if query
+      VendingCell.joins(:vending_machine).where('vending_machines.public_id = ?', query)
+    else
+      VendingCell.all
+    end
+  end
+
   # Customize the table columns shown on the index view.
-  #
-  # table do
-  #   column :name
-  #   column :created_at, align: :center
-  #   actions
-  # end
+
+  table do
+    column :vending_machine do |vending_cell|
+      admin_link_to vending_cell.vending_machine.public_id, vending_cell.vending_machine
+    end
+    column :column
+    column :row
+    column :item
+    column :quantity
+    actions
+  end
 
   # Customize the form fields shown on the new/edit views.
-  #
-  # form do |vending_cell|
-  #   text_field :name
-  #
-  #   row do
-  #     col { datetime_field :updated_at }
-  #     col { datetime_field :created_at }
-  #   end
-  # end
 
-  # By default, all parameters passed to the update and create actions will be
-  # permitted. If you do not have full trust in your users, you should explicitly
-  # define the list of permitted parameters.
-  #
-  # For further information, see the Rails documentation on Strong Parameters:
-  #   http://guides.rubyonrails.org/action_controller_overview.html#strong-parameters
-  #
-  # params do |params|
-  #   params.require(:vending_cell).permit(:name, ...)
-  # end
+  form do |vending_cell|
+    text_field :vending_machine, value: vending_cell.vending_machine.public_id, disabled: true
+    text_field :column, disabled: true
+    text_field :row, disabled: true
+    text_field :quantity
+    select :item_id, Item.all, include_blank: true
+  end
+
+  params do |params|
+    params.require(:vending_cell).permit(:quantity, :item_id)
+  end
 end
