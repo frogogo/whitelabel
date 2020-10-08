@@ -3,33 +3,46 @@ Trestle.resource(:receipts) do
     item :receipts, icon: 'fa fa-star'
   end
 
+  scopes do
+    scope :all
+    scope :processing, -> { Receipt.processing }
+    scope :approved, -> { Receipt.approved }
+    scope :completed, -> { Receipt.completed }
+    scope :rejected, -> { Receipt.rejected }
+  end
+
+  search do |query|
+    if query
+      Receipt.where('qr_string LIKE ?', "%#{query}%")
+    else
+      Receipt.all
+    end
+  end
+
   # Customize the table columns shown on the index view.
-  #
-  # table do
-  #   column :name
-  #   column :created_at, align: :center
-  #   actions
-  # end
+
+  table do
+    column :qr_string
+    column :state
+    column :reject_reason
+    column :promotion
+    column :item
+    column :user
+    column :created_at, align: :center
+    actions
+  end
 
   # Customize the form fields shown on the new/edit views.
-  #
-  # form do |receipt|
-  #   text_field :name
-  #
-  #   row do
-  #     col { datetime_field :updated_at }
-  #     col { datetime_field :created_at }
-  #   end
-  # end
 
-  # By default, all parameters passed to the update and create actions will be
-  # permitted. If you do not have full trust in your users, you should explicitly
-  # define the list of permitted parameters.
-  #
-  # For further information, see the Rails documentation on Strong Parameters:
-  #   http://guides.rubyonrails.org/action_controller_overview.html#strong-parameters
-  #
-  # params do |params|
-  #   params.require(:receipt).permit(:name, ...)
-  # end
+  form do |_receipt|
+    text_field :qr_string, disabled: true
+    select :state, Receipt.states.keys
+    select :reject_reason, Receipt.reject_reasons.keys, include_blank: true
+    select :promotion_id, Promotion.all, include_blank: true
+    select :item_id, Item.all, include_blank: true
+  end
+
+  params do |params|
+    params.require(:receipt).permit(:state, :reject_reason, :item_id, :promotion_id)
+  end
 end

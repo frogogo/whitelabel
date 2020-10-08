@@ -1,35 +1,50 @@
 Trestle.resource(:items) do
+  active_storage_fields do
+    [:image]
+  end
+
   menu do
     item :items, icon: 'fa fa-star'
   end
 
-  # Customize the table columns shown on the index view.
-  #
-  # table do
-  #   column :name
-  #   column :created_at, align: :center
-  #   actions
+  # scopes do
+  #   scope :all
+  #   scope :active, -> { Item.active }
+  #   scope :inactive, -> { Item.inactive }
+  #   scope :out_of_stock, -> { Item.out_of_stock }
   # end
+
+  search do |query|
+    if query
+      Item.where('name ILIKE ?', "%#{query}%")
+    else
+      Item.all
+    end
+  end
+
+  # Customize the table columns shown on the index view.
+
+  table do
+    column :name
+    column :manufacturer
+    column :promotion
+    column :created_at, align: :center
+    actions
+  end
 
   # Customize the form fields shown on the new/edit views.
-  #
-  # form do |item|
-  #   text_field :name
-  #
-  #   row do
-  #     col { datetime_field :updated_at }
-  #     col { datetime_field :created_at }
-  #   end
-  # end
 
-  # By default, all parameters passed to the update and create actions will be
-  # permitted. If you do not have full trust in your users, you should explicitly
-  # define the list of permitted parameters.
-  #
-  # For further information, see the Rails documentation on Strong Parameters:
-  #   http://guides.rubyonrails.org/action_controller_overview.html#strong-parameters
-  #
-  # params do |params|
-  #   params.require(:item).permit(:name, ...)
-  # end
+  form do |_item|
+    text_field :bar_code
+    text_field :name
+    text_field :size
+    active_storage_field :image
+
+    select :manufacturer_id, Manufacturer.all, include_blank: true
+    select :promotion_id, Promotion.all, include_blank: true
+  end
+
+  params do |params|
+    params.require(:item).permit(:bar_code, :name, :size, :manufacturer_id, :promotion_id)
+  end
 end

@@ -30,6 +30,10 @@ class Item < ApplicationRecord
 
   has_one_attached :image
 
+  scope :active, -> { all } # TODO
+  scope :inactive, -> { all } # TODO
+  scope :out_of_stock, -> { all } # TODO
+
   def avaliable_to_take?(receipt)
     receipt.approved? &&
       receipt.promotion_id == promotion_id &&

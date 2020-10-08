@@ -36,6 +36,8 @@ class User < ApplicationRecord
 
   before_create :generate_refresh_token
 
+  scope :new, -> { where(email: nil, first_name: nil) }
+
   def self.from_token_request(request)
     phone_number = request.params['phone_number']
     refresh_token = request.params['refresh_token']
