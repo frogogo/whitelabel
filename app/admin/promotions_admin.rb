@@ -39,6 +39,6 @@ Trestle.resource(:promotions) do
   end
 
   params do |params|
-    params.require(:promotion).permit(:active, :name)
+    params.require(:promotion).permit(:active, :api_token, :name, :description, :promo_id)
   end
 end
