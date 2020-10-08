@@ -37,6 +37,8 @@ Trestle.resource(:items) do
   form do |_item|
     text_field :bar_code
     text_field :name
+    number_field :start_quantity
+    number_field :quantity, disabled: true
     text_field :size
     active_storage_field :image
 
@@ -45,6 +47,7 @@ Trestle.resource(:items) do
   end
 
   params do |params|
-    params.require(:item).permit(:bar_code, :name, :size, :manufacturer_id, :promotion_id)
+    params.require(:item).permit(:bar_code, :name, :start_quantity, :size,
+                                 :manufacturer_id, :promotion_id)
   end
 end

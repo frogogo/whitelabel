@@ -28,6 +28,8 @@ class VendingCell < ApplicationRecord
   scope :active, -> { where(quantity: 1..) }
   scope :inactive, -> { where(quantity: 0) }
 
+  after_update_commit :update_quantity_in_item, if: :saved_change_to_quantity?
+
   def take_item
     return unless quantity.positive?
 
@@ -36,5 +38,11 @@ class VendingCell < ApplicationRecord
 
   def empty?
     quantity.zero?
+  end
+
+  private
+
+  def update_quantity_in_item
+    item.update_quantity
   end
 end

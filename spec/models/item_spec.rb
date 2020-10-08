@@ -5,7 +5,9 @@
 #  id              :bigint           not null, primary key
 #  bar_code        :string           not null
 #  name            :string           not null
+#  quantity        :integer
 #  size            :string           not null
+#  start_quantity  :integer
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #  manufacturer_id :bigint
