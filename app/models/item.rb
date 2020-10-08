@@ -35,7 +35,7 @@ class Item < ApplicationRecord
 
   scope :active, -> { where(active: true) }
   scope :inactive, -> { where(active: false) }
-  scope :out_of_stock, -> { all } # TODO
+  scope :out_of_stock, -> { where(quantity: 0)}
 
   def avaliable_to_take?(receipt)
     active? &&
