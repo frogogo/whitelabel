@@ -48,7 +48,7 @@ Trestle.resource(:items) do
   end
 
   params do |params|
-    params.require(:item).permit(:active, :bar_code, :name, :start_quantity, :size,
+    params.require(:item).permit(:active, :bar_code, :delete_image, :name, :start_quantity, :size,
                                  :manufacturer_id, :promotion_id)
   end
 end
