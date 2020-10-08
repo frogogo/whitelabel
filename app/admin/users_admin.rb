@@ -5,7 +5,7 @@ Trestle.resource(:users) do
 
   scopes do
     scope :all
-    scope :new, -> { User.new }
+    scope :new, -> { User.new_registered }
   end
 
   search do |query|
