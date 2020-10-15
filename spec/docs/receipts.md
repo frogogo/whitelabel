@@ -9,6 +9,14 @@ States:
 - completed
 - rejected
 
+Reject reasosnes:
+- invalid_date (Неверная дата покупки)
+- invalid_sum (Неверная сумма покупки)
+- invalid_type (Неверный тип чека: ФСН, и т.д.)
+- invalid_data (Не соответствует условиям акции)
+- duplicate (Дубликат чека)
+- system_error (Ошибка на сервере. Повторите позже или обратитесь в поддержку)
+
 ```http
 GET https://poprobuy.ru/api/receipts?start_from=20&limit=50 HTTP/1.1
 API-Version: 1
@@ -57,7 +65,7 @@ Accept: application/json
     "sum": 3541,
     "state": "rejected",
     "timestamp": "2019-11-18T20:57:00+03:00",
-    "reject_reason": "invalid_distribution_network"
+    "reject_reason": "invalid_data"
   },
   {
     "number": 114318,

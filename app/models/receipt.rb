@@ -35,7 +35,10 @@ class Receipt < ApplicationRecord
   enum reject_reason: {
     invalid_date: 0,
     invalid_sum: 1,
-    invalid_distribution_network: 2
+    invalid_type: 2,
+    invalid_data: 3,
+    duplicate: 4,
+    system_error: 5
   }
 
   enum state: {
@@ -55,6 +58,8 @@ class Receipt < ApplicationRecord
   belongs_to :user
 
   before_create :set_data
+
+  after_create_commit :validate_receipt
 
   def number
     data['i'].to_i
@@ -90,5 +95,9 @@ class Receipt < ApplicationRecord
     return if user.receipts.where(created_at: (Time.current - USER_LIMIT_PERIOD)..).none?
 
     errors.add(:base, :user_daily_limit_reached)
+  end
+
+  def validate_receipt
+    ReceiptValidator.validate(self)
   end
 end
