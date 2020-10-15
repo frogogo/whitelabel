@@ -57,7 +57,7 @@ class ReceiptValidator::APMCheckValidator < ReceiptValidator::DefaultValidator
   def config
     {
       callback: {
-        url: 'http://some.promo.service/revizor/callback',
+        url: 'https://poprobuy.ru/apm/callback',
         headers: [{
           name: 'authorization',
           values: [Rails.application.credentials.apm_check[:callback_token]]
