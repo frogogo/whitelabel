@@ -1,4 +1,6 @@
-class ReceiptValidator::DefaultValidator
+# frozen_string_literal: true
+
+class ReceiptValidator::Default
   def initialize(promotion, receipt)
     @promotion = promotion
     @receipt = receipt

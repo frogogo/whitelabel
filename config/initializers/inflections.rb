@@ -14,5 +14,5 @@
 ActiveSupport::Inflector.inflections(:en) do |inflect|
   inflect.acronym 'API'
   inflect.acronym 'APM'
-  inflect.acronym 'SMS'
+  inflect.acronym 'SMSRU'
 end

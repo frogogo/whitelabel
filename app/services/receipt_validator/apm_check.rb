@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class ReceiptValidator::APMCheckValidator < ReceiptValidator::DefaultValidator
+class ReceiptValidator::APMCheck < ReceiptValidator::Default
   CHANNEL = 'app'
   META = "poprobuy.ru - #{Rails.env}"
   POST_QR_RECEIPT_PATH = '/api/receipts/qr'

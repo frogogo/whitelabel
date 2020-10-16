@@ -4,6 +4,9 @@ class MessageSender::SlackBot < MessageSender::Default
   SLACK_CHANNEL = '#web_debug'
 
   def send_message
+    return unless Rails.env.production?
+    return unless user.developer?
+
     send
   end
 

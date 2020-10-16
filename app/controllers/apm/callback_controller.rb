@@ -37,7 +37,7 @@ class APM::CallbackController < ActionController::API
     {
       data: permitted_params,
       state: permitted_params[:approved] ? :approved : :rejected,
-      reject_reason: ReceiptValidator::APMCheckValidator::REJECT_REASONS[permitted_params[:reject_key]],
+      reject_reason: ReceiptValidator::APMCheck::REJECT_REASONS[permitted_params[:reject_key]],
       uuid: permitted_params[:uuid],
       promotion: @promotion
     }

@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 module ReceiptValidator
   def self.validate(receipt)
-    validator = ReceiptValidator::APMCampaignValidator
+    validator = ReceiptValidator::APMCampaign
     validator.new(receipt).validate
   end
 end

@@ -1,12 +1,14 @@
 # frozen_string_literal: true
 
-class MessageSender::SMSService < MessageSender::Default
+class MessageSender::SMSRU < MessageSender::Default
   BASE_URI = 'https://sms.ru'
   SENDER = 'poprobuy'
 
   def send_message
-    @options = default_params.merge({ msg: message, to: user.phone_number })
+    return unless Rails.env.production?
+    return unless user.general?
 
+    @options = default_params.merge({ msg: message, to: user.phone_number })
     send
   end
 
