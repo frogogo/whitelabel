@@ -58,6 +58,7 @@ class Receipt < ApplicationRecord
   belongs_to :user
 
   before_create :set_data
+  before_create :set_promotion, if: -> { promotion.blank? }
 
   after_create_commit :validate_receipt
 
@@ -89,6 +90,10 @@ class Receipt < ApplicationRecord
 
   def set_data
     self.data = qr_string.match(QR_STRING_REGEXP).named_captures
+  end
+
+  def set_promotion
+    self.promotion = Promotion.active.first
   end
 
   def user_daily_limit_not_reached

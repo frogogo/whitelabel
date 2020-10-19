@@ -28,12 +28,12 @@ class ReceiptValidator::APMCheck < ReceiptValidator::Default
   }.freeze
 
   def validate
-    response = send_receipt
+    response = JSON.parse(send_receipt.body)
 
-    if response.body[:status] == STATUS_SUCCESS
-      receipt.update!(state: :processing, uuid: response.body[:uuid])
+    if response['status'] == STATUS_SUCCESS
+      receipt.update!(state: :processing, uuid: response[:uuid])
     else
-      Rollbar.error("Receipt #{receipt.qr_string} validation failed: #{response.body}")
+      Rollbar.error("Receipt #{receipt.qr_string} validation failed: #{response}")
     end
   end
 
@@ -51,7 +51,7 @@ class ReceiptValidator::APMCheck < ReceiptValidator::Default
       usrUuid: user.uuid,
       channel: CHANNEL,
       meta: META
-    }
+    }.to_json
   end
 
   def config

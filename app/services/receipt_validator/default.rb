@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 class ReceiptValidator::Default
-  def initialize(promotion, receipt)
-    @promotion = promotion
+  def initialize(receipt)
     @receipt = receipt
+    @promotion = receipt.promotion
     @user = receipt.user
   end
 
