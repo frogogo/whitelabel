@@ -30,6 +30,7 @@ manufacturer = Manufacturer.create!(
 
 promotion = Promotion.create!(
   api_token: '012345678',
+  active: true,
   description: 'Демо промо',
   name: 'Демо',
   promo_id: 123,
@@ -173,7 +174,7 @@ receipt5.save!(validate: false)
 receipt6 = user.receipts.build(
   created_at: 7.days.ago,
   qr_string: 't=20191118T2057&s=3541.82&fn=8710000100379116&i=28346&fp=2845887721&n=1',
-  reject_reason: :invalid_distribution_network,
+  reject_reason: :invalid_data,
   state: :rejected
 )
 receipt6.save!(validate: false)
