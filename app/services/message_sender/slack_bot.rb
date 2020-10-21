@@ -5,7 +5,7 @@ class MessageSender::SlackBot < MessageSender::Default
 
   def send_message
     return unless Rails.env.production?
-    return unless user.developer?
+    return if recipient.class == User && recipient.general?
 
     send
   end

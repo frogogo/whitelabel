@@ -8,6 +8,6 @@ class MessageSender::Debug < MessageSender::Default
   private
 
   def send
-    Rails.logger.debug("user:#{user.id} - #{message}")
+    Rails.logger.debug("recipient:#{recipient.class.name.parameterize}:#{recipient.id} - #{message}")
   end
 end

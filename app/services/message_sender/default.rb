@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 class MessageSender::Default
-  def initialize(message, user)
+  def initialize(message, recipient: nil)
     @message = message
-    @user = user
+    @recipient = recipient
   end
 
   def send_message
@@ -12,5 +12,5 @@ class MessageSender::Default
 
   private
 
-  attr_reader :message, :options, :user
+  attr_reader :message, :options, :recipient
 end

@@ -6,9 +6,10 @@ class MessageSender::SMSRU < MessageSender::Default
 
   def send_message
     return unless Rails.env.production?
-    return unless user.general?
+    return unless recipient.class == User
+    return unless recipient.general?
 
-    @options = default_params.merge({ msg: message, to: user.phone_number })
+    @options = default_params.merge({ msg: message, to: recipient.phone_number })
     send
   end
 
