@@ -42,7 +42,7 @@ Trestle.resource(:vending_machines) do
 
   params do |params|
     params.require(:vending_machine)
-          .permit(:active, :address, :vending_cells_columns, :vending_cells_rows,
+          .permit(:active, :address, :vending_cells_columns, :vending_cells_rows, :vm_type,
                   :distribution_network_id, :public_id)
   end
 end
