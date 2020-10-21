@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_13_213143) do
+ActiveRecord::Schema.define(version: 2020_10_15_183014) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -130,7 +130,7 @@ ActiveRecord::Schema.define(version: 2020_10_13_213143) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "refresh_token", null: false
     t.integer "role", default: 0, null: false
-    t.uuid "uuid", default: -> { "gen_random_uuid()" }, null: false
+    t.uuid "uuid", default: -> { "public.gen_random_uuid()" }, null: false
     t.index ["phone_number"], name: "index_users_on_phone_number", unique: true
     t.index ["refresh_token"], name: "index_users_on_refresh_token", unique: true
   end
@@ -156,6 +156,7 @@ ActiveRecord::Schema.define(version: 2020_10_13_213143) do
     t.integer "vending_cells_rows", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "vm_type", default: 0, null: false
     t.index ["distribution_network_id"], name: "index_vending_machines_on_distribution_network_id"
     t.index ["public_id"], name: "index_vending_machines_on_public_id", unique: true
   end

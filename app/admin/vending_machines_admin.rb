@@ -36,6 +36,7 @@ Trestle.resource(:vending_machines) do
     text_field :vending_cells_columns
     text_field :vending_cells_rows
     text_field :public_id, label: 'Public ID'
+    select :vm_type, VendingMachine.vm_types.keys
     select :distribution_network_id, DistributionNetwork.all, include_blank: true
   end
 

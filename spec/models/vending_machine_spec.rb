@@ -7,6 +7,7 @@
 #  address                 :string           not null
 #  vending_cells_columns   :integer          not null
 #  vending_cells_rows      :integer          not null
+#  vm_type                 :integer          default("virtual"), not null
 #  created_at              :datetime         not null
 #  updated_at              :datetime         not null
 #  distribution_network_id :bigint

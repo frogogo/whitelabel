@@ -1,0 +1,25 @@
+# frozen_string_literal: true
+
+class VendingMachineInterface::Virtual < VendingMachineInterface::Default
+  def assign
+    send_message("Assigned to#{user.id}")
+  end
+
+  def take_item
+    send_message("Taking item #{item.name} from cell #{vending_cell.column} #{vending_cell.row}")
+
+    take_item_from_cell
+    update_receipt
+  rescue StandardError => e
+    send_message("Something went wrong – #{e}")
+  end
+
+  private
+
+  def send_message(message)
+    MessageSender.send_message(
+      "Vending Machine: #{vending_machine.public_id}. Status: #{message}",
+      vending_machine
+    )
+  end
+end

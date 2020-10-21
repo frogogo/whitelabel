@@ -7,6 +7,7 @@
 #  address                 :string           not null
 #  vending_cells_columns   :integer          not null
 #  vending_cells_rows      :integer          not null
+#  vm_type                 :integer          default("virtual"), not null
 #  created_at              :datetime         not null
 #  updated_at              :datetime         not null
 #  distribution_network_id :bigint
@@ -26,6 +27,10 @@ class VendingMachine < ApplicationRecord
 
   PUBLIC_ID_LENGTH = 8
   PUBLIC_ID_MAX_NUMBER = 99_999_999
+
+  enum vm_type: {
+    virtual: 0
+  }
 
   belongs_to :distribution_network
 
@@ -51,12 +56,7 @@ class VendingMachine < ApplicationRecord
     return unless receipt.promotion == item.promotion
 
     options = { item: item, column: column, row: row }.compact
-    vending_cell = vending_cells.active.find_by!(options)
-    vending_cell.take_item
-
-    receipt.item = item
-    receipt.state = :completed
-    receipt.save
+    VendingMachineInterface.take_item(self, receipt, options)
   end
 
   private

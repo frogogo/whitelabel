@@ -5,6 +5,8 @@ module Assignable
 
   def assign(object)
     Rails.cache.write(assign_key, object.id, expires_in: ASSIGN_TIME)
+
+    VendingMachineInterface.assign(self, object) if self.class == VendingMachine
   end
 
   def assigned?(object)
