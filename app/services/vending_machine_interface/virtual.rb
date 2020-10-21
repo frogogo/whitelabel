@@ -2,14 +2,16 @@
 
 class VendingMachineInterface::Virtual < VendingMachineInterface::Default
   def assign
-    send_message("Assigned to#{user.id}")
+    send_message("Assigned to #{user.phone_number}")
   end
 
   def take_item
-    send_message("Taking item #{item.name} from cell #{vending_cell.column} #{vending_cell.row}")
+    send_message("Taking item #{item.name} from cell #{vending_cell.column}x#{vending_cell.row}")
 
     take_item_from_cell
     update_receipt
+
+    send_message('Done')
   rescue StandardError => e
     send_message("Something went wrong – #{e}")
   end
