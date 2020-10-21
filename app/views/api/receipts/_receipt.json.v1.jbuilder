@@ -1,5 +1,5 @@
 json.cache! receipt do
-  json.extract! receipt, :number, :sum, :state, :timestamp
+  json.extract! receipt, :number, :qr_string, :sum, :state, :timestamp
 
   json.reject_reason receipt.reject_reason if receipt.reject_reason.present?
 
