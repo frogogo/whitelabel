@@ -20,7 +20,7 @@ gem 'redis', '~> 4.2.2', require: ['redis', 'redis/connection/hiredis']
 gem 'bcrypt', '~> 3.1.16'
 
 # Use Active Storage variant
-gem 'aws-sdk-s3', '~> 1.83.1', require: false
+gem 'aws-sdk-s3', '~> 1.83.2', require: false
 gem 'image_processing', '~> 1.12.0'
 
 gem 'faraday', '~> 1.1.0'
@@ -31,10 +31,10 @@ gem 'knock', github: 'nsarno/knock', branch: 'master'
 gem 'versioncake', '~> 4.0.2'
 
 # Use Trestle as admin framework
-gem 'trestle', '~> 0.9.3'
+gem 'trestle', '~> 0.9.4'
 gem 'trestle-active_storage', '~> 3.0.1'
-gem 'trestle-auth', '~> 0.4.0'
-gem 'trestle-search', '~> 0.4.2'
+gem 'trestle-auth', '~> 0.4.1'
+gem 'trestle-search', '~> 0.4.3'
 
 # Use Rollbar
 gem 'rollbar', '~> 3.0.1'
@@ -49,7 +49,7 @@ end
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'listen', '~> 3.2.1'
-  gem 'web-console', '>= 4.0.4'
+  gem 'web-console', '>= 4.1.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   # gem 'spring-watcher-listen', '~> 2.0.1'
