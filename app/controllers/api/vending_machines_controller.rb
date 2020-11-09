@@ -1,7 +1,7 @@
 class API::VendingMachinesController < APIController
   def assign
     @user = current_user
-    @receipt = @user.receipts.approved.find_by(qr_string: params[:qr_string])
+    @receipt = @user.receipts.approved.find_by(id: params[:receipt_id])
     @vending_machine =
       VendingMachine.includes(vending_cells: { item: { image_attachment: :blob } })
                     .find_by(public_id: params[:id])
@@ -16,7 +16,7 @@ class API::VendingMachinesController < APIController
   def take_item
     @user = current_user
     @item = Item.active.find_by(id: params[:item_id])
-    @receipt = @user.receipts.approved.find_by(qr_string: params[:qr_string])
+    @receipt = @user.receipts.approved.find_by(id: params[:receipt_id])
     @vending_machine = VendingMachine.find_by(public_id: params[:id])
 
     return head :not_found if @vending_machine.blank? || @item.blank? || @receipt.blank?

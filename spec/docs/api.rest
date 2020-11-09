@@ -98,7 +98,7 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "qr_string": "t=20200116T0940&s=211.00&fn=9289000100597287&i=57975&fp=1791342857&n=1"
+  "receipt_id": 2
 }
 
 
@@ -115,10 +115,10 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "item_id": 1,
   "column": 1,
   "row": 2,
-  "qr_string": "t=20200116T0940&s=211.00&fn=9289000100597287&i=57975&fp=1791342857&n=1"
+  "item_id": 1,
+  "receipt_id": 2
 }
 
 # Response:
