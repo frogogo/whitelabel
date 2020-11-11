@@ -35,9 +35,9 @@ class Receipt < ApplicationRecord
   enum reject_reason: {
     invalid_date: 0,
     invalid_sum: 1,
-    invalid_type: 2,
-    invalid_data: 3,
-    duplicate: 4,
+    invalid_data: 2,
+    duplicate: 3,
+    limit_reached: 4,
     system_error: 5
   }
 
@@ -72,6 +72,10 @@ class Receipt < ApplicationRecord
 
   def timestamp
     data['t'].to_time.iso8601
+  end
+
+  def reject_reason_text
+    I18n.t("receipt.reject_reasons.#{reject_reason}", locale: :ru)
   end
 
   private

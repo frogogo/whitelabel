@@ -19,7 +19,8 @@ Accept: application/json
     "sum": 3541,
     "state": "rejected",
     "timestamp": "2019-11-18T20:57:00+03:00",
-    "reject_reason": "invalid_data"
+    "reject_reason": "invalid_data",
+    "reject_reason_text": "Содержимое чека не соответствует условиям акции"
   },
 }
 ```

@@ -9,13 +9,13 @@ States:
 - completed
 - rejected
 
-Reject reasosnes:
-- invalid_date (Неверная дата покупки)
-- invalid_sum (Неверная сумма покупки)
-- invalid_type (Неверный тип чека: ФСН, и т.д.)
-- invalid_data (Не соответствует условиям акции)
-- duplicate (Дубликат чека)
-- system_error (Ошибка на сервере. Повторите позже или обратитесь в поддержку)
+Reject reasons:
+- duplicate: Такой чек уже зарегистрирован в системе
+- invalid_date: Дата покупки не соответствует условиям акции
+- invalid_sum: Сумма покупки не соответствует условиям акции
+- invalid_data: Содержимое чека не соответствует условиям акции
+- limit_reached: Превышен лимит сканирования чеков
+- system_error: Ошибка при обработке чека
 
 ```http
 GET https://poprobuy.ru/api/receipts?start_from=20&limit=50 HTTP/1.1
@@ -73,7 +73,8 @@ Accept: application/json
     "sum": 3541,
     "state": "rejected",
     "timestamp": "2019-11-18T20:57:00+03:00",
-    "reject_reason": "invalid_data"
+    "reject_reason": "invalid_data",
+    "reject_reason_text": "Содержимое чека не соответствует условиям акции"
   },
   {
     "id": 5,
@@ -81,7 +82,8 @@ Accept: application/json
     "sum": 127,
     "state": "rejected",
     "timestamp": "2019-01-13T15:48:00+03:00",
-    "reject_reason": "invalid_sum"
+    "reject_reason": "invalid_sum",
+    "reject_reason_text": "Сумма покупки не соответствует условиям акции"
   },
   {
     "id": 6,
@@ -89,7 +91,8 @@ Accept: application/json
     "sum": 2999,
     "state": "rejected",
     "timestamp": "2017-03-29T18:36:00+03:00",
-    "reject_reason": "invalid_date"
+    "reject_reason": "invalid_date",
+    "reject_reason_text": "Дата покупки не соответствует условиям акции"
   }
 ]
 ```

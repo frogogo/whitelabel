@@ -1,7 +1,10 @@
 json.cache! receipt do
   json.extract! receipt, :id, :number, :sum, :state, :timestamp
 
-  json.reject_reason receipt.reject_reason if receipt.reject_reason.present?
+  if receipt.reject_reason.present?
+    json.reject_reason receipt.reject_reason
+    json.reject_reason_text receipt.reject_reason_text
+  end
 
   if receipt.approved? || receipt.completed?
     json.distribution_network do
