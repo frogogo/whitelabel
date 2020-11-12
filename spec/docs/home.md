@@ -5,6 +5,7 @@
 GET https://poprobuy.ru/api/home HTTP/1.1
 API-Version: 1
 Accept: application/json
+Accept-Language: ru
 ```
 
 ### Response:

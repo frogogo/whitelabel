@@ -21,6 +21,7 @@ Reject reasons:
 GET https://poprobuy.ru/api/receipts?start_from=20&limit=50 HTTP/1.1
 API-Version: 1
 Accept: application/json
+Accept-Language: ru
 ```
 
 ### Response:
@@ -110,6 +111,7 @@ Accept: application/json
 POST https://poprobuy.ru/api/receipts HTTP/1.1
 API-Version: 1
 Accept: application/json
+Accept-Language: ru
 Content-Type: application/json
 
 {

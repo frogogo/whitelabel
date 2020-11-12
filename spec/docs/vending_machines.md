@@ -7,6 +7,7 @@ POST http://localhost:3000/api/vending_machines/75576448/assign HTTP/1.1
 API-Version: 1
 Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MDE5ODYzNDEsInN1YiI6MX0.HkHZ7bS3Oi9pcTtkY5H9xVRT05XUexAIvZdSzxMNJCQ
 Accept: application/json
+Accept-Language: ru
 Content-Type: application/json
 
 {
@@ -94,6 +95,7 @@ POST http://localhost:3000/api/vending_machines/75576448/take_item HTTP/1.1
 API-Version: 1
 Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MDE5ODYzNDEsInN1YiI6MX0.HkHZ7bS3Oi9pcTtkY5H9xVRT05XUexAIvZdSzxMNJCQ
 Accept: application/json
+Accept-Language: ru
 Content-Type: application/json
 
 {

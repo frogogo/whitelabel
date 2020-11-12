@@ -74,6 +74,7 @@ PATCH https://poprobuy.ru/api/user HTTP/1.1
 API-Version: 1
 Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1OTQ5NTE4MjAsInN1YiI6MX0.AjmuiZ3F81b0GvrKZdqtWeRkAujueG_dGS4kJLcap6M
 Accept: application/json
+Accept-Language: ru
 Content-Type: application/json
 
 {
@@ -95,6 +96,7 @@ GET https://poprobuy.ru/api/user HTTP/1.1
 API-Version: 1
 Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1OTQ5NTE4MjAsInN1YiI6MX0.AjmuiZ3F81b0GvrKZdqtWeRkAujueG_dGS4kJLcap6M
 Accept: application/json
+Accept-Language: ru
 ```
 
 ### Response:
