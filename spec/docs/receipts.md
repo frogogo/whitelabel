@@ -73,8 +73,10 @@ Accept: application/json
     "sum": 3541,
     "state": "rejected",
     "timestamp": "2019-11-18T20:57:00+03:00",
-    "reject_reason": "invalid_data",
-    "reject_reason_text": "Содержимое чека не соответствует условиям акции"
+    "reject_reason": {
+      "reason": "invalid_data",
+      "reason_text": "Содержимое чека не соответствует условиям акции"
+    }
   },
   {
     "id": 5,
@@ -82,8 +84,10 @@ Accept: application/json
     "sum": 127,
     "state": "rejected",
     "timestamp": "2019-01-13T15:48:00+03:00",
-    "reject_reason": "invalid_sum",
-    "reject_reason_text": "Сумма покупки не соответствует условиям акции"
+    "reject_reason": {
+      "reason": "invalid_sum",
+      "reason_text": "Сумма покупки не соответствует условиям акции"
+    }
   },
   {
     "id": 6,
@@ -91,8 +95,10 @@ Accept: application/json
     "sum": 2999,
     "state": "rejected",
     "timestamp": "2017-03-29T18:36:00+03:00",
-    "reject_reason": "invalid_date",
-    "reject_reason_text": "Дата покупки не соответствует условиям акции"
+    "reject_reason": {
+      "reason": "invalid_date",
+      "reason_text": "Дата покупки не соответствует условиям акции"
+    }
   }
 ]
 ```
