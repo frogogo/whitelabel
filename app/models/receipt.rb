@@ -76,7 +76,7 @@ class Receipt < ApplicationRecord
   end
 
   def reject_reason_text
-    I18n.t("receipt.reject_reasons.#{reject_reason}")
+    self.class.human_attribute_name("reject_reasons.#{reject_reason}")
   end
 
   private
