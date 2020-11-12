@@ -134,20 +134,39 @@ Content-Type: application/json
 - 422: Unprocessable Entity
 ```json
 {
-  "error": "qr_string_invalid"
+  "error": "blank",
+  "error_text": "Отсутствует QR-код"
 }
 ```
 
 - 422: Unprocessable Entity
 ```json
 {
-  "error": "qr_string_not_unique"
+  "error": "invalid",
+  "error_text": "Данный QR-код не является чеком"
 }
 ```
 
 - 422: Unprocessable Entity
 ```json
 {
-  "error": "limit_reached"
+  "error": "taken",
+  "error_text": "Данный чек уже был отсканирован"
+}
+```
+
+- 422: Unprocessable Entity
+```json
+{
+  "error": "limit_reached",
+  "error_text": "Превышен лимит сканирования чеков"
+}
+```
+
+- 422: Unprocessable Entity
+```json
+{
+  "error": "processing_receipt_exist",
+  "error_text": "Один чек уже находится на проверке"
 }
 ```
