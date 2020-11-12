@@ -1,9 +1,19 @@
 ru:
-  receipt:
-    reject_reasons:
-      duplicate: Такой чек уже зарегистрирован в системе
-      invalid_date: Дата покупки не соответствует условиям акции
-      invalid_sum: Сумма покупки не соответствует условиям акции
-      invalid_data: Содержимое чека не соответствует условиям акции
-      limit_reached: Превышен лимит сканирования чеков
-      system_error: Ошибка при обработке чека
+  activerecord:
+    attributes:
+      receipt/reject_reasons:
+        duplicate: Такой чек уже зарегистрирован в системе
+        invalid_date: Дата покупки не соответствует условиям акции
+        invalid_sum: Сумма покупки не соответствует условиям акции
+        invalid_data: Содержимое чека не соответствует условиям акции
+        limit_reached: Превышен лимит сканирования чеков
+        system_error: Ошибка при обработке чека
+    errors:
+      models:
+        receipt:
+          attributes:
+            base:
+              limit_reached: Превышен лимит сканирования чеков
+              processing_receipt_exist: Один чек уже находится на проверке
+            qr_string:
+              taken: Данный чек уже был отсканирован
