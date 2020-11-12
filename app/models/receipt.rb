@@ -52,7 +52,7 @@ class Receipt < ApplicationRecord
   validate :user_has_no_processing_receipt, if: :new_record?
   validate :promotion_present, if: -> { approved? || completed? }
   validate :item_present, if: :completed?
-  validates :qr_string, presence: true, format: { with: QR_STRING_REGEXP }
+  validates :qr_string, presence: true, uniqueness: true, format: { with: QR_STRING_REGEXP }
 
   belongs_to :item, optional: true
   belongs_to :promotion, optional: true
