@@ -11,7 +11,7 @@ distribution_network = DistributionNetwork.create!(
   chief_executive_officer: 'Леонидов Леонид Леонидович',
   constact_person: 'Иванов Иван Иванович',
   email: 'leonidov@bigcompany.ru',
-  name: 'Большая компания',
+  name: 'СуперМегаМаркет',
   tax_registration_reason_code: '783901001',
   taxpayer_identification_number: '7839078339'
 )
