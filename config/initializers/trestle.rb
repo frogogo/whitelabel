@@ -180,9 +180,9 @@ Trestle.configure do |config|
   # Customize the method for determining the user's locale.
   # Defaults to user.locale (if the method is defined).
   #
-  config.auth.locale = ->(user) {
-    user.locale if user.respond_to?(:locale)
-  }
+  # config.auth.locale = ->(user) {
+  #   user.locale if user.respond_to?(:locale)
+  # }
 
   # Customize the method for determining the user's time zone.
   # Defaults to user.time_zone (if the method is defined).
