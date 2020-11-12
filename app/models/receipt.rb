@@ -49,6 +49,7 @@ class Receipt < ApplicationRecord
   }
 
   validate :user_daily_limit_not_reached, if: :new_record?
+  validate :user_has_no_processing_receipt, if: :new_record?
   validate :promotion_present, if: -> { approved? || completed? }
   validate :item_present, if: :completed?
   validates :qr_string, presence: true, format: { with: QR_STRING_REGEXP }
@@ -104,6 +105,12 @@ class Receipt < ApplicationRecord
     return if user.receipts.where(created_at: (Time.current - USER_LIMIT_PERIOD)..).none?
 
     errors.add(:base, :user_daily_limit_reached)
+  end
+
+  def user_has_no_processing_receipt
+    return if user.receipts.processing.none?
+
+    errors.add(:base, :processing_receipt_exist)
   end
 
   def validate_receipt
