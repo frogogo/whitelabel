@@ -140,6 +140,6 @@ Content-Type: application/json
 - 422: Unprocessable Entity
 ```json
 {
-  "error": "user_daily_limit_reached"
+  "error": "limit_reached"
 }
 ```

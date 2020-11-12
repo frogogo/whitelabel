@@ -104,7 +104,7 @@ class Receipt < ApplicationRecord
   def user_daily_limit_not_reached
     return if user.receipts.where(created_at: (Time.current - USER_LIMIT_PERIOD)..).none?
 
-    errors.add(:base, :user_daily_limit_reached)
+    errors.add(:base, :limit_reached)
   end
 
   def user_has_no_processing_receipt
