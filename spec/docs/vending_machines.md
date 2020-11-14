@@ -11,7 +11,7 @@ Accept-Language: ru
 Content-Type: application/json
 
 {
-  "qr_string": "t=20200923T0940&s=911.00&fn=9289000100597234&i=57908&fp=1791342888&n=1"
+  "receipt_id": 2
 }
 
 ```
@@ -99,10 +99,10 @@ Accept-Language: ru
 Content-Type: application/json
 
 {
-  "item_id": 1,
   "column": 1,
   "row": 1,
-  "qr_string": "t=20200923T0940&s=911.00&fn=9289000100597234&i=57908&fp=1791342888&n=1"
+  "item_id": 1,
+  "receipt_id": 2
 }
 ```
 
