@@ -2,7 +2,7 @@
 POST http://localhost:3000/api/user HTTP/1.1
 API-Version: 1
 Accept: application/json
-Accept-Language: ru
+Accept-Language: ru-RU;q=1.0, en-RU;q=0.9
 Content-Type: application/json
 
 {
@@ -18,7 +18,7 @@ Content-Type: application/json
 POST http://localhost:3000/api/user_token HTTP/1.1
 API-Version: 1
 Accept: application/json
-Accept-Language: ru
+Accept-Language: ru-RU;q=1.0, en-RU;q=0.9
 Content-Type: application/json
 
 {
@@ -35,7 +35,7 @@ PATCH http://localhost:3000/api/user HTTP/1.1
 API-Version: 1
 Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1OTQ5NTE4MjAsInN1YiI6MX0.AjmuiZ3F81b0GvrKZdqtWeRkAujueG_dGS4kJLcap6M
 Accept: application/json
-Accept-Language: ru
+Accept-Language: ru-RU;q=1.0, en-RU;q=0.9
 Content-Type: application/json
 
 {
@@ -53,7 +53,7 @@ GET http://localhost:3000/api/user HTTP/1.1
 API-Version: 1
 Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1OTQ5NTE4MjAsInN1YiI6MX0.AjmuiZ3F81b0GvrKZdqtWeRkAujueG_dGS4kJLcap6M
 Accept: application/json
-Accept-Language: ru
+Accept-Language: ru-RU;q=1.0, en-RU;q=0.9
 
 # Response:
 # - 200: Ok
@@ -64,7 +64,7 @@ GET http://localhost:3000/api/receipts?start_from=1&limit=2 HTTP/1.1
 API-Version: 1
 Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1OTYwMzM0NjYsInN1YiI6Mn0.aEZxJWpvDhQtdgkoU40Vmtpk5YLkH-6UD9NRjD0kuf4
 Accept: application/json
-Accept-Language: ru
+Accept-Language: ru-RU;q=1.0, en-RU;q=0.9
 
 # Response:
 # - 200: OK
@@ -75,7 +75,7 @@ POST http://localhost:3000/api/receipts HTTP/1.1
 API-Version: 1
 Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1OTYwMzM0NjYsInN1YiI6Mn0.aEZxJWpvDhQtdgkoU40Vmtpk5YLkH-6UD9NRjD0kuf4
 Accept: application/json
-Accept-Language: ru
+Accept-Language: ru-RU;q=1.0, en-RU;q=0.9
 Content-Type: application/json
 
 {
@@ -91,7 +91,7 @@ GET http://localhost:3000/api/home HTTP/1.1
 API-Version: 1
 Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1OTYwMzM0NjYsInN1YiI6Mn0.aEZxJWpvDhQtdgkoU40Vmtpk5YLkH-6UD9NRjD0kuf4
 Accept: application/json
-Accept-Language: ru
+Accept-Language: ru-RU;q=1.0, en-RU;q=0.9
 
 # Response:
 # - 200: OK
@@ -102,7 +102,7 @@ POST http://localhost:3000/api/vending_machines/75576448/assign HTTP/1.1
 API-Version: 1
 Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MDI2NzgyNjUsInN1YiI6MX0.Eb76MOGXxC8XcZh1QBwO1Nidou5kZzeu49BFWwxsSBM
 Accept: application/json
-Accept-Language: ru
+Accept-Language: ru-RU;q=1.0, en-RU;q=0.9
 Content-Type: application/json
 
 {
@@ -120,7 +120,7 @@ POST http://localhost:3000/api/vending_machines/75576448/take_item HTTP/1.1
 API-Version: 1
 Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MDI2NzgyNjUsInN1YiI6MX0.Eb76MOGXxC8XcZh1QBwO1Nidou5kZzeu49BFWwxsSBM
 Accept: application/json
-Accept-Language: ru
+Accept-Language: ru-RU;q=1.0, en-RU;q=0.9
 Content-Type: application/json
 
 {
