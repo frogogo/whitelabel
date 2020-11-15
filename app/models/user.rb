@@ -46,22 +46,16 @@ class User < ApplicationRecord
     if phone_number.present?
       find_by(phone_number: phone_number)
     elsif refresh_token.present?
-      user = find_by(refresh_token: refresh_token)
-      return if user.blank?
-
-      user.generate_refresh_token && user.save!
-      user
+      find_by(refresh_token: refresh_token)
     end
   end
 
-  def authenticate(unencrypted_password)
-    return false if password_digest.blank?
-
-    BCrypt::Password.new(password_digest).is_password?(unencrypted_password) && self
-  end
-
-  def generate_refresh_token
-    self.refresh_token = SecureRandom.hex(REFRESH_TOKEN_LENGTH)
+  def authenticate(auth_params)
+    if auth_params[:password].present?
+      authenticate_by_password(auth_params[:password])
+    elsif auth_params[:refresh_token].present?
+      authenticate_by_refresh_token(auth_params[:refresh_token])
+    end
   end
 
   def new?
@@ -91,6 +85,22 @@ class User < ApplicationRecord
   end
 
   private
+
+  def authenticate_by_password(unencrypted_password)
+    return if password_digest.blank?
+
+    BCrypt::Password.new(password_digest).is_password?(unencrypted_password) && self
+  end
+
+  def authenticate_by_refresh_token(refresh_token)
+    return if self.refresh_token != refresh_token
+
+    generate_refresh_token && save! && self
+  end
+
+  def generate_refresh_token
+    self.refresh_token = SecureRandom.hex(REFRESH_TOKEN_LENGTH)
+  end
 
   def password_key
     "user:#{id}:password-digest"
