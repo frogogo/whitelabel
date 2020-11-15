@@ -19,13 +19,12 @@ class APIController < ActionController::API
   end
 
   def switch_locale(&action)
-    locale = accept_language_header || DEFAULT_LOCALE
     I18n.with_locale(locale, &action)
   end
 
   private
 
-  def accept_language_header
-    request.env['HTTP_ACCEPT_LANGUAGE']&.strip&.to_sym
+  def locale
+    http_accept_language.preferred_language_from(I18n.available_locales) || DEFAULT_LOCALE
   end
 end

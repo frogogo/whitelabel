@@ -19,6 +19,8 @@ gem 'redis', '~> 4.2.2', require: ['redis', 'redis/connection/hiredis']
 # Use Active Model has_secure_password
 gem 'bcrypt', '~> 3.1.16'
 
+gem 'http_accept_language', '~> 2.1.1'
+
 # Use Active Storage variant
 gem 'aws-sdk-s3', '~> 1.83.2', require: false
 gem 'image_processing', '~> 1.12.0'
