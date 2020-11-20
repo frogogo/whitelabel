@@ -37,12 +37,16 @@ class Item < ApplicationRecord
   scope :inactive, -> { where(active: false) }
   scope :out_of_stock, -> { where(quantity: 0) }
 
-  def available_to_take?(receipt)
-    active? &&
-      promotion.active? &&
-      receipt.approved? &&
-      receipt.promotion == promotion &&
-      receipt.user.receipts.completed.where(item: self).none?
+  def state_for(receipt)
+    return :unavailable unless active? && promotion.active?
+    return :unavailable unless receipt.approved?
+    return :out_of_stock unless quantity.positive?
+
+    # TODO: change to :wrong_promotion later
+    return :unavailable unless receipt.promotion == promotion
+    return :already_received unless receipt.user.receipts.completed.where(item: self).none?
+
+    :available
   end
 
   def update_quantity

@@ -1,3 +1,9 @@
+## Item states
+- available
+- already_received
+- out_of_stock
+- unavailable
+
 ## Assign vending machine
 
 - id - public_id
@@ -35,7 +41,7 @@ Content-Type: application/json
         "id": 1,
         "name": "Сырок творожный глазированный в тёмном шоколаде",
         "image_url": "https://poprobuy.ru/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19/glazed_dark_vanilla.jpg",
-        "available_to_take": false
+        "state": "out_of_stock"
       }
     },
     {
@@ -47,7 +53,7 @@ Content-Type: application/json
         "id": 2,
         "name": "Сырок творожный глазированный в белом шоколаде с карамелью",
         "image_url": "https://poprobuy.ru/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19/glazed_milk_caramel.jpg",
-        "available_to_take": true
+        "state": "available"
       }
     },
     {
@@ -59,7 +65,7 @@ Content-Type: application/json
         "id": 3,
         "name": "Сырок нежный с творожным зерном в молочном шоколаде",
         "image_url": "https://poprobuy.ru/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19/glazed_milk_curd.jpg",
-        "available_to_take": true
+        "state": "available"
       }
     },
     {
@@ -71,7 +77,7 @@ Content-Type: application/json
         "id": 4,
         "name": "Сырок нежный с творожным зерном в тёмном шоколаде",
         "image_url": "https://poprobuy.ru/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19/glazed_dark_curd.jpg.jpg",
-        "available_to_take": true
+        "state": "available"
       }
     },
     {

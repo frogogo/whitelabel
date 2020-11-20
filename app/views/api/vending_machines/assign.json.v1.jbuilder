@@ -6,7 +6,7 @@ json.vending_cells do
     if vending_cell.item.present?
       json.item do
         json.partial! vending_cell.item, as: :item
-        json.available_to_take vending_cell.item.available_to_take?(@receipt)
+        json.state vending_cell.item.state_for(@receipt)
       end
     end
   end
