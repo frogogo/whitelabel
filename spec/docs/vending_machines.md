@@ -27,6 +27,7 @@ Content-Type: application/json
   "vending_cells_rows": 10,
   "vending_cells": [
     {
+      "id": 1,
       "column": 1,
       "quantity": 0,
       "row": 1,
@@ -38,6 +39,7 @@ Content-Type: application/json
       }
     },
     {
+      "id": 2,
       "column": 2,
       "quantity": 4,
       "row": 1,
@@ -49,6 +51,7 @@ Content-Type: application/json
       }
     },
     {
+      "id": 3,
       "column": 3,
       "quantity": 4,
       "row": 1,
@@ -60,6 +63,7 @@ Content-Type: application/json
       }
     },
     {
+      "id": 4,
       "column": 4,
       "quantity": 0,
       "row": 1,
@@ -71,11 +75,13 @@ Content-Type: application/json
       }
     },
     {
+      "id": 5,
       "column": 5,
       "quantity": 0,
       "row": 1
     },
     {
+      "id": 6,
       "column": 6,
       "quantity": 0,
       "row": 1
@@ -99,10 +105,9 @@ Accept-Language: ru-RU;q=1.0, en-RU;q=0.9
 Content-Type: application/json
 
 {
-  "column": 1,
-  "row": 1,
   "item_id": 1,
-  "receipt_id": 2
+  "receipt_id": 2,
+  "vending_cell_id": 1
 }
 ```
 

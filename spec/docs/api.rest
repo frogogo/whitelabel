@@ -124,10 +124,9 @@ Accept-Language: ru-RU;q=1.0, en-RU;q=0.9
 Content-Type: application/json
 
 {
-  "column": 1,
-  "row": 2,
   "item_id": 1,
-  "receipt_id": 2
+  "receipt_id": 2,
+  "vending_cell_id": 1
 }
 
 # Response:

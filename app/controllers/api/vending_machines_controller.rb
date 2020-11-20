@@ -22,7 +22,7 @@ class API::VendingMachinesController < APIController
     return head :not_found if @vending_machine.blank? || @item.blank? || @receipt.blank?
     return head :unprocessable_entity unless assigned_to_each_other?
 
-    if @vending_machine.take_item(@item, @receipt, params[:column], params[:row])
+    if @vending_machine.take_item(@item, @receipt, params[:vending_cell_id])
       head :ok
     else
       head :unprocessable_entity

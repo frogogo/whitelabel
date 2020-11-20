@@ -49,13 +49,13 @@ class VendingMachine < ApplicationRecord
     vending_cells.find_by(column: column, row: row).update!(item: item, quantity: quantity)
   end
 
-  def take_item(item, receipt, column = nil, row = nil)
+  def take_item(item, receipt, vending_cell_id = nil)
     return unless item.active?
     return unless receipt.approved?
     return unless receipt.promotion.active?
     return unless receipt.promotion == item.promotion
 
-    options = { item: item, column: column, row: row }.compact
+    options = { id: vending_cell_id, item: item }.compact
     VendingMachineInterface.take_item(self, receipt, options)
   end
 
