@@ -40,8 +40,8 @@ Content-Type: application/json
       "item": {
         "id": 1,
         "name": "Сырок творожный глазированный в тёмном шоколаде",
-        "image_url": "https://poprobuy.ru/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19/glazed_dark_vanilla.jpg",
-        "image_medium_url": "https://poprobuy.ru/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19/medium_glazed_dark_vanilla.jpg",
+        "image_url": "https://poprobuy-ru.s3.amazonaws.com/uploads/item/image/1/glazed_dark_vanilla.png",
+        "image_medium_url": "https://poprobuy-ru.s3.amazonaws.com/uploads/item/image/1/medium_glazed_dark_vanilla.png",
         "state": "out_of_stock"
       }
     },
@@ -53,8 +53,8 @@ Content-Type: application/json
       "item": {
         "id": 2,
         "name": "Сырок творожный глазированный в белом шоколаде с карамелью",
-        "image_url": "https://poprobuy.ru/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19/glazed_milk_caramel.jpg",
-        "image_medium_url": "https://poprobuy.ru/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19/medium_glazed_milk_caramel.jpg",
+        "image_url": "https://poprobuy-ru.s3.amazonaws.com/uploads/item/image/2/glazed_milk_caramel.png",
+        "image_medium_url": "https://poprobuy-ru.s3.amazonaws.com/uploads/item/image/2/medium_glazed_milk_caramel.png",
         "state": "available"
       }
     },
@@ -66,8 +66,8 @@ Content-Type: application/json
       "item": {
         "id": 3,
         "name": "Сырок нежный с творожным зерном в молочном шоколаде",
-        "image_url": "https://poprobuy.ru/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19/glazed_milk_curd.jpg",
-        "image_medium_url": "https://poprobuy.ru/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19/medium_glazed_milk_curd.jpg",
+        "image_url": "https://poprobuy-ru.s3.amazonaws.com/uploads/item/image/3/glazed_milk_curd.png",
+        "image_medium_url": "https://poprobuy-ru.s3.amazonaws.com/uploads/item/image/3/medium_glazed_milk_curd.png",
         "state": "available"
       }
     },
@@ -79,8 +79,8 @@ Content-Type: application/json
       "item": {
         "id": 4,
         "name": "Сырок нежный с творожным зерном в тёмном шоколаде",
-        "image_url": "https://poprobuy.ru/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19/glazed_dark_curd.jpg",
-        "image_medium_url": "https://poprobuy.ru/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19/medium_glazed_dark_curd.jpg",
+        "image_url": "https://poprobuy-ru.s3.amazonaws.com/uploads/item/image/4/glazed_dark_curd.png",
+        "image_medium_url": "https://poprobuy-ru.s3.amazonaws.com/uploads/item/image/4/medium_glazed_dark_curd.png",
         "state": "available"
       }
     },

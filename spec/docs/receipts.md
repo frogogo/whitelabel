@@ -65,8 +65,8 @@ Accept-Language: ru
     "item": {
       "id": 1,
       "name": "Сырок творожный глазированный в тёмном шоколаде",
-      "image_url": "https://poprobuy.ru/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19/glazed_dark_vanilla.jpg",
-      "image_medium_url": "https://poprobuy.ru/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19/medium_glazed_dark_vanilla.jpg"
+      "image_url": "https://poprobuy-ru.s3.amazonaws.com/uploads/item/image/1/glazed_dark_vanilla.png",
+      "image_medium_url": "https://poprobuy-ru.s3.amazonaws.com/uploads/item/image/1/medium_glazed_dark_vanilla.png"
     }
   },
   {
