@@ -18,6 +18,8 @@ class VendingMachineInterface::Virtual < VendingMachineInterface::Default
     update_receipt
 
     send_message('Done')
+
+    true
   rescue StandardError => e
     send_message("Something went wrong – #{e}")
   end
