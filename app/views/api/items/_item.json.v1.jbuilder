@@ -1,4 +1,7 @@
 json.cache! item do
   json.extract! item, :id, :name
-  json.image_url polymorphic_url(item.image) if item.image.present?
+  if item.image.present? do
+    json.image_url item.image.url
+    json.image_medium_url item.image.medium.url
+  end
 end

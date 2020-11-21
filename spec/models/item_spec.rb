@@ -5,6 +5,7 @@
 #  id              :bigint           not null, primary key
 #  active          :boolean          default(FALSE)
 #  bar_code        :string           not null
+#  image           :string
 #  name            :string           not null
 #  quantity        :integer
 #  size            :string           not null

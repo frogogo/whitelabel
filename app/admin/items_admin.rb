@@ -1,8 +1,4 @@
 Trestle.resource(:items) do
-  active_storage_fields do
-    [:image]
-  end
-
   menu do
     item :items, icon: 'fa fa-star'
   end
@@ -25,6 +21,9 @@ Trestle.resource(:items) do
   # Customize the table columns shown on the index view.
 
   table do
+    column :image do |item|
+      image_tag(item.image.medium.url, size: '100x100') if item.image.present?
+    end
     column :name
     column :manufacturer
     column :promotion
@@ -41,14 +40,14 @@ Trestle.resource(:items) do
     number_field :start_quantity
     number_field :quantity, disabled: true
     text_field :size
-    active_storage_field :image
+    file_field :image
 
     select :manufacturer_id, Manufacturer.all, include_blank: true
     select :promotion_id, Promotion.all, include_blank: true
   end
 
   params do |params|
-    params.require(:item).permit(:active, :bar_code, :delete_image, :name, :start_quantity, :size,
+    params.require(:item).permit(:active, :bar_code, :image, :name, :start_quantity, :size,
                                  :manufacturer_id, :promotion_id)
   end
 end

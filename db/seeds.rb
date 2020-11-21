@@ -51,11 +51,11 @@ item1 = Item.create!(
   manufacturer: manufacturer,
   promotion: promotion
 )
-item1.image.attach(
-  io: File.open('spec/images/glazed_dark_vanilla.jpg'),
-  filename: 'glazed_dark_vanilla.jpg',
-  content_type: 'image/jpeg'
-)
+
+File.open('spec/images/glazed_dark_vanilla.jpg') do |image|
+  item1.image = image
+end
+item1.save!
 
 item2 = Item.create!(
   bar_code: '012345672',
@@ -64,11 +64,11 @@ item2 = Item.create!(
   manufacturer: manufacturer,
   promotion: promotion
 )
-item2.image.attach(
-  io: File.open('spec/images/glazed_milk_caramel.jpg'),
-  filename: 'glazed_milk_caramel.jpg',
-  content_type: 'image/jpeg'
-)
+
+File.open('spec/images/glazed_milk_caramel.jpg') do |image|
+  item2.image = image
+end
+item2.save!
 
 item3 = Item.create!(
   bar_code: '012345673',
@@ -77,11 +77,11 @@ item3 = Item.create!(
   manufacturer: manufacturer,
   promotion: promotion
 )
-item3.image.attach(
-  io: File.open('spec/images/glazed_milk_curd.jpg'),
-  filename: 'glazed_milk_curd.jpg',
-  content_type: 'image/jpeg'
-)
+
+File.open('spec/images/glazed_milk_curd.jpg') do |image|
+  item3.image = image
+end
+item3.save!
 
 item4 = Item.create!(
   bar_code: '012345674',
@@ -90,11 +90,11 @@ item4 = Item.create!(
   manufacturer: manufacturer,
   promotion: promotion
 )
-item4.image.attach(
-  io: File.open('spec/images/glazed_dark_curd.jpg'),
-  filename: 'glazed_dark_curd.jpg',
-  content_type: 'image/jpeg'
-)
+
+File.open('spec/images/glazed_dark_curd.jpg') do |image|
+  item4.image = image
+end
+item4.save!
 
 vending_machine = VendingMachine.create!(
   active: true,

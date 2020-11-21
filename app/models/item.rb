@@ -5,6 +5,7 @@
 #  id              :bigint           not null, primary key
 #  active          :boolean          default(FALSE)
 #  bar_code        :string           not null
+#  image           :string
 #  name            :string           not null
 #  quantity        :integer
 #  size            :string           not null
@@ -31,11 +32,11 @@ class Item < ApplicationRecord
   has_many :vending_cells, dependent: :nullify
   has_many :receipts, dependent: :destroy
 
-  has_one_attached :image
-
   scope :active, -> { where(active: true) }
   scope :inactive, -> { where(active: false) }
   scope :out_of_stock, -> { where(quantity: 0) }
+
+  mount_uploader :image, ImageUploader
 
   def state_for(receipt)
     return :unavailable unless active? && promotion.active?

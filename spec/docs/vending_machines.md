@@ -41,6 +41,7 @@ Content-Type: application/json
         "id": 1,
         "name": "Сырок творожный глазированный в тёмном шоколаде",
         "image_url": "https://poprobuy.ru/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19/glazed_dark_vanilla.jpg",
+        "image_medium_url": "https://poprobuy.ru/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19/medium_glazed_dark_vanilla.jpg",
         "state": "out_of_stock"
       }
     },
@@ -53,6 +54,7 @@ Content-Type: application/json
         "id": 2,
         "name": "Сырок творожный глазированный в белом шоколаде с карамелью",
         "image_url": "https://poprobuy.ru/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19/glazed_milk_caramel.jpg",
+        "image_medium_url": "https://poprobuy.ru/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19/medium_glazed_milk_caramel.jpg",
         "state": "available"
       }
     },
@@ -65,6 +67,7 @@ Content-Type: application/json
         "id": 3,
         "name": "Сырок нежный с творожным зерном в молочном шоколаде",
         "image_url": "https://poprobuy.ru/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19/glazed_milk_curd.jpg",
+        "image_medium_url": "https://poprobuy.ru/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19/medium_glazed_milk_curd.jpg",
         "state": "available"
       }
     },
@@ -76,7 +79,8 @@ Content-Type: application/json
       "item": {
         "id": 4,
         "name": "Сырок нежный с творожным зерном в тёмном шоколаде",
-        "image_url": "https://poprobuy.ru/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19/glazed_dark_curd.jpg.jpg",
+        "image_url": "https://poprobuy.ru/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19/glazed_dark_curd.jpg",
+        "image_medium_url": "https://poprobuy.ru/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19/medium_glazed_dark_curd.jpg",
         "state": "available"
       }
     },

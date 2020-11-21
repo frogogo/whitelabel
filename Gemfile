@@ -21,10 +21,6 @@ gem 'bcrypt', '~> 3.1.16'
 
 gem 'http_accept_language', '~> 2.1.1'
 
-# Use Active Storage variant
-gem 'aws-sdk-s3', '~> 1.83.2', require: false
-gem 'image_processing', '~> 1.12.0'
-
 gem 'faraday', '~> 1.1.0'
 gem 'slack-ruby-client', '~> 0.15.1'
 
@@ -32,9 +28,12 @@ gem 'slack-ruby-client', '~> 0.15.1'
 gem 'knock', github: 'nsarno/knock', branch: 'master'
 gem 'versioncake', '~> 4.0.2'
 
+# Image processing
+gem 'carrierwave', '~> 2.0'
+gem 'fog-aws', '~> 3.6'
+
 # Use Trestle as admin framework
 gem 'trestle', '~> 0.9.4'
-gem 'trestle-active_storage', '~> 3.0.1'
 gem 'trestle-auth', '~> 0.4.1'
 gem 'trestle-search', '~> 0.4.3'
 
