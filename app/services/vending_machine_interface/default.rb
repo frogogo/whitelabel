@@ -22,7 +22,6 @@ class VendingMachineInterface::Default
   attr_reader :vending_machine, :item, :receipt, :user, :options
 
   def take_item_from_cell
-    vending_cell = vending_machine.vending_cells.active.find_by!(options)
     vending_cell.take_item
   end
 
@@ -30,5 +29,9 @@ class VendingMachineInterface::Default
     receipt.item = item
     receipt.state = :completed
     receipt.save
+  end
+
+  def vending_cell
+    @vending_cell ||= vending_machine.vending_cells.active.find_by!(options)
   end
 end
