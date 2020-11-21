@@ -22,6 +22,8 @@ class VendingMachineInterface::Default
   attr_reader :vending_machine, :item, :receipt, :user, :options
 
   def take_item_from_cell
+    return unless vending_cell.active?
+
     vending_cell.take_item
   end
 
@@ -32,6 +34,6 @@ class VendingMachineInterface::Default
   end
 
   def vending_cell
-    @vending_cell ||= vending_machine.vending_cells.active.find_by!(options)
+    @vending_cell ||= vending_machine.vending_cells.find_by!(options)
   end
 end
