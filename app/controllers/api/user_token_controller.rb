@@ -8,9 +8,7 @@ class API::UserTokenController < Knock::AuthTokenController
   private
 
   def authenticate
-    unless entity.present? && entity.authenticate(auth_params)
-      raise Knock.not_found_exception_class
-    end
+    raise Knock.not_found_exception_class unless entity.present? && entity.authenticate(auth_params)
   end
 
   def auth_params
