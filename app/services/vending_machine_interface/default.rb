@@ -22,7 +22,7 @@ class VendingMachineInterface::Default
   attr_reader :vending_machine, :item, :receipt, :user, :options
 
   def take_item_from_cell
-    return unless vending_cell.active?
+    return if vending_cell.empty?
 
     vending_cell.take_item
   end

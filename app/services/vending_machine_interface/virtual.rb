@@ -6,7 +6,7 @@ class VendingMachineInterface::Virtual < VendingMachineInterface::Default
   end
 
   def take_item
-    unless vending_cell.active?
+    if vending_cell.empty?
       send_message("Unable to take item #{item.name} from cell" \
         "#{vending_cell.column}x#{vending_cell.row}. Quantity is #{vending_cell.quantity}")
 
