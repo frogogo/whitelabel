@@ -5,8 +5,8 @@ Trestle.resource(:vending_cells) do
 
   scopes do
     scope :all
-    scope :active, -> { VendingCell.active }
-    scope :inactive, -> { VendingCell.inactive }
+    scope :full, -> { VendingCell.full }
+    scope :empty, -> { VendingCell.empty }
   end
 
   search do |query|

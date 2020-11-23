@@ -25,13 +25,13 @@ class VendingCell < ApplicationRecord
   belongs_to :item, optional: true
   belongs_to :vending_machine
 
-  scope :active, -> { where(quantity: 1..) }
-  scope :inactive, -> { where(quantity: 0) }
+  scope :full, -> { where(quantity: 1..) }
+  scope :empty, -> { where(quantity: 0) }
 
   after_update_commit :update_quantity_in_item, if: :saved_change_to_quantity?
 
   def take_item
-    return unless quantity.positive?
+    return if empty?
 
     decrement(:quantity) && save
   end
