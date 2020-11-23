@@ -12,12 +12,13 @@ class VendingMachineInterface::Virtual < VendingMachineInterface::Default
 
       return
     end
-    send_message("Taking item #{item.name} from cell #{vending_cell.column}x#{vending_cell.row}")
+    send_message("Taking item #{item.name} from cell #{vending_cell.column}x#{vending_cell.row}." \
+      "Quantity is #{vending_cell.quantity}")
 
     take_item_from_cell
     update_receipt
 
-    send_message('Done')
+    send_message("Done. Now quantity is #{vending_cell.quantity}")
 
     true
   rescue StandardError => e
