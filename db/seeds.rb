@@ -45,6 +45,7 @@ user = User.create!(
 )
 
 item1 = Item.create!(
+  active: true,
   bar_code: '012345671',
   name: 'Сырок творожный глазированный в тёмном шоколаде',
   size: '10x6x3',
@@ -58,6 +59,7 @@ end
 item1.save!
 
 item2 = Item.create!(
+  active: true,
   bar_code: '012345672',
   name: 'Сырок творожный глазированный в белом шоколаде с карамелью',
   size: '10x6x3',
@@ -71,6 +73,7 @@ end
 item2.save!
 
 item3 = Item.create!(
+  active: true,
   bar_code: '012345673',
   name: 'Сырок нежный с творожным зерном в молочном шоколаде',
   size: '10x6x3',
@@ -84,6 +87,7 @@ end
 item3.save!
 
 item4 = Item.create!(
+  active: true,
   bar_code: '012345674',
   name: 'Сырок нежный с творожным зерном в тёмном шоколаде',
   size: '10x6x3',
