@@ -12,7 +12,7 @@ class VendingMachineInterface::Virtual < VendingMachineInterface::Default
 
       return
     end
-    send_message("Taking item #{item.name} from cell #{vending_cell.column}x#{vending_cell.row}." \
+    send_message("Taking item #{item.name} from cell #{vending_cell.row}x#{vending_cell.column}." \
       "Quantity is #{vending_cell.quantity}")
 
     take_item_from_cell
