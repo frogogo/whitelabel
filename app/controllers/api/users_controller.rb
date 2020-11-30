@@ -1,19 +1,20 @@
 class API::UsersController < APIController
   skip_before_action :authenticate_user, only: %i[create]
 
-  class PasswordRefreshRateLimitError < StandardError; end
-
   def create
     @user = User.create_or_find_by!(phone_number: params[:phone_number])
-    raise PasswordRefreshRateLimitError if @user.password_refresh_rate_limit.present?
+    if @user.password_refresh_rate_limit_expires_at.blank?
+      @user.set_new_password
 
-    @user.set_new_password
-
-    render status: :created
-  rescue PasswordRefreshRateLimitError
-    head :too_many_requests
-  rescue ActiveRecord::RecordNotFound, ActiveRecord::RecordNotSaved
-    head :unprocessable_entity
+      render status: :created
+    else
+      render_error(
+        :password_refresh_rate_limit,
+        options: { time_left: time_left_for(@user.password_refresh_rate_limit_expires_at) }
+      )
+    end
+  rescue ActiveRecord::RecordInvalid, ActiveRecord::RecordNotSaved
+    render_error(:user_not_saved)
   end
 
   def show
@@ -23,8 +24,8 @@ class API::UsersController < APIController
   def update
     current_user.update!(user_params)
     head :ok
-  rescue ActiveRecord::RecordNotSaved
-    head :unprocessable_entity
+  rescue ActiveRecord::RecordInvalid, ActiveRecord::RecordNotSaved
+    render_error(:user_not_saved)
   end
 
   private

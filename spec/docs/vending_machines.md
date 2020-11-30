@@ -101,6 +101,12 @@ Content-Type: application/json
 ```
 - 401: Unauthorized
 - 422: Unprocessable Entity
+```json
+{
+  "error": "user_busy",
+  "error_text": "Вы уже используете другой аппарат. Выберете его или подождите 00:03:03"
+}
+```
 
 ## Take item from vending machine
 
@@ -126,3 +132,9 @@ Content-Type: application/json
 - 200: OK
 - 401: Unauthorized
 - 422: Unprocessable Entity
+```json
+{
+  "error": "not_assigned",
+  "error_text": "Данный аппарат не выбран. Выберете его и повторите поптыку"
+}
+```

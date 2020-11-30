@@ -13,9 +13,29 @@ ru:
         receipt:
           attributes:
             base:
-              limit_reached: Превышен лимит сканирования чеков
+              limit_reached: Превышен лимит сканирования чеков. Повторите через %{time_left}
               processing_receipt_exist: Один чек уже находится на проверке
             qr_string:
               blank: Отсутствует QR-код
               invalid: Данный QR-код не является чеком
               taken: Данный чек уже был отсканирован
+  controllers:
+    callback:
+      receipt_not_saved: Чек не был сохранён. Проверьте данные и попробуйте снова
+    users:
+      password_refresh_rate_limit: Превышен лимит на получение СМС-кода. Повторите через %{time_left}
+      user_not_saved: Пользователь не был сохранён. Проверьте данные и попробуйте снова
+    vending_machines:
+      busy: Данный аппарат занят. Повторите попытку через %{time_left}
+      not_assigned: Данный аппарат не выбран. Выберете его и повторите поптыку
+      something_went_wrong: Что-то пошло не так. Попробуйте ещё раз или обратитесь в поддержку
+      user_limit: Превышен лимит использования аппаратов. Пожождите %{time_left}
+      user_busy: Вы недавно использовали аппарат. Подождите %{time_left}
+      item_not_taken:
+        already_received: Вы уже получали данный товар
+        item_inactive: Товар недоступен для выдачи
+        out_of_stock: Ячейка пуста
+        promotion_inactive: Товар недоступен для выдачи
+        receipt_rejected: Текущий чек не подходит для совершения операции
+        unavailable: Данный товар недоступен
+        wrong_promotion: Вы не можете выбрать данный товар с текущим чеком

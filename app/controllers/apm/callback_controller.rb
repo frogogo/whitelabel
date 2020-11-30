@@ -9,7 +9,8 @@ class APM::CallbackController < ActionController::API
     @receipt.update!(receipt_params)
   rescue ActiveRecord::RecordInvalid, ActiveRecord::RecordNotSaved => e
     Rollbar.error("Receipt #{receipt.qr_string} update failed. Record not saved: #{e}")
-    head :unprocessable_entity
+
+    render_error(:receipt_not_saved)
   end
 
   private

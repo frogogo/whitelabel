@@ -50,13 +50,26 @@ class VendingMachine < ApplicationRecord
   end
 
   def take_item(item, receipt, vending_cell_id = nil)
-    return unless item.active?
-    return unless receipt.approved?
-    return unless receipt.promotion.active?
-    return unless receipt.promotion == item.promotion
+    return :'item_not_taken.item_inactive' unless item.active?
+    return :'item_not_taken.receipt_not_approved' unless receipt.approved?
+    return :'item_not_taken.promotion_inactive' unless receipt.promotion.active?
+    return :'item_not_taken.wrong_promotion' unless receipt.promotion == item.promotion
+
+    if vending_cell_id.present?
+      vending_cell = vending_cells.find(vending_cell_id)
+
+      return :'item_not_taken.unavailable' if vending_cell.blank?
+      return :'item_not_taken.out_of_stock' if vending_cell.empty?
+      return :'item_not_taken.unavailable' if vending_cell.item != item
+    end
+
+    item_state_for_receipt = item.state_for(receipt)
+    return :"item_not_taken.#{item_state_for_receipt}" unless item_state_for_receipt == :available
 
     options = { id: vending_cell_id, item: item }.compact
     VendingMachineInterface.take_item(self, receipt, options)
+
+    :ok
   end
 
   private

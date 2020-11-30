@@ -160,7 +160,7 @@ Content-Type: application/json
 ```json
 {
   "error": "limit_reached",
-  "error_text": "Превышен лимит сканирования чеков"
+  "error_text": "Превышен лимит сканирования чеков. Повторите через 23:46:31"
 }
 ```
 

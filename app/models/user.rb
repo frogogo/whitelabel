@@ -18,13 +18,15 @@
 #  index_users_on_refresh_token  (refresh_token) UNIQUE
 #
 class User < ApplicationRecord
-  include Assignable
-
+  ASSIGN_TIME_LIMIT = 5.minutes
   PASSWORD_LENGTH = 4
   PASSWORD_LIFETIME = 5.minutes
   PASSWORD_MAX_NUMBER = 9999
   PASSWORD_REFRESH_RATE = 1.minute
   REFRESH_TOKEN_LENGTH = 32
+
+  EMAIL_REGEXP = /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/.freeze
+  PHONE_NUMBER_REGEXP = /\A(\+\d{1,3})\(?(\d{3})\)?\d{3}\d{4}\z/.freeze
 
   enum role: {
     general: 0,
@@ -33,7 +35,9 @@ class User < ApplicationRecord
 
   has_many :receipts, dependent: :destroy
 
-  validates :phone_number, presence: true
+  validates :email, presence: true, format: { with: EMAIL_REGEXP }, unless: :new_record?
+  validates :first_name, presence: true, length: { maximum: 30 }, unless: :new_record?
+  validates :phone_number, presence: true, format: { with: PHONE_NUMBER_REGEXP }
 
   before_create :generate_refresh_token
 
@@ -50,6 +54,10 @@ class User < ApplicationRecord
     end
   end
 
+  def assign_time_limit_expires_at
+    assign_time_limit[:expires_at]
+  end
+
   def authenticate(auth_params)
     if auth_params[:password].present?
       authenticate_by_password(auth_params[:password])
@@ -58,23 +66,35 @@ class User < ApplicationRecord
     end
   end
 
+  def busy?
+    assign_time_limit_expires_at.present?
+  end
+
   def new?
     email.blank? || first_name.blank?
   end
 
-  def password_digest
-    Rails.cache.read(password_key)
-  end
-
-  def password_refresh_rate_limit
-    Rails.cache.read(password_refresh_rate_limit_key)
+  def password_refresh_rate_limit_expires_at
+    password_refresh_rate_limit[:expires_at]
   end
 
   def password=(unencrypted_password)
     new_password_digest = BCrypt::Password.create(unencrypted_password, cost: BCrypt::Engine.cost)
 
     Rails.cache.write(password_key, new_password_digest, expires_in: PASSWORD_LIFETIME)
-    Rails.cache.write(password_refresh_rate_limit_key, true, expires_in: PASSWORD_REFRESH_RATE)
+    Rails.cache.write(
+      password_refresh_rate_limit_key,
+      { expires_at: Time.current + PASSWORD_REFRESH_RATE },
+      expires_in: PASSWORD_REFRESH_RATE
+    )
+  end
+
+  def set_assign_time_limit
+    Rails.cache.write(
+      assign_time_limit_key,
+      { expires_at: Time.current + ASSIGN_TIME_LIMIT },
+      expires_in: ASSIGN_TIME_LIMIT
+    )
   end
 
   def set_new_password
@@ -102,11 +122,31 @@ class User < ApplicationRecord
     self.refresh_token = SecureRandom.hex(REFRESH_TOKEN_LENGTH)
   end
 
+  # Keys
+
+  def assign_time_limit_key
+    "user:#{id}:assign_time_limit_key"
+  end
+
   def password_key
     "user:#{id}:password-digest"
   end
 
   def password_refresh_rate_limit_key
     "user:#{id}:password-refresh-rate-limit"
+  end
+
+  # Values
+
+  def assign_time_limit
+    @assign_time_limit ||= Rails.cache.read(assign_time_limit_key) || {}
+  end
+
+  def password_digest
+    @password_digest ||= Rails.cache.read(password_key) || {}
+  end
+
+  def password_refresh_rate_limit
+    @password_refresh_rate_limit ||= Rails.cache.read(password_refresh_rate_limit_key) || {}
   end
 end

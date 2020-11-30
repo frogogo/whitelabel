@@ -23,7 +23,12 @@ Content-Type: application/json
 }
 ```
 - 422: Unprocessable Entity
-- 429: Too Many Requests
+```json
+{
+  "error": "password_refresh_rate_limit",
+  "error_text": "Превышен лимит на получение СМС-кода. Повторите через 00:00:24"
+}
+```
 
 ## Authenticate user(Update JWT)
 
@@ -91,6 +96,12 @@ Content-Type: application/json
 - 200: OK
 - 401: Unauthorized
 - 422: Unprocessable Entity
+```json
+{
+  "error": "user_not_saved",
+  "error_text": "Пользователь не был сохранён. Проверьте данные и попробуйте снова"
+}
+```
 
 ## Show user
 

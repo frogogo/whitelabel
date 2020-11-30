@@ -6,13 +6,12 @@ Accept-Language: ru-RU;q=1.0, en-RU;q=0.9
 Content-Type: application/json
 
 {
-  "phone_number": "+7999113344"
+  "phone_number": "+79991113344"
 }
 
 # Response:
 # - 201: Created
 # - 422: Unprocessable Entity
-# - 429: Too Many Requests
 
 ### Authenticate user
 POST http://localhost:3000/api/user_token HTTP/1.1
@@ -22,7 +21,7 @@ Accept-Language: ru-RU;q=1.0, en-RU;q=0.9
 Content-Type: application/json
 
 {
-  "phone_number": "+7999113344",
+  "phone_number": "+79991113344",
   "password": "2615"
 }
 

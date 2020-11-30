@@ -102,9 +102,15 @@ class Receipt < ApplicationRecord
   end
 
   def user_daily_limit_not_reached
-    return if user.receipts.where(created_at: (Time.current - USER_LIMIT_PERIOD)..).none?
+    last_receipt = user.receipts.where(created_at: (Time.current - USER_LIMIT_PERIOD)..).last
+    return if last_receipt.blank?
 
-    errors.add(:base, :limit_reached)
+    errors.add(
+      :base,
+      :limit_reached,
+      time_left: Time.at(last_receipt.created_at - Time.current)
+                     .utc.strftime(APIController::TIME_FORMAT)
+    )
   end
 
   def user_has_no_processing_receipt
