@@ -10,7 +10,7 @@ module Assignable
   def assign(user)
     @user_to_assign = user
 
-    assign_to_user
+    assign_user
     interact_with_vending_machine_interface
     @user_to_assign.set_assign_time_limit
 
@@ -50,7 +50,7 @@ module Assignable
 
   private
 
-  def assign_to_user
+  def assign_user
     Rails.cache.write(
       assign_key,
       {
