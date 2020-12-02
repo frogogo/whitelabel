@@ -22,7 +22,9 @@ class API::VendingMachinesController < APIController
       end
     end
 
-    @session_id = @vending_machine.assign(@user) unless @vending_machine.assigned?(@user, @session_id)
+    unless @vending_machine.assigned?(@user, @session_id)
+      @session_id = @vending_machine.assign(@user)
+    end
     response.set_header(SESSION_ID_SET_HEADER, @session_id)
   end
 
