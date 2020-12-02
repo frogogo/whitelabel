@@ -31,6 +31,7 @@ Content-Type: application/json
   "address": "Виртуальный аппарат",
   "vending_cells_columns": 6,
   "vending_cells_rows": 10,
+  "assign_expires_in": 60,
   "vending_cells": [
     {
       "id": 1,

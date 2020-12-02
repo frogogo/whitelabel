@@ -13,6 +13,8 @@ module Assignable
     assign_to_user
     interact_with_vending_machine_interface
     @user_to_assign.set_assign_time_limit
+
+    assign_value(update: true)
   end
 
   def unassign(user)
@@ -31,6 +33,10 @@ module Assignable
 
   def assign_expires_at
     assign_value[:expires_at]
+  end
+
+  def assign_expires_in
+    (assign_expires_at - Time.current).round
   end
 
   def assigned?(user)
@@ -68,7 +74,9 @@ module Assignable
 
   # Values
 
-  def assign_value
-    @assign_value ||= Rails.cache.read(assign_key) || {}
+  def assign_value(update: false)
+    return @assign_value if defined?(@assign_value) && !update
+
+    @assign_value = Rails.cache.read(assign_key) || {}
   end
 end
