@@ -11,7 +11,7 @@ class API::VendingMachinesController < APIController
     return render_busy_error if @vending_machine.busy? && !@user.busy?
 
     if @vending_machine.busy? && @user.busy? && !@vending_machine.assigned?(@user)
-      if @vending_machine.assigned_expires_at > @user.assign_time_limit_expires_at
+      if @vending_machine.assign_expires_at > @user.assign_time_limit_expires_at
         return render_busy_error
       else
         return render_user_busy_error
@@ -49,7 +49,7 @@ class API::VendingMachinesController < APIController
   def render_busy_error
     render_error(
       :busy,
-      options: { time_left: time_left_for(@vending_machine.assigned_expires_at) }
+      options: { time_left: time_left_for(@vending_machine.assign_expires_at) }
     )
   end
 

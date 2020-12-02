@@ -29,7 +29,7 @@ module Assignable
     )
   end
 
-  def assigned_expires_at
+  def assign_expires_at
     assign_value[:expires_at]
   end
 
