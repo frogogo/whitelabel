@@ -2,6 +2,7 @@ module Assignable
   extend ActiveSupport::Concern
 
   ASSIGN_TIME = 60.seconds
+  SESSION_ID_LENGTH = 32
   UNASSIGN_TIME = 10.seconds
   UNASSIGN_OBJECT_ID = 0
 
@@ -15,6 +16,7 @@ module Assignable
     @user_to_assign.set_assign_time_limit
 
     assign_value(update: true)
+    assign_session_id
   end
 
   def unassign(user)
@@ -39,13 +41,18 @@ module Assignable
     (assign_expires_at - Time.current).round
   end
 
-  def assigned?(user)
+  def assigned?(user, session_id)
     assign_value[:object_class] == user.class.name.parameterize &&
-      assign_value[:object_id] == user.id
+      assign_value[:object_id] == user.id &&
+      assign_value[:session_id] == session_id
   end
 
   def busy?
     assign_value[:object_id].present?
+  end
+
+  def assign_session_id
+    assign_value[:session_id]
   end
 
   private
@@ -56,10 +63,15 @@ module Assignable
       {
         expires_at: Time.current + ASSIGN_TIME,
         object_class: user_to_assign.class.name.parameterize,
-        object_id: user_to_assign.id
+        object_id: user_to_assign.id,
+        session_id: generate_session_id
       },
       expires_in: ASSIGN_TIME
     )
+  end
+
+  def generate_session_id
+    SecureRandom.base64(SESSION_ID_LENGTH)
   end
 
   def interact_with_vending_machine_interface

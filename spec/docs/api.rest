@@ -103,6 +103,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MDI2NzgyNjUsInN1YiI6MX0.E
 Accept: application/json
 Accept-Language: ru-RU;q=1.0, en-RU;q=0.9
 Content-Type: application/json
+Session-Id: GoUp9Up0csH7YcchNnWiPrIx9Opbff89eJrI+d15EU4=
 
 {
   "receipt_id": 2
@@ -121,6 +122,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MDI2NzgyNjUsInN1YiI6MX0.E
 Accept: application/json
 Accept-Language: ru-RU;q=1.0, en-RU;q=0.9
 Content-Type: application/json
+Session-Id: /PoBgpI6K4slTzofC+XZ8iSXqAnhCXyCnQC4WAw6Fdo=
 
 {
   "item_id": 1,

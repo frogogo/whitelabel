@@ -1,4 +1,7 @@
 class API::VendingMachinesController < APIController
+  SESSION_ID_GET_HEADER = 'HTTP_SESSION_ID'.freeze
+  SESSION_ID_SET_HEADER = 'Session-Id'.freeze
+
   def assign
     @user = current_user
     @receipt = @user.receipts.approved.find_by(id: params[:receipt_id])
@@ -10,7 +13,8 @@ class API::VendingMachinesController < APIController
     return render_user_busy_error if !@vending_machine.busy? && @user.busy?
     return render_busy_error if @vending_machine.busy? && !@user.busy?
 
-    if @vending_machine.busy? && @user.busy? && !@vending_machine.assigned?(@user)
+    @session_id = request.get_header(SESSION_ID_GET_HEADER)
+    if @vending_machine.busy? && @user.busy? && !@vending_machine.assigned?(@user, @session_id)
       if @vending_machine.assign_expires_at > @user.assign_time_limit_expires_at
         return render_busy_error
       else
@@ -18,7 +22,8 @@ class API::VendingMachinesController < APIController
       end
     end
 
-    @vending_machine.assign(@user) unless @vending_machine.assigned?(@user)
+    @session_id = @vending_machine.assign(@user) unless @vending_machine.assigned?(@user, @session_id)
+    response.set_header(SESSION_ID_SET_HEADER, @session_id)
   end
 
   def take_item
@@ -28,7 +33,9 @@ class API::VendingMachinesController < APIController
     @vending_machine = VendingMachine.find_by(public_id: params[:id])
 
     return head :not_found if @vending_machine.blank? || @item.blank? || @receipt.blank?
-    return render_error(:not_assigned) unless @vending_machine.assigned?(@user)
+
+    @session_id = request.get_header(SESSION_ID_GET_HEADER)
+    return render_error(:not_assigned) unless @vending_machine.assigned?(@user, @session_id)
 
     result = @vending_machine.take_item(@item, @receipt, params[:vending_cell_id])
     if result == :ok

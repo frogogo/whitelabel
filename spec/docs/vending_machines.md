@@ -15,6 +15,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MDE5ODYzNDEsInN1YiI6MX0.H
 Accept: application/json
 Accept-Language: ru-RU;q=1.0, en-RU;q=0.9
 Content-Type: application/json
+Session-Id: auqX6c3Orw3jKxQUDedzRI82hGzOnaTE0/m6xnkK334=
 
 {
   "receipt_id": 2
@@ -26,6 +27,9 @@ Content-Type: application/json
 
 - 200: OK
 
+```http
+Session-Id: auqX6c3Orw3jKxQUDedzRI82hGzOnaTE0/m6xnkK334=
+```
 ```json
 {
   "address": "Виртуальный аппарат",
@@ -120,6 +124,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MDE5ODYzNDEsInN1YiI6MX0.H
 Accept: application/json
 Accept-Language: ru-RU;q=1.0, en-RU;q=0.9
 Content-Type: application/json
+Session-Id: auqX6c3Orw3jKxQUDedzRI82hGzOnaTE0/m6xnkK334=
 
 {
   "item_id": 1,
