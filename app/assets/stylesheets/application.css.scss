@@ -2540,7 +2540,7 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
   margin-bottom: 0;
 }
 
-.haeder__mob-header {
+.header__mob-header {
   display: none;
 }
 
@@ -4026,7 +4026,7 @@ html {
     display: none;
   }
 
-  .haeder__mob-header {
+  .header__mob-header {
     position: absolute;
     width: 100%;
     background-color: #FFA956;
@@ -4054,7 +4054,7 @@ html {
     z-index: 4;
   }
 
-  .haeder__mob-header_open {
+  .header__mob-header_open {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -4076,16 +4076,16 @@ html {
     margin-left: auto;
   }
 
-  .haeder__mob-list {
+  .header__mob-list {
     margin-bottom: 24px;
     border-bottom: 1px solid #FFC28B;
   }
 
-  .haeder__mob-list li {
+  .header__mob-list li {
     text-align: center;
   }
 
-  .haeder__mob-list_bb {
+  .header__mob-list_bb {
     border-bottom: none;
   }
 
