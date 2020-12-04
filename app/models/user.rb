@@ -18,7 +18,8 @@
 #  index_users_on_refresh_token  (refresh_token) UNIQUE
 #
 class User < ApplicationRecord
-  ASSIGN_TIME_LIMIT = 5.minutes
+  # TODO: change to 5 minutes later
+  ASSIGN_TIME_LIMIT = 2.minutes
   PASSWORD_LENGTH = 4
   PASSWORD_LIFETIME = 5.minutes
   PASSWORD_MAX_NUMBER = 9999
