@@ -19,21 +19,23 @@ rails db:setup
 rails db:seed
 ```
 
+* Run server instructions
+```bash
+rails dev:cache
+rails assets:precompile
+rails s
+```
 
 * How to run the test suite
 
 ```bash
-rails t
+bundle exec rspec
 ```
 
 * Services (job queues, cache servers, search engines, etc.)
 
-```
-redis-server
-```
-
 * Deployment instructions
 
 ```
-Heroku manual deploy
+Heroku automatic deploy
 ```
