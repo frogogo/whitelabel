@@ -43,6 +43,10 @@
 
 /* etc */
 
+html {
+  scroll-behavior: smooth;
+}
+
 .container {
   max-width: 984px;
   width: 100%;

@@ -1,21 +1,7 @@
-// document.querySelector('.hello').addEventListener("click", function({
-
-// }));
-// \.scrollIntoView({
-//   behavior: 'smooth'
-// });
-
-
-// // Функция изменяет содержимое t2
-// function modifyText() {
-//   var t2 = document.getElementById("t2");
-//   if (t2.firstChild.nodeValue == "три") {
-//     t2.firstChild.nodeValue = "два";
-//   } else {
-//     t2.firstChild.nodeValue = "три";
-//   }
-// }
-
-// // Добавляет слушателя событий для таблицы
-// var el = document.getElementById("outside");
-// el.addEventListener("click", modifyText, false);
+window.addEventListener("load", () => {
+  const menu_button = document.querySelector(".header__burger");
+  menu_button.addEventListener("click", () => {
+    document.querySelector(".haeder__mob-header").classList.toggle("haeder__mob-header_open");
+    document.querySelector(".header__burger").classList.toggle("header__burger_open");
+  });
+});
