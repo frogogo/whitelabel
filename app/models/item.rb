@@ -42,10 +42,11 @@ class Item < ApplicationRecord
     quantity.zero?
   end
 
-  def state_for(receipt, vending_cell)
+  def state_for(receipt, vending_cell = nil)
     return :unavailable unless active? && promotion.active?
     return :unavailable unless receipt.approved?
-    return :out_of_stock if empty? && vending_cell.empty?
+    return :out_of_stock if empty?
+    return :out_of_stock if vending_cell&.empty?
 
     # TODO: change to :wrong_promotion later
     return :unavailable unless receipt.promotion == promotion

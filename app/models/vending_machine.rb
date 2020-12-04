@@ -55,6 +55,7 @@ class VendingMachine < ApplicationRecord
     return :'item_not_taken.promotion_inactive' unless receipt.promotion.active?
     return :'item_not_taken.wrong_promotion' unless receipt.promotion == item.promotion
 
+    vending_cell = nil
     if vending_cell_id.present?
       vending_cell = vending_cells.find(vending_cell_id)
 
@@ -63,7 +64,7 @@ class VendingMachine < ApplicationRecord
       return :'item_not_taken.unavailable' if vending_cell.item != item
     end
 
-    item_state_for_receipt = item.state_for(receipt)
+    item_state_for_receipt = item.state_for(receipt, vending_cell)
     return :"item_not_taken.#{item_state_for_receipt}" unless item_state_for_receipt == :available
 
     options = { id: vending_cell_id, item: item }.compact
