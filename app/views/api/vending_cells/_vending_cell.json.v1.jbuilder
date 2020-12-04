@@ -1,1 +1,1 @@
-json.extract! vending_cell, :id, :column, :quantity, :row
+json.extract! vending_cell, :id, :column, :row
