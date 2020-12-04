@@ -8,7 +8,7 @@ json.vending_cells do
     if vending_cell.item.present?
       json.item do
         json.partial! vending_cell.item, as: :item
-        json.state vending_cell.item.state_for(@receipt)
+        json.state vending_cell.item.state_for(@receipt, vending_cell)
       end
     end
   end

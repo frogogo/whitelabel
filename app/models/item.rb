@@ -38,10 +38,14 @@ class Item < ApplicationRecord
 
   mount_uploader :image, ImageUploader
 
-  def state_for(receipt)
+  def empty?
+    quantity.zero?
+  end
+
+  def state_for(receipt, vending_cell)
     return :unavailable unless active? && promotion.active?
     return :unavailable unless receipt.approved?
-    return :out_of_stock unless quantity.positive?
+    return :out_of_stock if empty? && vending_cell.empty?
 
     # TODO: change to :wrong_promotion later
     return :unavailable unless receipt.promotion == promotion
