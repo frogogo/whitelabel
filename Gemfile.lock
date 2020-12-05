@@ -89,6 +89,7 @@ GEM
     diff-lcs (1.4.4)
     erubi (1.10.0)
     excon (0.78.1)
+    execjs (2.7.0)
     faraday (1.1.0)
       multipart-post (>= 1.2, < 3)
       ruby2_keywords
@@ -293,6 +294,8 @@ GEM
       trestle (~> 0.9.0, >= 0.9.3)
     tzinfo (1.2.8)
       thread_safe (~> 0.1)
+    uglifier (4.2.0)
+      execjs (>= 0.3.0, < 3)
     unicode-display_width (1.7.0)
     versioncake (4.0.2)
       actionpack (> 5.0)
@@ -342,6 +345,7 @@ DEPENDENCIES
   trestle-auth (~> 0.4.1)
   trestle-search (~> 0.4.3)
   tzinfo-data
+  uglifier (~> 4.2.0)
   versioncake (~> 4.0.2)
   web-console (>= 4.1.0)
 
