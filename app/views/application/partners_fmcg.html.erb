@@ -391,8 +391,11 @@
             <a href="#" class="link footer__link">Контакты</a>
         </div>
     </div>
-    <%= link_to root_path, class: 'footer__bottom-link' do %>
-        Вернуться на <ins>основной сайт</ins>
-    <% end %>
+
+    <div class="footer__bottom-link">
+        <%= link_to root_path, class: 'footer__bottom-link' do %>
+            Вернуться на <ins>основной сайт</ins>
+        <% end %>
+    </div>
 </footer>
 <div class="g-popup _overlay"></div>
