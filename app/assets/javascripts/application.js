@@ -5,8 +5,8 @@ window.addEventListener("load", () => {
   var headerBurger = document.querySelector(".header__burger");
 
   menuButton.addEventListener("click", () => {
-    headerMob.className = "header__mob-header header__mob-header_open";
-    headerBurger.className = "header__burger header__burger_open";
+    headerMob.classList.toggle("header__mob-header_open");
+    headerBurger.classList.toggle("header__burger_open");
   });
 
   closeMenuLinks.forEach((link) => {
