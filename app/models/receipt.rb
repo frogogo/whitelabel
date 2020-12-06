@@ -58,21 +58,20 @@ class Receipt < ApplicationRecord
   belongs_to :promotion, optional: true
   belongs_to :user
 
-  before_create :set_data
   before_create :set_promotion, if: -> { promotion.blank? }
 
   after_create_commit :validate_receipt
 
   def number
-    data['i'].to_i
+    qr_keys['i'].to_i
   end
 
   def sum
-    data['s'].to_i
+    qr_keys['s'].to_i
   end
 
   def timestamp
-    data['t'].to_time.iso8601
+    qr_keys['t'].to_time.iso8601
   end
 
   def reject_reason_text
@@ -93,8 +92,8 @@ class Receipt < ApplicationRecord
     errors.add(:promotion, :required)
   end
 
-  def set_data
-    self.data = qr_string.match(QR_STRING_REGEXP).named_captures
+  def qr_keys
+    qr_string.match(QR_STRING_REGEXP).named_captures
   end
 
   def set_promotion
