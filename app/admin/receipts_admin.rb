@@ -41,6 +41,7 @@ Trestle.resource(:receipts) do
     select :reject_reason, Receipt.reject_reasons.keys, include_blank: true
     select :promotion_id, Promotion.all, include_blank: true
     select :item_id, Item.all, include_blank: true
+    text_field :data, disabled: true
   end
 
   params do |params|
