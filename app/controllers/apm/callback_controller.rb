@@ -16,7 +16,9 @@ class APM::CallbackController < ActionController::API
   private
 
   def authenticate
-    raise SecurityError if headers[:authorization] != Rails.credentials.apm_check[:callback_token]
+    if headers[:authorization] != Rails.application.credentials.apm_check[:callback_token]
+      raise SecurityError
+    end
   end
 
   def permitted_params
