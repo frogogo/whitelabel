@@ -26,7 +26,7 @@ class APM::CallbackController < ActionController::API
   def permitted_params
     params.permit(
       :approved, :channel, :createdAt, :duplicate, :fnsReceipt, :meta, :promoId, :receiptDate,
-      :receiptId, :rejectReason, :reject_key, :rules, :rulesCount, :rulesPoints, :source, :state,
+      :receiptId, :rejectReason, :rejectKey, :rules, :rulesCount, :rulesPoints, :source, :state,
       :userUuid, :uuid,
       photos: [], reviewiers: [],
       answers: [:products_with_count_and_subtotals, { products: %i[id count name] },
@@ -42,7 +42,7 @@ class APM::CallbackController < ActionController::API
     {
       data: permitted_params,
       state: permitted_params[:approved] ? :approved : :rejected,
-      reject_reason: ReceiptValidator::APMCheck::REJECT_REASONS[permitted_params[:reject_key]],
+      reject_reason: ReceiptValidator::APMCheck::REJECT_REASONS[permitted_params[:rejectKey]],
       uuid: permitted_params[:uuid],
       promotion: @promotion
     }
