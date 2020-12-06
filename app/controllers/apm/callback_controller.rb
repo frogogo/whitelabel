@@ -41,10 +41,22 @@ class APM::CallbackController < ActionController::API
   def receipt_params
     {
       data: permitted_params,
-      state: permitted_params[:approved] ? :approved : :rejected,
+      state: state,
       reject_reason: ReceiptValidator::APMCheck::REJECT_REASONS[permitted_params[:rejectKey]],
       uuid: permitted_params[:uuid],
       promotion: @promotion
     }
+  end
+
+  def state
+    case permitted_params[:state]
+    when 'ARRIVED'
+      :processing
+    when 'REVIEWED'
+      permitted_params[:approved] ? :approved : :rejected
+    else
+      Rollbar.error("Receipt #{@receipt.qr_string} validation failed: wrong receipt state.")
+      :rejected
+    end
   end
 end
