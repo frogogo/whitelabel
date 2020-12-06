@@ -17,7 +17,9 @@ class APM::CallbackController < ActionController::API
 
   def authenticate
     if headers[:authorization] != Rails.application.credentials.apm_check[:callback_token]
-      raise SecurityError
+      Rollbar.error("Receipt validation failed: wrong credentials - #{headers[:authorization]}")
+
+      head :unauthorized
     end
   end
 
