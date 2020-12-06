@@ -15,7 +15,7 @@
 #          api_user_token_index POST  /api/user_token(.:format)                                                                api/user_token#create
 #    assign_api_vending_machine POST  /api/vending_machines/:id/assign(.:format)                                               api/vending_machines#assign
 # take_item_api_vending_machine POST  /api/vending_machines/:id/take_item(.:format)                                            api/vending_machines#take_item
-#                  apm_callback POST  /apm/callback(.:format)                                                                  apm/callbacks#create
+#            apm_callback_index POST  /apm/callback(.:format)                                                                  apm/callback#create
 #            rails_service_blob GET   /rails/active_storage/blobs/:signed_id/*filename(.:format)                               active_storage/blobs#show
 #     rails_blob_representation GET   /rails/active_storage/representations/:signed_blob_id/:variation_key/*filename(.:format) active_storage/representations#show
 #            rails_disk_service GET   /rails/active_storage/disk/:encoded_key/*filename(.:format)                              active_storage/disk#show
@@ -117,6 +117,6 @@ Rails.application.routes.draw do
   end
 
   namespace :apm do
-    resource :callback, only: %i[create]
+    resources :callback, only: %i[create]
   end
 end
