@@ -5,8 +5,8 @@ VersionCake.setup do |config|
   # resources you can define a catch all at the bottom of the block.
   config.resources do |r|
     # r.resource uri_regex, obsolete, deprecated, supported
-    r.resource %r{.*}, [], [], (1..5)
-    config.extraction_strategy = [:http_accept_parameter, :http_header]
+    r.resource(/.*/, [], [], (1..5))
+    config.extraction_strategy = %i[http_accept_parameter http_header]
     config.missing_version = 1
   end
 
