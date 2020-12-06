@@ -64,7 +64,7 @@ group :development do
 end
 
 group :production do
-  # gem 'sidekiq', '~> 6.1'
+  gem 'sidekiq', '~> 6.1'
   gem 'uglifier', '~> 4.2'
 end
 
