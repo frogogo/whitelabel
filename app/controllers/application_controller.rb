@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
 
   def index; end
 
-  def partners_retail; end
+  def retail; end
 
-  def partners_fmcg; end
+  def fmcg; end
 end

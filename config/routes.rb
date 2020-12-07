@@ -3,8 +3,8 @@
 #                        Prefix Verb  URI Pattern                                                                              Controller#Action
 #                       trestle       /admin                                                                                   Trestle::Engine
 #                          root GET   /                                                                                        application#index
-#               partners_retail GET   /partners-retail(.:format)                                                               application#partners_retail
-#                 partners_fmcg GET   /partners-fmcg(.:format)                                                                 application#partners_fmcg
+#                        retail GET   /retail(.:format)                                                                        application#retail
+#                          fmcg GET   /fmcg(.:format)                                                                          application#fmcg
 #                api_home_index GET   /api/home(.:format)                                                                      api/home#index
 #                  api_receipts GET   /api/receipts(.:format)                                                                  api/receipts#index
 #                               POST  /api/receipts(.:format)                                                                  api/receipts#create
@@ -102,8 +102,8 @@
 
 Rails.application.routes.draw do
   root to: 'application#index'
-  get 'partners-retail', to: 'application#partners_retail'
-  get 'partners-fmcg', to: 'application#partners_fmcg'
+  get 'retail', to: 'application#retail'
+  get 'fmcg', to: 'application#fmcg'
 
   namespace :api do
     resources :home, only: %i[index]
