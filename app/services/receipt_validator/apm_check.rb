@@ -2,7 +2,7 @@
 
 class ReceiptValidator::APMCheck < ReceiptValidator::Default
   CHANNEL = 'app'
-  META = 'poprobuy.ru'
+  META = { host: 'poprobuy.ru' }.freeze
   POST_QR_RECEIPT_PATH = '/api/receipts/qr'
   STATUS_SUCCESS = 'success'
   REJECT_REASONS = {
@@ -49,7 +49,7 @@ class ReceiptValidator::APMCheck < ReceiptValidator::Default
       qrStr: receipt.qr_string,
       usrUuid: user.uuid,
       channel: CHANNEL,
-      meta: META
+      meta: META.to_json
     }.to_json
   end
 
