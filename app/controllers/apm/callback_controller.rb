@@ -8,7 +8,7 @@ class APM::CallbackController < ActionController::API
 
     @receipt.update!(receipt_params)
 
-    render json: { externalId: receipt.id, meta: ReceiptValidator::APMCheck::META }
+    render json: { externalId: @receipt.id, meta: ReceiptValidator::APMCheck::META }
   rescue ActiveRecord::RecordInvalid, ActiveRecord::RecordNotSaved => e
     Rollbar.error("Receipt #{@receipt.qr_string} update failed. Record not saved: #{e}")
 
