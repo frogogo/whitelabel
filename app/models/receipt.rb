@@ -30,7 +30,7 @@
 #
 class Receipt < ApplicationRecord
   QR_STRING_REGEXP = /\At=(?<t>\w+)&s=(?<s>\d+.\d+)&fn=(?<fn>\d+)&i=(?<i>\d+)&fp=(?<fp>\d+)&n=(?<n>\d)\z/.freeze
-  USER_LIMIT_PERIOD = 24.hours
+  USER_LIMIT_PERIOD = 1.minute
 
   enum reject_reason: {
     invalid_date: 0,
