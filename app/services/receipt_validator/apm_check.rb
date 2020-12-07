@@ -47,7 +47,7 @@ class ReceiptValidator::APMCheck < ReceiptValidator::Default
       config: config,
       externalId: receipt.id,
       qrStr: receipt.qr_string,
-      usrUuid: user.uuid,
+      userUuid: user.uuid,
       channel: CHANNEL,
       meta: META.to_json
     }.to_json
