@@ -2,7 +2,7 @@
 
 class ReceiptValidator::APMCheck < ReceiptValidator::Default
   CHANNEL = 'app'
-  META = "poprobuy.ru - #{Rails.env}"
+  META = 'poprobuy.ru'
   POST_QR_RECEIPT_PATH = '/api/receipts/qr'
   STATUS_SUCCESS = 'success'
   REJECT_REASONS = {
