@@ -1,6 +1,6 @@
 FROM ruby:2.7.2-slim-buster
 
-ENV RAILS_VERSION=6.0.3.4
+ENV RAILS_VERSION=6.1.0
 
 # Upgrade packages and install dependencies(imagemagick)
 RUN apt-get update -yqq && apt-get upgrade -yqq && apt-get -yqq --no-install-recommends \

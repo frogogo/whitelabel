@@ -62,3 +62,11 @@ RSpec.configure do |config|
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
 end
+
+def api_headers
+  {
+    'Accept' => 'application/json',
+    'Accept-Language' => 'ru-RU;q=1.0, en-RU;q=0.9',
+    'Content-Type' => 'application/json'
+  }
+end

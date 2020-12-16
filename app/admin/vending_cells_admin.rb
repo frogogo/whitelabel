@@ -11,7 +11,7 @@ Trestle.resource(:vending_cells) do
 
   search do |query|
     if query
-      VendingCell.joins(:vending_machine).where('vending_machines.public_id = ?', query)
+      VendingCell.joins(:vending_machine).where('vending_machines.public_id' => query)
     else
       VendingCell.all
     end

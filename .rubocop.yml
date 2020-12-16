@@ -11,7 +11,7 @@ AllCops:
     - 'lib/tasks/*'
   NewCops: enable
   TargetRubyVersion: 2.7
-  TargetRailsVersion: 6
+  TargetRailsVersion: 6.1
 
 Layout/LineLength:
   Max: 100
