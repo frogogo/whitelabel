@@ -22,7 +22,7 @@ gem 'bcrypt', '~> 3.1'
 
 gem 'http_accept_language', '~> 2.1'
 
-gem 'faraday', '~> 1.1'
+gem 'faraday', '~> 1.3'
 gem 'slack-ruby-client', '~> 0.15'
 
 # TODO: change to stable version after release v2.2.0
@@ -50,7 +50,7 @@ end
 group :development do
   gem 'annotate', '~> 3.1'
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
-  gem 'listen', '~> 3.3'
+  gem 'listen', '~> 3.4'
   gem 'web-console', '>= 4.1.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
