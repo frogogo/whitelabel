@@ -44,14 +44,6 @@
 #                                   PATCH  /distribution_networks/:id(.:format)      distribution_networks_admin/admin#update
 #                                   PUT    /distribution_networks/:id(.:format)      distribution_networks_admin/admin#update
 #                                   DELETE /distribution_networks/:id(.:format)      distribution_networks_admin/admin#destroy
-#         manufacturers_admin_index GET    /manufacturers(.:format)                  manufacturers_admin/admin#index
-#                                   POST   /manufacturers(.:format)                  manufacturers_admin/admin#create
-#           new_manufacturers_admin GET    /manufacturers/new(.:format)              manufacturers_admin/admin#new
-#          edit_manufacturers_admin GET    /manufacturers/:id/edit(.:format)         manufacturers_admin/admin#edit
-#               manufacturers_admin GET    /manufacturers/:id(.:format)              manufacturers_admin/admin#show
-#                                   PATCH  /manufacturers/:id(.:format)              manufacturers_admin/admin#update
-#                                   PUT    /manufacturers/:id(.:format)              manufacturers_admin/admin#update
-#                                   DELETE /manufacturers/:id(.:format)              manufacturers_admin/admin#destroy
 #            promotions_admin_index GET    /promotions(.:format)                     promotions_admin/admin#index
 #                                   POST   /promotions(.:format)                     promotions_admin/admin#create
 #              new_promotions_admin GET    /promotions/new(.:format)                 promotions_admin/admin#new

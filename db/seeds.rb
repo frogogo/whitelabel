@@ -16,18 +16,6 @@ distribution_network = DistributionNetwork.create!(
   taxpayer_identification_number: '7839078339'
 )
 
-manufacturer = Manufacturer.create!(
-  account: '40702810110000087777 в АО «Тинькофф Банк»',
-  business_address: 'ул. Профсоюзная, д. 77, корп. 44, г. Москва, Российская Федерация, 117444',
-  chief_executive_officer: 'Максимов Максим Максимович',
-  constact_person: 'Светлова Светлана Светлановна',
-  email: 'maksimov@tvorogskazka.ru',
-  name: 'Творожная сказка',
-  phone_number: '+7999221144',
-  tax_registration_reason_code: '783901035',
-  taxpayer_identification_number: '7839078357'
-)
-
 promotion = Promotion.create!(
   api_token: '012345678',
   active: true,
