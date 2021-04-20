@@ -2,19 +2,16 @@
 #
 # Table name: promotions
 #
-#  id                      :bigint           not null, primary key
-#  active                  :boolean          default(FALSE)
-#  api_token               :string           not null
-#  description             :string
-#  name                    :string           not null
-#  created_at              :datetime         not null
-#  updated_at              :datetime         not null
-#  distribution_network_id :bigint           not null
-#  promo_id                :integer          not null
+#  id          :bigint           not null, primary key
+#  active      :boolean          default(FALSE)
+#  api_token   :string           not null
+#  description :string
+#  name        :string           not null
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  promo_id    :integer          not null
 #
 class Promotion < ApplicationRecord
-  belongs_to :distribution_network
-
   has_many :receipts, dependent: :destroy
 
   validates :api_token, presence: true
