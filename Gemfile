@@ -18,8 +18,6 @@ gem 'redis', '~> 4.2'
 # Use Active Model has_secure_password
 gem 'bcrypt', '~> 3.1'
 
-gem 'http_accept_language', '~> 2.1'
-
 gem 'faraday', '~> 1.3'
 gem 'slack-ruby-client', '~> 0.15'
 

@@ -9,8 +9,6 @@ class APIController < ActionController::API
 
   before_action :authenticate_user
 
-  around_action :switch_locale
-
   def limit
     params[:limit] || LIMIT
   end
@@ -19,14 +17,10 @@ class APIController < ActionController::API
     params[:start_from] || START_FROM
   end
 
-  def switch_locale(&action)
-    I18n.with_locale(locale, &action)
-  end
-
   private
 
-  def locale
-    http_accept_language.preferred_language_from(I18n.available_locales) || DEFAULT_LOCALE
+  def set_locale
+    I18n.locale = DEFAULT_LOCALE
   end
 
   def render_error(error, status: :unprocessable_entity, options: {})
