@@ -114,10 +114,6 @@ Rails.application.routes.draw do
     resources :receipts, only: %i[index create]
     resource :user, only: %i[create show update]
     resources :user_token, only: %i[create]
-    resources :vending_machines, only: %i[] do
-      post 'assign', to: 'vending_machines#assign', on: :member
-      post 'take_item', to: 'vending_machines#take_item', on: :member
-    end
   end
 
   namespace :apm do
