@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_20_103142) do
+ActiveRecord::Schema.define(version: 2021_04_20_103721) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -39,21 +39,6 @@ ActiveRecord::Schema.define(version: 2021_04_20_103142) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["name"], name: "index_distribution_networks_on_name", unique: true
-  end
-
-  create_table "manufacturers", force: :cascade do |t|
-    t.string "name", null: false
-    t.string "account"
-    t.string "business_address"
-    t.string "chief_executive_officer"
-    t.string "constact_person"
-    t.string "taxpayer_identification_number"
-    t.string "tax_registration_reason_code"
-    t.string "email"
-    t.string "phone_number"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["name"], name: "index_manufacturers_on_name", unique: true
   end
 
   create_table "promotions", force: :cascade do |t|
