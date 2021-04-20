@@ -14,8 +14,7 @@ gem 'sass-rails', '~> 6.0'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.10'
 # Use Redis adapter to run Action Cable in production
-gem 'hiredis', '~> 0.6'
-gem 'redis', '~> 4.2', require: ['redis', 'redis/connection/hiredis']
+gem 'redis', '~> 4.2'
 # Use Active Model has_secure_password
 gem 'bcrypt', '~> 3.1'
 
