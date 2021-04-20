@@ -25,50 +25,42 @@
 #            rails_direct_uploads POST  /rails/active_storage/direct_uploads(.:format)                                                    active_storage/direct_uploads#create
 #
 # Routes for Trestle::Engine:
-#                             login GET    /login(.:format)                          trestle/auth/sessions#new
-#                                   POST   /login(.:format)                          trestle/auth/sessions#create
-#                            logout GET    /logout(.:format)                         trestle/auth/sessions#destroy
-#   auth_administrators_admin_index GET    /auth/administrators(.:format)            auth/administrators_admin/admin#index
-#                                   POST   /auth/administrators(.:format)            auth/administrators_admin/admin#create
-#     new_auth_administrators_admin GET    /auth/administrators/new(.:format)        auth/administrators_admin/admin#new
-#    edit_auth_administrators_admin GET    /auth/administrators/:id/edit(.:format)   auth/administrators_admin/admin#edit
-#         auth_administrators_admin GET    /auth/administrators/:id(.:format)        auth/administrators_admin/admin#show
-#                                   PATCH  /auth/administrators/:id(.:format)        auth/administrators_admin/admin#update
-#                                   PUT    /auth/administrators/:id(.:format)        auth/administrators_admin/admin#update
-#                                   DELETE /auth/administrators/:id(.:format)        auth/administrators_admin/admin#destroy
-# distribution_networks_admin_index GET    /distribution_networks(.:format)          distribution_networks_admin/admin#index
-#                                   POST   /distribution_networks(.:format)          distribution_networks_admin/admin#create
-#   new_distribution_networks_admin GET    /distribution_networks/new(.:format)      distribution_networks_admin/admin#new
-#  edit_distribution_networks_admin GET    /distribution_networks/:id/edit(.:format) distribution_networks_admin/admin#edit
-#       distribution_networks_admin GET    /distribution_networks/:id(.:format)      distribution_networks_admin/admin#show
-#                                   PATCH  /distribution_networks/:id(.:format)      distribution_networks_admin/admin#update
-#                                   PUT    /distribution_networks/:id(.:format)      distribution_networks_admin/admin#update
-#                                   DELETE /distribution_networks/:id(.:format)      distribution_networks_admin/admin#destroy
-#            promotions_admin_index GET    /promotions(.:format)                     promotions_admin/admin#index
-#                                   POST   /promotions(.:format)                     promotions_admin/admin#create
-#              new_promotions_admin GET    /promotions/new(.:format)                 promotions_admin/admin#new
-#             edit_promotions_admin GET    /promotions/:id/edit(.:format)            promotions_admin/admin#edit
-#                  promotions_admin GET    /promotions/:id(.:format)                 promotions_admin/admin#show
-#                                   PATCH  /promotions/:id(.:format)                 promotions_admin/admin#update
-#                                   PUT    /promotions/:id(.:format)                 promotions_admin/admin#update
-#                                   DELETE /promotions/:id(.:format)                 promotions_admin/admin#destroy
-#              receipts_admin_index GET    /receipts(.:format)                       receipts_admin/admin#index
-#                                   POST   /receipts(.:format)                       receipts_admin/admin#create
-#                new_receipts_admin GET    /receipts/new(.:format)                   receipts_admin/admin#new
-#               edit_receipts_admin GET    /receipts/:id/edit(.:format)              receipts_admin/admin#edit
-#                    receipts_admin GET    /receipts/:id(.:format)                   receipts_admin/admin#show
-#                                   PATCH  /receipts/:id(.:format)                   receipts_admin/admin#update
-#                                   PUT    /receipts/:id(.:format)                   receipts_admin/admin#update
-#                                   DELETE /receipts/:id(.:format)                   receipts_admin/admin#destroy
-#                 users_admin_index GET    /users(.:format)                          users_admin/admin#index
-#                                   POST   /users(.:format)                          users_admin/admin#create
-#                   new_users_admin GET    /users/new(.:format)                      users_admin/admin#new
-#                  edit_users_admin GET    /users/:id/edit(.:format)                 users_admin/admin#edit
-#                       users_admin GET    /users/:id(.:format)                      users_admin/admin#show
-#                                   PATCH  /users/:id(.:format)                      users_admin/admin#update
-#                                   PUT    /users/:id(.:format)                      users_admin/admin#update
-#                                   DELETE /users/:id(.:format)                      users_admin/admin#destroy
-#                              root GET    /                                         trestle/dashboard#index
+#                           login GET    /login(.:format)                        trestle/auth/sessions#new
+#                                 POST   /login(.:format)                        trestle/auth/sessions#create
+#                          logout GET    /logout(.:format)                       trestle/auth/sessions#destroy
+# auth_administrators_admin_index GET    /auth/administrators(.:format)          auth/administrators_admin/admin#index
+#                                 POST   /auth/administrators(.:format)          auth/administrators_admin/admin#create
+#   new_auth_administrators_admin GET    /auth/administrators/new(.:format)      auth/administrators_admin/admin#new
+#  edit_auth_administrators_admin GET    /auth/administrators/:id/edit(.:format) auth/administrators_admin/admin#edit
+#       auth_administrators_admin GET    /auth/administrators/:id(.:format)      auth/administrators_admin/admin#show
+#                                 PATCH  /auth/administrators/:id(.:format)      auth/administrators_admin/admin#update
+#                                 PUT    /auth/administrators/:id(.:format)      auth/administrators_admin/admin#update
+#                                 DELETE /auth/administrators/:id(.:format)      auth/administrators_admin/admin#destroy
+#          promotions_admin_index GET    /promotions(.:format)                   promotions_admin/admin#index
+#                                 POST   /promotions(.:format)                   promotions_admin/admin#create
+#            new_promotions_admin GET    /promotions/new(.:format)               promotions_admin/admin#new
+#           edit_promotions_admin GET    /promotions/:id/edit(.:format)          promotions_admin/admin#edit
+#                promotions_admin GET    /promotions/:id(.:format)               promotions_admin/admin#show
+#                                 PATCH  /promotions/:id(.:format)               promotions_admin/admin#update
+#                                 PUT    /promotions/:id(.:format)               promotions_admin/admin#update
+#                                 DELETE /promotions/:id(.:format)               promotions_admin/admin#destroy
+#            receipts_admin_index GET    /receipts(.:format)                     receipts_admin/admin#index
+#                                 POST   /receipts(.:format)                     receipts_admin/admin#create
+#              new_receipts_admin GET    /receipts/new(.:format)                 receipts_admin/admin#new
+#             edit_receipts_admin GET    /receipts/:id/edit(.:format)            receipts_admin/admin#edit
+#                  receipts_admin GET    /receipts/:id(.:format)                 receipts_admin/admin#show
+#                                 PATCH  /receipts/:id(.:format)                 receipts_admin/admin#update
+#                                 PUT    /receipts/:id(.:format)                 receipts_admin/admin#update
+#                                 DELETE /receipts/:id(.:format)                 receipts_admin/admin#destroy
+#               users_admin_index GET    /users(.:format)                        users_admin/admin#index
+#                                 POST   /users(.:format)                        users_admin/admin#create
+#                 new_users_admin GET    /users/new(.:format)                    users_admin/admin#new
+#                edit_users_admin GET    /users/:id/edit(.:format)               users_admin/admin#edit
+#                     users_admin GET    /users/:id(.:format)                    users_admin/admin#show
+#                                 PATCH  /users/:id(.:format)                    users_admin/admin#update
+#                                 PUT    /users/:id(.:format)                    users_admin/admin#update
+#                                 DELETE /users/:id(.:format)                    users_admin/admin#destroy
+#                            root GET    /                                       trestle/dashboard#index
 
 Rails.application.routes.draw do
   root to: 'application#index'

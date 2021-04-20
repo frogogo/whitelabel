@@ -21,7 +21,6 @@ Trestle.resource(:promotions) do
 
   table do
     column :name
-    column :distribution_network
     column :created_at, align: :center
     actions
   end
@@ -34,8 +33,6 @@ Trestle.resource(:promotions) do
     text_field :description
     text_field :api_token, label: 'API token(APM)'
     text_field :promo_id, label: 'promo id(APM)'
-
-    select :distribution_network_id, DistributionNetwork.all, include_blank: true
   end
 
   params do |params|

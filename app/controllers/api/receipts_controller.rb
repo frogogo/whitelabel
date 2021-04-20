@@ -1,7 +1,7 @@
 class API::ReceiptsController < APIController
   def index
     @receipts =
-      current_user.receipts.includes(:item, promotion: :distribution_network)
+      current_user.receipts.includes(:item, :promotion)
                   .where(id: start_from..).order(created_at: :desc).limit(limit)
   end
 

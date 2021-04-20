@@ -43,9 +43,6 @@ Accept-Language: ru
     "sum": 211,
     "state": "approved",
     "timestamp": "2020-01-16T09:40:00+03:00",
-    "distribution_network": {
-      "name": "СуперМегаМаркет",
-    },
     "promotion": {
       "name": "Демо",
     }
@@ -56,9 +53,6 @@ Accept-Language: ru
     "sum": 7826,
     "state": "completed",
     "timestamp": "2020-01-26T10:29:00+03:00",
-    "distribution_network": {
-      "name": "СуперМегаМаркет",
-    },
     "promotion": {
       "name": "Демо",
     },
