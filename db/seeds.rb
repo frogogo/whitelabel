@@ -44,62 +44,6 @@ user = User.create!(
   role: :developer
 )
 
-item1 = Item.create!(
-  active: true,
-  bar_code: '012345671',
-  name: 'Сырок творожный глазированный в тёмном шоколаде',
-  size: '10x6x3',
-  manufacturer: manufacturer,
-  promotion: promotion
-)
-
-File.open('spec/images/glazed_dark_vanilla.jpg') do |image|
-  item1.image = image
-end
-item1.save!
-
-item2 = Item.create!(
-  active: true,
-  bar_code: '012345672',
-  name: 'Сырок творожный глазированный в белом шоколаде с карамелью',
-  size: '10x6x3',
-  manufacturer: manufacturer,
-  promotion: promotion
-)
-
-File.open('spec/images/glazed_milk_caramel.jpg') do |image|
-  item2.image = image
-end
-item2.save!
-
-item3 = Item.create!(
-  active: true,
-  bar_code: '012345673',
-  name: 'Сырок нежный с творожным зерном в молочном шоколаде',
-  size: '10x6x3',
-  manufacturer: manufacturer,
-  promotion: promotion
-)
-
-File.open('spec/images/glazed_milk_curd.jpg') do |image|
-  item3.image = image
-end
-item3.save!
-
-item4 = Item.create!(
-  active: true,
-  bar_code: '012345674',
-  name: 'Сырок нежный с творожным зерном в тёмном шоколаде',
-  size: '10x6x3',
-  manufacturer: manufacturer,
-  promotion: promotion
-)
-
-File.open('spec/images/glazed_dark_curd.jpg') do |image|
-  item4.image = image
-end
-item4.save!
-
 receipt1 = user.receipts.build(
   qr_string: 't=20200923T0940&s=911.00&fn=9289000100597234&i=57908&fp=1791342888&n=1',
   state: :processing
@@ -118,7 +62,6 @@ receipt3 = user.receipts.build(
   created_at: 4.days.ago,
   qr_string: 't=20200126T1029&s=7826.00&fn=9287440300193327&i=17796&fp=1898624280&n=1',
   state: :completed,
-  item: item1,
   promotion: promotion
 )
 receipt3.save!(validate: false)
