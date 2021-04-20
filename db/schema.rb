@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_20_101034) do
+ActiveRecord::Schema.define(version: 2021_04_20_101713) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -115,25 +115,10 @@ ActiveRecord::Schema.define(version: 2021_04_20_101034) do
     t.index ["refresh_token"], name: "index_users_on_refresh_token", unique: true
   end
 
-  create_table "vending_machines", force: :cascade do |t|
-    t.bigint "distribution_network_id"
-    t.string "address", null: false
-    t.boolean "active", default: false, null: false
-    t.integer "public_id", null: false
-    t.integer "vending_cells_columns", null: false
-    t.integer "vending_cells_rows", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.integer "vm_type", default: 0, null: false
-    t.index ["distribution_network_id"], name: "index_vending_machines_on_distribution_network_id"
-    t.index ["public_id"], name: "index_vending_machines_on_public_id", unique: true
-  end
-
   add_foreign_key "items", "manufacturers"
   add_foreign_key "items", "promotions"
   add_foreign_key "promotions", "distribution_networks"
   add_foreign_key "receipts", "items"
   add_foreign_key "receipts", "promotions"
   add_foreign_key "receipts", "users"
-  add_foreign_key "vending_machines", "distribution_networks"
 end
