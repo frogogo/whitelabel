@@ -50,9 +50,6 @@ group :development do
   gem 'web-console', '>= 4.1.0'
   # Use Rubocop
   gem 'rubocop', require: false
-  gem 'rubocop-performance', require: false
-  gem 'rubocop-rails', require: false
-  gem 'rubocop-rspec', require: false
 end
 
 group :production do
