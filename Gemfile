@@ -25,10 +25,6 @@ gem 'slack-ruby-client', '~> 0.15'
 gem 'knock', github: 'nsarno/knock', branch: 'master'
 gem 'versioncake', '~> 4.0'
 
-# Image processing
-gem 'carrierwave', '~> 2.1'
-gem 'fog-aws', '~> 3.7'
-
 # Use Trestle as admin framework
 gem 'trestle', '~> 0.9'
 gem 'trestle-auth', '~> 0.4'
