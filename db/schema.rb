@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_20_103010) do
+ActiveRecord::Schema.define(version: 2021_04_20_103142) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -39,22 +39,6 @@ ActiveRecord::Schema.define(version: 2021_04_20_103010) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["name"], name: "index_distribution_networks_on_name", unique: true
-  end
-
-  create_table "items", force: :cascade do |t|
-    t.bigint "manufacturer_id"
-    t.bigint "promotion_id"
-    t.string "name", null: false
-    t.string "bar_code", null: false
-    t.string "size", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.integer "quantity"
-    t.integer "start_quantity"
-    t.boolean "active", default: false
-    t.string "image"
-    t.index ["manufacturer_id"], name: "index_items_on_manufacturer_id"
-    t.index ["promotion_id"], name: "index_items_on_promotion_id"
   end
 
   create_table "manufacturers", force: :cascade do |t|
@@ -113,8 +97,6 @@ ActiveRecord::Schema.define(version: 2021_04_20_103010) do
     t.index ["refresh_token"], name: "index_users_on_refresh_token", unique: true
   end
 
-  add_foreign_key "items", "manufacturers"
-  add_foreign_key "items", "promotions"
   add_foreign_key "promotions", "distribution_networks"
   add_foreign_key "receipts", "promotions"
   add_foreign_key "receipts", "users"
