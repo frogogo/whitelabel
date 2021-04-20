@@ -27,7 +27,6 @@ Trestle.resource(:receipts) do
     column :state
     column :reject_reason
     column :promotion
-    column :item
     column :user
     column :created_at, align: :center
     actions
@@ -40,11 +39,10 @@ Trestle.resource(:receipts) do
     select :state, Receipt.states.keys
     select :reject_reason, Receipt.reject_reasons.keys, include_blank: true
     select :promotion_id, Promotion.all, include_blank: true
-    select :item_id, Item.all, include_blank: true
     text_area :data, disabled: true
   end
 
   params do |params|
-    params.require(:receipt).permit(:state, :reject_reason, :item_id, :promotion_id)
+    params.require(:receipt).permit(:state, :reject_reason, :promotion_id)
   end
 end
