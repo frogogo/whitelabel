@@ -348,7 +348,7 @@ DEPENDENCIES
   rubocop-performance
   rubocop-rails
   rubocop-rspec
-  sass-rails (~> 6.0.0)
+  sass-rails (~> 6.0)
   sidekiq (~> 6.1)
   slack-ruby-client (~> 0.15)
   spring

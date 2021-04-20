@@ -12,7 +12,7 @@ gem 'puma', '~> 5.2'
 
 gem 'rack-cors', '~> 1.1'
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 6.0.0'
+gem 'sass-rails', '~> 6.0'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.10'
 # Use Redis adapter to run Action Cable in production
