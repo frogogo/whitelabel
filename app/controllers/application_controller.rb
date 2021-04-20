@@ -4,6 +4,4 @@ class ApplicationController < ActionController::Base
   def index; end
 
   def retail; end
-
-  def fmcg; end
 end
