@@ -14,10 +14,6 @@
 #  created_at                     :datetime         not null
 #  updated_at                     :datetime         not null
 #
-# Indexes
-#
-#  index_distribution_networks_on_name  (name) UNIQUE
-#
 class DistributionNetwork < ApplicationRecord
   has_many :promotions, dependent: :destroy
 end

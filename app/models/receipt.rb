@@ -13,18 +13,6 @@
 #  promotion_id  :bigint
 #  user_id       :bigint           not null
 #
-# Indexes
-#
-#  index_receipts_on_promotion_id  (promotion_id)
-#  index_receipts_on_qr_string     (qr_string) UNIQUE
-#  index_receipts_on_user_id       (user_id)
-#  index_receipts_on_uuid          (uuid) UNIQUE
-#
-# Foreign Keys
-#
-#  fk_rails_...  (promotion_id => promotions.id)
-#  fk_rails_...  (user_id => users.id)
-#
 class Receipt < ApplicationRecord
   QR_STRING_REGEXP = /\At=(?<t>\w+)&s=(?<s>\d+.\d+)&fn=(?<fn>\d+)&i=(?<i>\d+)&fp=(?<fp>\d+)&n=(?<n>\d)\z/.freeze
   USER_LIMIT_PERIOD = 1.minute

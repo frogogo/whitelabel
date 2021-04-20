@@ -12,14 +12,6 @@
 #  distribution_network_id :bigint           not null
 #  promo_id                :integer          not null
 #
-# Indexes
-#
-#  index_promotions_on_distribution_network_id  (distribution_network_id)
-#
-# Foreign Keys
-#
-#  fk_rails_...  (distribution_network_id => distribution_networks.id)
-#
 class Promotion < ApplicationRecord
   belongs_to :distribution_network
 

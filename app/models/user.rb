@@ -12,11 +12,6 @@
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
 #
-# Indexes
-#
-#  index_users_on_phone_number   (phone_number) UNIQUE
-#  index_users_on_refresh_token  (refresh_token) UNIQUE
-#
 class User < ApplicationRecord
   # TODO: change to 5 minutes later
   ASSIGN_TIME_LIMIT = 2.minutes
