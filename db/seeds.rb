@@ -5,24 +5,12 @@ Administrator.create!(
   last_name: 'Bar'
 )
 
-distribution_network = DistributionNetwork.create!(
-  account: '40702810110000089999 в АО «Тинькофф Банк»',
-  business_address: 'ул. Профсоюзная, д. 99, корп. 66, г. Москва, Российская Федерация, 117456',
-  chief_executive_officer: 'Леонидов Леонид Леонидович',
-  constact_person: 'Иванов Иван Иванович',
-  email: 'leonidov@bigcompany.ru',
-  name: 'СуперМегаМаркет',
-  tax_registration_reason_code: '783901001',
-  taxpayer_identification_number: '7839078339'
-)
-
 promotion = Promotion.create!(
   api_token: '012345678',
   active: true,
   description: 'Демо промо',
   name: 'Демо',
-  promo_id: 123,
-  distribution_network: distribution_network
+  promo_id: 123
 )
 
 user = User.create!(
