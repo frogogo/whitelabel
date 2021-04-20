@@ -1,8 +1,8 @@
 Administrator.create!(
-  email: 'admin@poprobuy.ru',
+  email: 'foo@bar.com',
   password: 'qwerty123',
-  first_name: 'Admin',
-  last_name: 'poprobuy.ru'
+  first_name: 'Foo',
+  last_name: 'Bar'
 )
 
 distribution_network = DistributionNetwork.create!(
