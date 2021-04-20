@@ -65,7 +65,6 @@ end
 
 group :production do
   gem 'sidekiq', '~> 6.1'
-  gem 'uglifier', '~> 4.2'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
