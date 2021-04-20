@@ -13,10 +13,4 @@ json.cache! receipt do
       json.partial! receipt.promotion.distribution_network, as: :distribution_network
     end
   end
-
-  if receipt.completed?
-    json.item do
-      json.partial! receipt.item, as: :item
-    end
-  end
 end

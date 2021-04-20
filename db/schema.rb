@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_20_101713) do
+ActiveRecord::Schema.define(version: 2021_04_20_103010) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -94,8 +94,6 @@ ActiveRecord::Schema.define(version: 2021_04_20_101713) do
     t.uuid "uuid"
     t.jsonb "data", default: {}, null: false
     t.bigint "user_id", null: false
-    t.bigint "item_id"
-    t.index ["item_id"], name: "index_receipts_on_item_id"
     t.index ["promotion_id"], name: "index_receipts_on_promotion_id"
     t.index ["qr_string"], name: "index_receipts_on_qr_string", unique: true
     t.index ["user_id"], name: "index_receipts_on_user_id"
@@ -118,7 +116,6 @@ ActiveRecord::Schema.define(version: 2021_04_20_101713) do
   add_foreign_key "items", "manufacturers"
   add_foreign_key "items", "promotions"
   add_foreign_key "promotions", "distribution_networks"
-  add_foreign_key "receipts", "items"
   add_foreign_key "receipts", "promotions"
   add_foreign_key "receipts", "users"
 end
