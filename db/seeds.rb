@@ -100,42 +100,6 @@ File.open('spec/images/glazed_dark_curd.jpg') do |image|
 end
 item4.save!
 
-vending_machine = VendingMachine.create!(
-  active: true,
-  address: 'Виртуальный аппарат',
-  vending_cells_columns: 6,
-  vending_cells_rows: 10,
-  distribution_network: distribution_network
-)
-
-vending_machine.place_item(item1, rand(0..10), 1, 1)
-vending_machine.place_item(item1, rand(0..10), 1, 2)
-vending_machine.place_item(item1, rand(0..10), 1, 3)
-vending_machine.place_item(item1, rand(0..10), 1, 4)
-vending_machine.place_item(item1, rand(0..10), 1, 5)
-vending_machine.place_item(item1, rand(0..10), 1, 6)
-
-vending_machine.place_item(item2, rand(0..10), 2, 1)
-vending_machine.place_item(item2, rand(0..10), 2, 2)
-vending_machine.place_item(item2, rand(0..10), 2, 3)
-vending_machine.place_item(item2, rand(0..10), 2, 4)
-vending_machine.place_item(item2, rand(0..10), 2, 5)
-vending_machine.place_item(item2, rand(0..10), 2, 6)
-
-vending_machine.place_item(item3, rand(0..10), 3, 1)
-vending_machine.place_item(item3, rand(0..10), 3, 2)
-vending_machine.place_item(item3, rand(0..10), 3, 3)
-vending_machine.place_item(item3, rand(0..10), 3, 4)
-vending_machine.place_item(item3, rand(0..10), 3, 5)
-vending_machine.place_item(item3, rand(0..10), 3, 6)
-
-vending_machine.place_item(item4, rand(0..10), 4, 1)
-vending_machine.place_item(item4, rand(0..10), 4, 2)
-vending_machine.place_item(item4, rand(0..10), 4, 3)
-vending_machine.place_item(item4, rand(0..10), 4, 4)
-vending_machine.place_item(item4, rand(0..10), 4, 5)
-vending_machine.place_item(item4, rand(0..10), 4, 6)
-
 receipt1 = user.receipts.build(
   qr_string: 't=20200923T0940&s=911.00&fn=9289000100597234&i=57908&fp=1791342888&n=1',
   state: :processing
