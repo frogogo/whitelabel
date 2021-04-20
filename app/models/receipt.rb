@@ -104,6 +104,9 @@ class Receipt < ApplicationRecord
   end
 
   def validate_receipt
+    # TEMP
+    return if Rails.env.development?
+
     ReceiptValidator.validate(self)
   end
 end
