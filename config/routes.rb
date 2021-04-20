@@ -13,8 +13,6 @@
 #                                 PUT   /api/user(.:format)                                                                               api/users#update
 #                                 POST  /api/user(.:format)                                                                               api/users#create
 #            api_user_token_index POST  /api/user_token(.:format)                                                                         api/user_token#create
-#      assign_api_vending_machine POST  /api/vending_machines/:id/assign(.:format)                                                        api/vending_machines#assign
-#   take_item_api_vending_machine POST  /api/vending_machines/:id/take_item(.:format)                                                     api/vending_machines#take_item
 #              apm_callback_index POST  /apm/callback(.:format)                                                                           apm/callback#create
 #              rails_service_blob GET   /rails/active_storage/blobs/redirect/:signed_id/*filename(.:format)                               active_storage/blobs/redirect#show
 #        rails_service_blob_proxy GET   /rails/active_storage/blobs/proxy/:signed_id/*filename(.:format)                                  active_storage/blobs/proxy#show
@@ -46,14 +44,6 @@
 #                                   PATCH  /distribution_networks/:id(.:format)      distribution_networks_admin/admin#update
 #                                   PUT    /distribution_networks/:id(.:format)      distribution_networks_admin/admin#update
 #                                   DELETE /distribution_networks/:id(.:format)      distribution_networks_admin/admin#destroy
-#                 items_admin_index GET    /items(.:format)                          items_admin/admin#index
-#                                   POST   /items(.:format)                          items_admin/admin#create
-#                   new_items_admin GET    /items/new(.:format)                      items_admin/admin#new
-#                  edit_items_admin GET    /items/:id/edit(.:format)                 items_admin/admin#edit
-#                       items_admin GET    /items/:id(.:format)                      items_admin/admin#show
-#                                   PATCH  /items/:id(.:format)                      items_admin/admin#update
-#                                   PUT    /items/:id(.:format)                      items_admin/admin#update
-#                                   DELETE /items/:id(.:format)                      items_admin/admin#destroy
 #         manufacturers_admin_index GET    /manufacturers(.:format)                  manufacturers_admin/admin#index
 #                                   POST   /manufacturers(.:format)                  manufacturers_admin/admin#create
 #           new_manufacturers_admin GET    /manufacturers/new(.:format)              manufacturers_admin/admin#new
@@ -86,22 +76,6 @@
 #                                   PATCH  /users/:id(.:format)                      users_admin/admin#update
 #                                   PUT    /users/:id(.:format)                      users_admin/admin#update
 #                                   DELETE /users/:id(.:format)                      users_admin/admin#destroy
-#         vending_cells_admin_index GET    /vending_cells(.:format)                  vending_cells_admin/admin#index
-#                                   POST   /vending_cells(.:format)                  vending_cells_admin/admin#create
-#           new_vending_cells_admin GET    /vending_cells/new(.:format)              vending_cells_admin/admin#new
-#          edit_vending_cells_admin GET    /vending_cells/:id/edit(.:format)         vending_cells_admin/admin#edit
-#               vending_cells_admin GET    /vending_cells/:id(.:format)              vending_cells_admin/admin#show
-#                                   PATCH  /vending_cells/:id(.:format)              vending_cells_admin/admin#update
-#                                   PUT    /vending_cells/:id(.:format)              vending_cells_admin/admin#update
-#                                   DELETE /vending_cells/:id(.:format)              vending_cells_admin/admin#destroy
-#      vending_machines_admin_index GET    /vending_machines(.:format)               vending_machines_admin/admin#index
-#                                   POST   /vending_machines(.:format)               vending_machines_admin/admin#create
-#        new_vending_machines_admin GET    /vending_machines/new(.:format)           vending_machines_admin/admin#new
-#       edit_vending_machines_admin GET    /vending_machines/:id/edit(.:format)      vending_machines_admin/admin#edit
-#            vending_machines_admin GET    /vending_machines/:id(.:format)           vending_machines_admin/admin#show
-#                                   PATCH  /vending_machines/:id(.:format)           vending_machines_admin/admin#update
-#                                   PUT    /vending_machines/:id(.:format)           vending_machines_admin/admin#update
-#                                   DELETE /vending_machines/:id(.:format)           vending_machines_admin/admin#destroy
 #                              root GET    /                                         trestle/dashboard#index
 
 Rails.application.routes.draw do
