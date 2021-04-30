@@ -1,5 +1,3 @@
-if @receipt.present? && !@receipt.completed?
-  json.receipt do
-    json.partial! 'api/receipts/receipt', receipt: @receipt
-  end
+json.receipts do
+  json.array! @receipts, partial: 'api/receipts/receipt', as: :receipt
 end
