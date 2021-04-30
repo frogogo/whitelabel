@@ -1,0 +1,48 @@
+{
+  "promotion": {
+    "name": "Ножеточка Lion Sabatier",
+    "photo_url": "https://google.com/logo.png",
+    "steps": [
+      "Минимальная сумма…",
+      "С момента покупки…"
+    ]
+  },
+  "coupon_progress": {
+    "current_progress": 0,
+    "target_progress": 3300,
+    // TODO: какие значение тут могут быть? Может вообще убрать
+    "notice": "Вы совершили покупки на общую сумму…"
+    // TODO: Скорее всего не нужно
+    // "ends_at": "2021-05-01T00:00:00Z",
+    // "target_coupon": {
+    //   "image": "https://google.com/logo.png",
+    //   "name": "Ножеточка Lion Sabatier"
+    // }
+  },
+  "receipts": [
+    {
+      "id": 1,
+      "number": 57908,
+      "sum": 911,
+      "state": "processing",
+      "timestamp": "2020-09-23T09:40:00Z",
+      "reject_reason": "duplicate"
+    },
+    {
+      // …
+    }
+  ],
+  "coupons": [
+    {
+      "id": 12321321,
+      // Можно взять из промоушена
+      "description": "Description with steps", // or steps
+      "name": "Ножеточка",
+      "image": {
+        "thumb": "logo.png",
+        "large": "logon.png"
+      },
+      "qr_string": "kek=puk"
+    }
+  ]
+}
