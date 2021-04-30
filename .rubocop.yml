@@ -8,14 +8,30 @@ AllCops:
   TargetRubyVersion: 2.7
   TargetRailsVersion: 6.1
 
+Layout/HeredocIndentation:
+  Enabled: false
 Layout/LineLength:
   Max: 100
-
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+  IndentationWidth: 2
+Layout/ParameterAlignment:
+  EnforcedStyle: with_fixed_indentation
+Metrics:
+  Enabled: false
+Style/AsciiComments:
+  Enabled: false
 Style/ClassAndModuleChildren:
   Enabled: false
-
 Style/Documentation:
   Enabled: false
-
+Style/EmptyMethod:
+  EnforcedStyle: expanded
 Style/FrozenStringLiteralComment:
+  Enabled: false
+Style/MutableConstant:
+  Enabled: false
+Style/NumericLiterals:
+  Enabled: false
+Style/RedundantBegin:
   Enabled: false
