@@ -1,10 +1,10 @@
 {
   "promotion": {
     "name": "Ножеточка Lion Sabatier",
-    "photo_url": "https://google.com/logo.png",
+    "photo_url": "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png",
     "steps": [
-      "Минимальная сумма…",
-      "С момента покупки…"
+      "1. Минимальная сумма…",
+      "2. С момента покупки…"
     ]
   },
   "coupon_progress": {
