@@ -51,6 +51,10 @@ class User < ApplicationRecord
     end
   end
 
+  def total_sum
+    receipts.approved.map(&:sum).sum
+  end
+
   def assign_time_limit_expires_at
     assign_time_limit[:expires_at]
   end

@@ -9,5 +9,9 @@
 #  user_id    :bigint
 #
 class Coupon < ApplicationRecord
+  GIFT_THRESHOLD = 1000
+
   belongs_to :user, optional: true
+
+  scope :unassigned, -> { where(user: nil) }
 end

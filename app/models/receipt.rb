@@ -46,6 +46,10 @@ class Receipt < ApplicationRecord
 
   after_create_commit :validate_receipt
 
+  after_update_commit :assign_coupon, if: -> { saved_change_to_state? && approved? }
+
+  scope :unapproved, -> { where.not(state: :approved) }
+
   def number
     qr_keys['i'].to_i
   end
@@ -63,6 +67,15 @@ class Receipt < ApplicationRecord
   end
 
   private
+
+  def assign_coupon
+    coupons_to_assign = user.total_sum / Coupon::GIFT_THRESHOLD - user.coupons.count
+    return if coupons_to_assign <= 0
+
+    coupons_to_assign.times do
+      Coupon.unassigned.first.update_attribute(:user, user)
+    end
+  end
 
   def item_present
     return if item.present?
