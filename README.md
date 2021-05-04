@@ -1,4 +1,4 @@
-# poprobuy-web
+# White label promo (S-Boom)
 
 * Ruby version
 

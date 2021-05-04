@@ -102,7 +102,8 @@ class User < ApplicationRecord
     new_password = SecureRandom.random_number(PASSWORD_MAX_NUMBER).to_s.rjust(PASSWORD_LENGTH, '0')
     self.password = new_password
 
-    MessageSender.send_message("Poprobuy.ru code: #{new_password}", self)
+    # TODO: extract
+    MessageSender.send_message("S-Boom code: #{new_password}", self)
   end
 
   private

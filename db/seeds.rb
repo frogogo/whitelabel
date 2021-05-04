@@ -14,7 +14,7 @@ promotion = Promotion.create!(
 )
 
 user = User.create!(
-  email: 'developer@poprobuy.ru',
+  email: 'foo@bar.com',
   first_name: 'Разработчик',
   phone_number: '+79991113344',
   role: :developer
