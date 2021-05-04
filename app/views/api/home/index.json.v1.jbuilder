@@ -6,9 +6,9 @@ json.promotion do
   end
 end
 
-json.coupon_progress do
-  json.current_progress 0
-  json.target_progress 3300
+json.progress do
+  json.current current_user.total_sum % Coupon::GIFT_THRESHOLD
+  json.target Coupon::GIFT_THRESHOLD
 end
 
 json.receipts do

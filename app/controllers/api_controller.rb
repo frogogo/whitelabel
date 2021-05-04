@@ -9,6 +9,8 @@ class APIController < ActionController::API
 
   before_action :authenticate_user
 
+  helper_method :current_user
+
   def limit
     params[:limit] || LIMIT
   end
