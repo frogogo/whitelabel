@@ -16,5 +16,5 @@ json.receipts do
 end
 
 json.coupons do
-  json.array! []
+  json.array! @coupons, partial: 'api/coupons/coupon', as: :coupon
 end
