@@ -9,7 +9,7 @@ class API::ReceiptsController < APIController
     @receipt = current_user.receipts.build(receipts_params)
 
     if @receipt.save
-      render status: :created
+      render :show, status: :created
     else
       render json: { error: @receipt.errors.details.first.last.first[:error],
                      error_text: @receipt.errors.values.first.first },
