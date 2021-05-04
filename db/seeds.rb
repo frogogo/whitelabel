@@ -65,3 +65,7 @@ receipt6 = user.receipts.build(
   state: :rejected
 )
 receipt6.save!(validate: false)
+
+Coupon.create!(
+  Array.new(100) { |i| { code: i } }
+)
