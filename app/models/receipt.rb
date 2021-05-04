@@ -99,7 +99,7 @@ class Receipt < ApplicationRecord
 
   def user_daily_limit_not_reached
     last_receipt = user.receipts.where.not(state: :rejected)
-                       .where(created_at: (Time.current - USER_LIMIT_PERIOD)..).last
+      .where(created_at: (Time.current - USER_LIMIT_PERIOD)..).last
     return if last_receipt.blank?
 
     errors.add(
