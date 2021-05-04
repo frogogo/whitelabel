@@ -10,4 +10,11 @@ class ActiveSupport::TestCase
   fixtures :all
 
   # Add more helper methods to be used by all tests here...
+  def api_headers
+    {
+      'Accept' => 'application/json',
+      'Accept-Language' => 'ru-RU;q=1.0, en-RU;q=0.9',
+      'Content-Type' => 'application/json'
+    }
+  end
 end
