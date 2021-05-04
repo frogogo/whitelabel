@@ -1,4 +1,4 @@
-require "test_helper"
+require 'test_helper'
 
 class APM::CallbackControllerTest < ActionDispatch::IntegrationTest
   test 'fails because of missing/wrong authorization header' do
