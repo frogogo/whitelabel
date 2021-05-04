@@ -30,6 +30,7 @@ class User < ApplicationRecord
   }
 
   has_many :receipts, dependent: :destroy
+  has_many :coupons, dependent: :nullify
 
   validates :email, presence: true, format: { with: EMAIL_REGEXP }, unless: :new_record?
   validates :first_name, presence: true, length: { maximum: 30 }, unless: :new_record?

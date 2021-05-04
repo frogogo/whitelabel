@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_20_105642) do
+ActiveRecord::Schema.define(version: 2021_05_04_190623) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -25,6 +25,14 @@ ActiveRecord::Schema.define(version: 2021_04_20_105642) do
     t.datetime "remember_token_expires_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "coupons", force: :cascade do |t|
+    t.string "code"
+    t.bigint "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_coupons_on_user_id"
   end
 
   create_table "promotions", force: :cascade do |t|
@@ -66,6 +74,7 @@ ActiveRecord::Schema.define(version: 2021_04_20_105642) do
     t.index ["refresh_token"], name: "index_users_on_refresh_token", unique: true
   end
 
+  add_foreign_key "coupons", "users"
   add_foreign_key "receipts", "promotions"
   add_foreign_key "receipts", "users"
 end
