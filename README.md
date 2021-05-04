@@ -29,7 +29,7 @@ rails s
 * How to run the test suite
 
 ```bash
-bundle exec rspec
+rails test
 ```
 
 * Services (job queues, cache servers, search engines, etc.)
