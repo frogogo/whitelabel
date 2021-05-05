@@ -6,6 +6,14 @@ json.promotion do
   end
 end
 
+json.coupon do
+  json.name 'Ножеточка Lion Sabatier'
+  json.photo_url 'https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png'
+  json.steps do
+    json.array! ['Шаг 1', 'Шаг 2']
+  end
+end
+
 json.progress do
   json.current current_user.total_sum % Coupon::GIFT_THRESHOLD
   json.target Coupon::GIFT_THRESHOLD
