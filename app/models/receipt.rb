@@ -33,8 +33,9 @@ class Receipt < ApplicationRecord
     rejected: 3
   }
 
-  validate :user_daily_limit_not_reached, if: :new_record?
-  validate :user_has_no_processing_receipt, if: :new_record?
+  # TEMP: enable in prod
+  # validate :user_daily_limit_not_reached, if: :new_record?
+  # validate :user_has_no_processing_receipt, if: :new_record?
   validate :promotion_present, if: -> { approved? || completed? }
   validate :item_present, if: :completed?
   validates :qr_string, presence: true, uniqueness: true, format: { with: QR_STRING_REGEXP }
