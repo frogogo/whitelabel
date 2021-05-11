@@ -1,6 +1,9 @@
 json.promotion do
   json.name 'Ножеточка Lion Sabatier'
-  json.photo_url 'https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png'
+  json.photo do
+    json.thumb 'https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png'
+    json.large 'https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png'
+  end
   json.steps do
     json.array! ['Шаг 1', 'Шаг 2']
   end
@@ -8,7 +11,10 @@ end
 
 json.coupon do
   json.name 'Ножеточка Lion Sabatier'
-  json.photo_url 'https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png'
+  json.photo do
+    json.thumb 'https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png'
+    json.large 'https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png'
+  end
   json.steps do
     json.array! ['Шаг 1', 'Шаг 2']
   end
