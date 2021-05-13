@@ -1,5 +1,5 @@
 json.promotion do
-  json.name 'Ножеточка Lion Sabatier'
+  json.name 'Чайник электрический Sabatier'
   json.photo do
     json.thumb 'https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png'
     json.large 'https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png'
@@ -10,7 +10,7 @@ json.promotion do
 end
 
 json.coupon do
-  json.name 'Ножеточка Lion Sabatier'
+  json.name 'Чайник электрический Sabatier'
   json.photo do
     json.thumb 'https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png'
     json.large 'https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png'
