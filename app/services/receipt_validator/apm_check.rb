@@ -56,7 +56,7 @@ class ReceiptValidator::APMCheck < ReceiptValidator::Default
   def config
     {
       callback: {
-        url: 'https://poprobuy.ru/apm/callback',
+        url: 'https://sboom.herokuapp.com/apm/callback',
         headers: [{
           name: 'authorization',
           values: [Rails.application.credentials.apm_check[:callback_token]]
