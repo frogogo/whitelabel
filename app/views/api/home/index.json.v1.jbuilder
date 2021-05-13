@@ -1,8 +1,8 @@
 json.promotion do
   json.name 'Чайник электрический Sabatier'
   json.photo do
-    json.thumb 'https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png'
-    json.large 'https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png'
+    json.thumb 'https://sboom.herokuapp.com/images/sboom_sabatier_thumb.jpg'
+    json.large 'https://sboom.herokuapp.com/images/sboom_sabatier_large.jpg'
   end
   json.steps do
     json.array! ['Шаг 1', 'Шаг 2']
@@ -12,8 +12,8 @@ end
 json.coupon do
   json.name 'Чайник электрический Sabatier'
   json.photo do
-    json.thumb 'https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png'
-    json.large 'https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png'
+    json.thumb 'https://sboom.herokuapp.com/images/sboom_sabatier_thumb.jpg'
+    json.large 'https://sboom.herokuapp.com/images/sboom_sabatier_large.jpg'
   end
   json.steps do
     json.array! ['Шаг 1', 'Шаг 2']
