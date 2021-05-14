@@ -1,5 +1,5 @@
 json.promotion do
-  json.name 'Чайник электрический Sabatier'
+  json.name 'Электрический чайник Lion Sabatier International'
   json.photo do
     json.thumb 'https://sboom.herokuapp.com/images/sboom_sabatier_thumb.jpg'
     json.large 'https://sboom.herokuapp.com/images/sboom_sabatier_large.jpg'
@@ -10,7 +10,7 @@ json.promotion do
 end
 
 json.coupon do
-  json.name 'Чайник электрический Sabatier'
+  json.name 'Электрический чайник Lion Sabatier International'
   json.photo do
     json.thumb 'https://sboom.herokuapp.com/images/sboom_sabatier_thumb.jpg'
     json.large 'https://sboom.herokuapp.com/images/sboom_sabatier_large.jpg'
