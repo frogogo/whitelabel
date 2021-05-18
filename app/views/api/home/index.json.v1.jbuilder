@@ -5,7 +5,12 @@ json.promotion do
     json.large 'https://sboom.herokuapp.com/images/sboom_sabatier_large.jpg'
   end
   json.steps do
-    json.array! ['Шаг 1', 'Шаг 2']
+    json.array!(
+      [
+        'Сканируй чеки из магазинов «Семья», в которых есть любые товары из акционной коллекции Lion Sabatier International',
+        'После того, как ты соберешь товаров на 3 300 ₽, ты получишь купон для покупки электрического чайника Lion Sabatier International за 1 ₽'
+      ]
+    )
   end
 end
 
