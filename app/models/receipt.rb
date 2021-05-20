@@ -16,6 +16,15 @@
 class Receipt < ApplicationRecord
   QR_STRING_REGEXP = /\At=(?<t>\w+)&s=(?<s>\d+.\d+)&fn=(?<fn>\d+)&i=(?<i>\d+)&fp=(?<fp>\d+)&n=(?<n>\d)\z/.freeze
   USER_LIMIT_PERIOD = 1.minute
+  # TEMP
+  TEST_RECEIPTS = {
+    't=20210520T1242&s=120.00&fn=9282440300922865&i=57922&fp=3355367090&n=1' => 'approved',
+    't=20210516T2002&s=577.49&fn=9280440300912346&i=77693&fp=162908629&n=1' => 'approved',
+    't=20210520T1204&s=307.34&fn=9285440300331199&i=67786&fp=4117959914&n=1' => 'rejected',
+    't=20210517T1439&s=1156.72&fn=9282440300712805&i=77300&fp=26521520&n=1' => 'rejected',
+    't=20210517T1440&s=159.70&fn=9282440300712805&i=77301&fp=796665854&n=1' => 'processing',
+    't=20210517T1440&s=285.14&fn=9282440300712805&i=77302&fp=2891260896&n=1' => 'processing'
+  }
 
   enum reject_reason: {
     invalid_date: 0,
@@ -45,6 +54,8 @@ class Receipt < ApplicationRecord
 
   before_create :set_promotion, if: -> { promotion.blank? }
 
+  # TEMP
+  after_create_commit :set_status_for_test_receipts
   after_create_commit :validate_receipt
 
   after_update_commit :assign_coupon, if: -> { saved_change_to_state? && approved? }
@@ -119,8 +130,15 @@ class Receipt < ApplicationRecord
 
   def validate_receipt
     # TEMP
+    return if qr_string.in?(TEST_RECEIPTS.keys)
     return if Rails.env.development?
 
     ReceiptValidator.validate(self)
+  end
+
+  # TEMP
+  def set_status_for_test_receipts
+    status = TEST_RECEIPTS.fetch(qr_string, nil)
+    update_attribute(:status, status) if status.present?
   end
 end
