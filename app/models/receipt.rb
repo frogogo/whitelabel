@@ -55,7 +55,7 @@ class Receipt < ApplicationRecord
   before_create :set_promotion, if: -> { promotion.blank? }
 
   # TEMP
-  after_create_commit :set_status_for_test_receipts
+  after_create_commit :set_state_for_test_receipts
   after_create_commit :validate_receipt
 
   after_update_commit :assign_coupon, if: -> { saved_change_to_state? && approved? }
@@ -137,8 +137,8 @@ class Receipt < ApplicationRecord
   end
 
   # TEMP
-  def set_status_for_test_receipts
-    status = TEST_RECEIPTS.fetch(qr_string, nil)
-    update_attribute(:status, status) if status.present?
+  def set_state_for_test_receipts
+    state = TEST_RECEIPTS.fetch(qr_string, nil)
+    update_attribute(:state, state) if state.present?
   end
 end
