@@ -13,7 +13,7 @@ class API::ReceiptsController < APIController
       render :show, status: :created
     else
       render json: { error: @receipt.errors.details.first.last.first[:error],
-                     error_text: @receipt.errors.values.first.first },
+                     error_text: @receipt.errors.values.first },
              status: :unprocessable_entity
     end
   end
