@@ -67,7 +67,10 @@ class Receipt < ApplicationRecord
   end
 
   def sum
-    qr_keys['s'].to_i
+    return 0 if data.blank?
+    return 0 if data['total'].nil?
+
+    data['total']['sum_subtotal'].to_i
   end
 
   def timestamp
