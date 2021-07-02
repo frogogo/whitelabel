@@ -13,6 +13,7 @@
 #
 class Promotion < ApplicationRecord
   has_many :receipts, dependent: :destroy
+  has_many :items, dependent: :destroy
 
   validates :api_token, presence: true
   validates :name, presence: true

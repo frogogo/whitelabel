@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     resources :receipts, only: %i[index create]
     resource :user, only: %i[create show update]
     resources :user_token, only: %i[create]
+    resources :items, only: %i[index]
   end
 
   namespace :apm do
