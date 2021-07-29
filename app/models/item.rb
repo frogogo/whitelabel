@@ -3,6 +3,7 @@
 # Table name: items
 #
 #  id               :bigint           not null, primary key
+#  description      :text
 #  discounted_price :integer
 #  image_url        :string
 #  name             :string
