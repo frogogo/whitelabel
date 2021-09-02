@@ -33,7 +33,7 @@ module PoprobuyWeb
 
     config.time_zone = 'Moscow'
 
-    config.i18n.default_locale = :en
+    config.i18n.default_locale = ENV['LOCALE']&.to_sym || :ru
     config.i18n.available_locales = %i[en ru]
 
     # Don't generate system test files.
