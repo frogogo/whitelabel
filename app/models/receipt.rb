@@ -14,7 +14,7 @@
 #  user_id       :bigint           not null
 #
 class Receipt < ApplicationRecord
-  QR_STRING_REGEXP = /\At=(?<t>\w+)&s=(?<s>\d+.\d+)&fn=(?<fn>\d+)&i=(?<i>\d+)&fp=(?<fp>\d+)&n=(?<n>\d)\z/.freeze
+  REQUIRED_PARAMS = %w[t s fn i fp n]
   USER_LIMIT_PERIOD = 1.minute
   # TEMP
   TEST_RECEIPTS = {
@@ -45,9 +45,11 @@ class Receipt < ApplicationRecord
   # TEMP: enable in prod
   # validate :user_daily_limit_not_reached, if: :new_record?
   # validate :user_has_no_processing_receipt, if: :new_record?
+  validates :qr_string, presence: true, uniqueness: true
+
   validate :promotion_present, if: -> { approved? || completed? }
   validate :item_present, if: :completed?
-  validates :qr_string, presence: true, uniqueness: true, format: { with: QR_STRING_REGEXP }
+  validate :validate_qr_string_params, if: :new_record?
 
   belongs_to :promotion, optional: true
   belongs_to :user
@@ -63,7 +65,7 @@ class Receipt < ApplicationRecord
   scope :unapproved, -> { where.not(state: :approved) }
 
   def number
-    qr_keys['i'].to_i
+    qr_string_params['i'].to_i
   end
 
   def sum
@@ -74,7 +76,7 @@ class Receipt < ApplicationRecord
   end
 
   def timestamp
-    qr_keys['t'].to_time.iso8601
+    qr_string_params['t'].to_time.iso8601
   end
 
   def reject_reason_text
@@ -104,10 +106,6 @@ class Receipt < ApplicationRecord
     errors.add(:promotion, :required)
   end
 
-  def qr_keys
-    qr_string.match(QR_STRING_REGEXP).named_captures
-  end
-
   def set_promotion
     self.promotion = Promotion.active.first
   end
@@ -133,15 +131,30 @@ class Receipt < ApplicationRecord
 
   def validate_receipt
     # TEMP
-    return if qr_string.in?(TEST_RECEIPTS.keys)
+    return if I18n.locale == :en
     return if Rails.env.development?
 
     ReceiptValidator.validate(self)
   end
 
+  def qr_string_params
+    @qr_string_params ||= CGI.parse(qr_string)
+  end
+
   # TEMP
   def set_state_for_test_receipts
+    return unless qr_string_params['state'].present? ||
+                  qr_string.in?(TEST_RECEIPTS.keys)
+
     state = TEST_RECEIPTS.fetch(qr_string, nil)
-    update_attribute(:state, state) if state.present?
+    state = qr_string_params['state'][0] if state.nil?
+
+    update_column(:state, state)
+  end
+
+  def validate_qr_string_params
+    return if REQUIRED_PARAMS.all? { |key| qr_string_params.key? key }
+
+    errors.add(:qr_string, :invalid)
   end
 end
