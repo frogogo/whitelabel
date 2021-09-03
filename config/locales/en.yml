@@ -2,26 +2,26 @@ en:
   activerecord:
     attributes:
       receipt/reject_reasons:
-        duplicate: Такой чек уже зарегистрирован в системе
-        invalid_date: Дата покупки не соответствует условиям акции
-        invalid_sum: Сумма покупки не соответствует условиям акции
-        invalid_data: Содержимое чека не соответствует условиям акции
-        limit_reached: Превышен лимит сканирования чеков
-        system_error: Ошибка при обработке чека
+        duplicate: Such a receipt is already registered in the system
+        invalid_date: The purchase date does not meet the terms of the promotion
+        invalid_sum: The purchase amount does not meet the terms of the promotion
+        invalid_data: The content of the receipt does not comply with the terms of the promotion
+        limit_reached: The limit for scanning receipts has been exceeded
+        system_error: Error when processing the receipt
     errors:
       models:
         receipt:
           attributes:
             base:
-              limit_reached: Превышен лимит сканирования чеков. Повторите через %{time_left}
-              processing_receipt_exist: Один чек уже находится на проверке
+              limit_reached: The limit for scanning receipts has been exceeded. Repeat after %{time_left}
+              processing_receipt_exist: One receipt is already being checked
             qr_string:
-              blank: Отсутствует QR-код
-              invalid: Данный QR-код не является чеком
-              taken: Данный чек уже был отсканирован
+              blank: The QR code is missing
+              invalid: This QR code is not a receipt
+              taken: This receipt has already been scanned
   controllers:
     callback:
-      receipt_not_saved: Чек не был сохранён. Проверьте данные и попробуйте снова
+      receipt_not_saved: The receipt was not saved. Check the data and try again
     users:
-      password_refresh_rate_limit: Превышен лимит на получение СМС-кода. Повторите через %{time_left}
-      user_not_saved: Пользователь не был сохранён. Проверьте данные и попробуйте снова
+      password_refresh_rate_limit: The limit for receiving an SMS code has been exceeded. Repeat after %{time_left}
+      user_not_saved: The user was not saved. Check the data and try again
