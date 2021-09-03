@@ -1,37 +1,28 @@
 json.promotion do
-  json.name 'Электрический чайник Lion Sabatier International'
+  json.name I18n.t('home.index.name')
   json.price 1999
   json.discounted_price 1
   json.photo do
-    json.thumb 'https://sboom.herokuapp.com/images/sboom_sabatier_thumb.jpg'
-    json.large 'https://sboom.herokuapp.com/images/sboom_sabatier_large.jpg'
+    json.thumb I18n.t('home.index.photo_thumb_url')
+    json.large I18n.t('home.index.photo_url')
   end
   json.steps do
-    json.array!(
-      [
-        'Сканируй чеки из магазинов «Семья», в которых есть любые товары из акционной коллекции Lion Sabatier International',
-        'После того, как ты соберешь товаров на 3 300 ₽, ты получишь купон для покупки электрического чайника Lion Sabatier International за 1 ₽'
-      ]
-    )
+    2.times do |index|
+      json.array!([I18n.t("home.index.promotion_step#{index + 1}")])
+    end
   end
 end
 
 json.coupon do
-  json.name 'Электрический чайник Lion Sabatier International'
+  json.name I18n.t('home.index.name')
   json.photo do
-    json.thumb 'https://sboom.herokuapp.com/images/sboom_sabatier_thumb.jpg'
-    json.large 'https://sboom.herokuapp.com/images/sboom_sabatier_large.jpg'
+    json.thumb I18n.t('home.index.photo_thumb_url')
+    json.large I18n.t('home.index.photo_url')
   end
   json.steps do
-    json.array!(
-      [
-        'Предъявите кассиру полученный Вами купон в момент расчета за покупку акционного электрочайника',
-        'После активации скидки Вы сможете приобрести изделие всего за 1 ₽',
-        'Полученная Вами скидка не заменяется денежной компенсацией',
-        'В период проведения акции возможно временное отсутствие в торговом зале полного ассортимента акционного товара, в этом случае претензии не принимаются',
-        'Внимание! Количество товаров, участвующих в акции, ограничено'
-      ]
-    )
+    5.times do |index|
+      json.array!([I18n.t("home.index.coupon_step#{index + 1}")])
+    end
   end
 end
 

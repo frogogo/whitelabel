@@ -1,0 +1,14 @@
+---
+ru:
+  home:
+    index:
+      name: Электрический чайник Lion Sabatier International
+      promotion_step1: Сканируй чеки из магазинов «Семья», в которых есть любые товары из акционной коллекции Lion Sabatier International
+      promotion_step2: После того, как ты соберешь товаров на 3 300 ₽, ты получишь купон для покупки электрического чайника Lion Sabatier International за 1 ₽
+      coupon_step1: Предъявите кассиру полученный Вами купон в момент расчета за покупку акционного электрочайника
+      coupon_step2: После активации скидки Вы сможете приобрести изделие всего за 1 ₽
+      coupon_step3: Полученная Вами скидка не заменяется денежной компенсацией
+      coupon_step4: В период проведения акции возможно временное отсутствие в торговом зале полного ассортимента акционного товара, в этом случае претензии не принимаются
+      coupon_step5: Внимание! Количество товаров, участвующих в акции, ограничено
+      photo_thumb_url: https://sboom.herokuapp.com/images/sboom_sabatier_thumb.jpg
+      photo_url: https://sboom.herokuapp.com/images/sboom_sabatier_large.jpg
