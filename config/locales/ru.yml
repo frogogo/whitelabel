@@ -25,3 +25,15 @@ ru:
     users:
       password_refresh_rate_limit: Превышен лимит на получение СМС-кода. Повторите через %{time_left}
       user_not_saved: Пользователь не был сохранён. Проверьте данные и попробуйте снова
+  trestle:
+    helpers:
+       page_entries_info:
+        one_page:
+          display_entries:
+            zero: "No %{entry_name} found"
+            one: "Displaying <strong>1</strong> %{entry_name}"
+            few: "Displaying <strong>%{count}</strong> %{entry_name}"
+            many: "Displaying <strong>all %{count}</strong> %{entry_name}"
+
+        more_pages:
+          display_entries: "Displaying %{entry_name} <strong>%{first}&nbsp;-&nbsp;%{last}</strong> of <b>%{total}</b>"
