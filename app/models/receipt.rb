@@ -150,7 +150,7 @@ class Receipt < ApplicationRecord
     state = TEST_RECEIPTS.fetch(qr_string, nil)
     state = qr_string_params['state'][0] if state.nil?
 
-    update_column(:state, state)
+    update_attribute(:state, state)
   end
 
   def validate_qr_string_params

@@ -8,6 +8,7 @@
 #  updated_at :datetime         not null
 #  user_id    :bigint
 #
+
 class Coupon < ApplicationRecord
   GIFT_THRESHOLD = 3300
 
