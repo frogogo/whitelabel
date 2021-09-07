@@ -65,7 +65,7 @@ class Receipt < ApplicationRecord
   scope :unapproved, -> { where.not(state: :approved) }
 
   def number
-    qr_string_params['i'].to_i
+    qr_string_params['i'][0].to_i
   end
 
   def sum
@@ -76,7 +76,7 @@ class Receipt < ApplicationRecord
   end
 
   def timestamp
-    qr_string_params['t'].to_time.iso8601
+    qr_string_params['t'][0].to_time.iso8601
   end
 
   def reject_reason_text
