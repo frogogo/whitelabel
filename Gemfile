@@ -33,6 +33,7 @@ gem 'trestle-search', '~> 0.4'
 # Use Rollbar
 gem 'rollbar', '~> 3.1'
 
+gem 'phonelib', '~> 0.6'
 gem 'rails-i18n', '~> 6.0'
 
 group :development, :test do
