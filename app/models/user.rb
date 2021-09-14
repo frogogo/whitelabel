@@ -22,6 +22,7 @@ class User < ApplicationRecord
   REFRESH_TOKEN_LENGTH = 32
 
   EMAIL_REGEXP = /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/.freeze
+  PHONE_NUMBER_REGEXP = /\A(\+\d+)\z/.freeze
 
   enum role: {
     general: 0,
@@ -33,9 +34,9 @@ class User < ApplicationRecord
 
   validates :email, presence: true, format: { with: EMAIL_REGEXP }, unless: :new_record?
   validates :first_name, presence: true, length: { maximum: 30 }, unless: :new_record?
-  validates :phone_number, phone: true, allow_blank: false
+  validates :phone_number, presence: true, format: { with: PHONE_NUMBER_REGEXP }
 
-  before_validation :normalize_phone_number
+
   before_create :generate_refresh_token
 
   scope :new_registered, -> { where(email: nil, first_name: nil) }
