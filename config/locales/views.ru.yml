@@ -2,6 +2,9 @@
 ru:
   home:
     index:
+      price: 1999
+      discounted_price: 1
+      gift_threshold: 3300
       name: Электрический чайник Lion Sabatier International
       promotion_step1: Сканируй чеки из магазинов «Семья», в которых есть любые товары из акционной коллекции Lion Sabatier International
       promotion_step2: После того, как ты соберешь товаров на 3 300 ₽, ты получишь купон для покупки электрического чайника Lion Sabatier International за 1 ₽

@@ -1,7 +1,7 @@
 json.promotion do
   json.name I18n.t('home.index.name')
-  json.price 1999
-  json.discounted_price 1
+  json.price I18n.t('home.index.price')
+  json.discounted_price I18n.t('home.index.discounted_price')
   json.photo do
     json.thumb I18n.t('home.index.photo_thumb_url')
     json.large I18n.t('home.index.photo_url')
@@ -27,8 +27,8 @@ json.coupon do
 end
 
 json.progress do
-  json.current current_user.total_sum % Coupon::GIFT_THRESHOLD
-  json.target Coupon::GIFT_THRESHOLD
+  json.current current_user.total_sum % I18n.t('home.index.gift_threshold')
+  json.target I18n.t('home.index.gift_threshold')
 end
 
 json.receipts do

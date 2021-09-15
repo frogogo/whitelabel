@@ -2,6 +2,9 @@
 en:
   home:
     index:
+      price: 23.25
+      discounted_price: 0.01
+      gift_threshold: 38
       name: Electric kettle Lion Sabatier International
       promotion_step1: Scan receipts from the "Family" stores that have any products from the Lion Sabatier International promotional collection
       promotion_step2: After you collect the goods for 3,300 ₽, you will receive a coupon for the purchase of an electric kettle Lion Sabatier International for 1 ₽
