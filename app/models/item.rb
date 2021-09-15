@@ -4,10 +4,10 @@
 #
 #  id               :bigint           not null, primary key
 #  description      :text
-#  discounted_price :integer
+#  discounted_price :float
 #  image_url        :string
 #  name             :string
-#  price            :integer
+#  price            :float
 #  specs            :string
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
