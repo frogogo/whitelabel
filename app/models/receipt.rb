@@ -88,7 +88,7 @@ class Receipt < ApplicationRecord
 
   def assign_coupon
     coupons_to_assign = user.total_sum / Coupon::GIFT_THRESHOLD - user.coupons.count
-    return if coupons_to_assign <= 0
+    return if coupons_to_assign.to_i <= 0
 
     coupons_to_assign.times do
       Coupon.unassigned.first.update_attribute(:user, user)
