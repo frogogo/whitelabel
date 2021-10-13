@@ -27,7 +27,7 @@ json.coupon do
 end
 
 json.progress do
-  json.current current_user.total_sum % I18n.t('home.index.gift_threshold')
+  json.current current_user.total_sum.round % I18n.t('home.index.gift_threshold')
   json.target I18n.t('home.index.gift_threshold')
 end
 
